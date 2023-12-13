@@ -1,24 +1,20 @@
 [gd_scene load_steps=3 format=3 uid="uid://bnoejrqn6gd7q"]
 
 [ext_resource type="PackedScene" uid="uid://dl2kn4p8em6wa" path="res://game/player/player.tscn" id="1_7yei7"]
-[ext_resource type="PackedScene" uid="uid://tpumnsniimq5" path="res://game/enemies/bullets/bulletEnemy.tscn" id="2_ch42u"]
+[ext_resource type="PackedScene" uid="uid://cc407asobqgjd" path="res://game/ui/canvas.tscn" id="2_roc2n"]
 
 [node name="Scene" type="Node2D"]
 
+[node name="Canvas" parent="." instance=ExtResource("2_roc2n")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 275.0
+offset_top = 246.0
+offset_right = 275.0
+offset_bottom = 246.0
+grow_horizontal = 1
+grow_vertical = 1
+
 [node name="Player" parent="." instance=ExtResource("1_7yei7")]
 position = Vector2(406, 295)
-
-[node name="BulletEnemy" parent="." instance=ExtResource("2_ch42u")]
-position = Vector2(714, 440)
-
-[node name="BulletEnemy2" parent="." instance=ExtResource("2_ch42u")]
-position = Vector2(564, 485)
-
-[node name="BulletEnemy3" parent="." instance=ExtResource("2_ch42u")]
-position = Vector2(633, 478)
-
-[node name="BulletEnemy4" parent="." instance=ExtResource("2_ch42u")]
-position = Vector2(191, 308)
-
-[node name="BulletEnemy5" parent="." instance=ExtResource("2_ch42u")]
-position = Vector2(302, 124)
