@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://buo4x18g2wae"]
+
+[ext_resource type="Script" path="res://game/enemies/spawners/spawner.gd" id="1_7lnj1"]
+
+[node name="Spawner" type="Node2D"]
+script = ExtResource("1_7lnj1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+
+[node name="ShootTimer" type="Timer" parent="."]
+
+[node name="Rotater" type="Node2D" parent="."]
+
+[connection signal="child_entered_tree" from="Sprite2D" to="." method="_on_sprite_2d_child_entered_tree"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
