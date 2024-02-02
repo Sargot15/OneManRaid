@@ -9,3 +9,7 @@ func _process(delta):
 
 func _on_kill_timer_timeout():
 	queue_free()
+
+
+func _on_body_entered(body):
+	queue_free()

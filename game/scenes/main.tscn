@@ -20,5 +20,8 @@ grow_vertical = 1
 [node name="Player" parent="." instance=ExtResource("1_7yei7")]
 position = Vector2(406, 295)
 
+[node name="Spawner2" parent="." instance=ExtResource("3_fqhyt")]
+position = Vector2(781, 330)
+
 [node name="Spawner" parent="." instance=ExtResource("3_fqhyt")]
 position = Vector2(780, 179)
