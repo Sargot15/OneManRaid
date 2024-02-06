@@ -10,6 +10,7 @@
 offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0.843137, 0.843137, 0.843137, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="Canvas" parent="." instance=ExtResource("2_roc2n")]
 anchors_preset = 0
@@ -21,6 +22,7 @@ offset_right = 275.0
 offset_bottom = 246.0
 grow_horizontal = 1
 grow_vertical = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Player" parent="." instance=ExtResource("1_7yei7")]
 position = Vector2(406, 295)
