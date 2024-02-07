@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2digs1504cha"]
+
+[ext_resource type="Script" path="res://game/player/hero_stats.gd" id="1_xuwqu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6g3sa"]
+font_size = 50
+outline_size = 4
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="HeroStats" type="Node2D"]
+script = ExtResource("1_xuwqu")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -48.0
+offset_top = -34.0
+offset_right = 49.0
+offset_bottom = 33.0
+label_settings = SubResource("LabelSettings_6g3sa")
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1ljo2wdkjdj8"]
+[gd_scene load_steps=3 format=3 uid="uid://b1ljo2wdkjdj8"]
 
 [ext_resource type="Texture2D" uid="uid://cxso2iontn7ox" path="res://assets/images/playerBlue.png" id="1_7lwj6"]
+[ext_resource type="PackedScene" uid="uid://d2digs1504cha" path="res://game/player/hero_stats.tscn" id="2_lghhy"]
 
 [node name="Hero" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_7lwj6")
+
+[node name="HeroStats" parent="." instance=ExtResource("2_lghhy")]
+health = 100.0

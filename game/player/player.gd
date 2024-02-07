@@ -8,7 +8,8 @@ var actual_hero : Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	actual_hero = heroes[0]
+	actual_hero.visible = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -32,5 +33,7 @@ func move_player():
 	move_and_slide()
 	
 func change_hero(index: int):
+	actual_hero.visible = false
 	actual_hero = heroes[index]
-	$Sprite2D.texture = actual_hero.get_node("Sprite2D").texture
+	actual_hero.visible = true
+	

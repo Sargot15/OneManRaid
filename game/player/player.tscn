@@ -16,6 +16,7 @@ script = ExtResource("1_b33ml")
 heroes = [NodePath("Heroes/HeroBlue"), NodePath("Heroes/HeroBrown"), NodePath("Heroes/HeroGreen"), NodePath("Heroes/HeroYellow")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture_filter = 2
 texture = ExtResource("1_sic3u")
 
@@ -23,7 +24,7 @@ texture = ExtResource("1_sic3u")
 shape = SubResource("CircleShape2D_shk6a")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
-[node name="Heroes" type="Node" parent="."]
+[node name="Heroes" type="Node2D" parent="."]
 
 [node name="HeroBlue" parent="Heroes" instance=ExtResource("3_8mm0x")]
 visible = false
