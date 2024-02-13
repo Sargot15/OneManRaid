@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-@export var speed = 300
 @export var heroes : Array[Node2D]
 
 var direction = Vector2.ZERO
@@ -14,7 +13,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	move_player()
+	move_player(delta)
 	
 	# Var to change hero in case the key is pressed
 	var new_hero_index = -1
@@ -31,9 +30,21 @@ func _physics_process(delta):
 	if (new_hero_index != -1 && new_hero_index != actual_hero_index):
 		change_hero(new_hero_index)
 	
-func move_player():
+func move_player(delta):
+	var speed = actual_hero.get_speed()
+	# Detect movement by keys
 	direction.x = int(Input.is_key_pressed(KEY_D)) - int(Input.is_key_pressed(KEY_A))
 	direction.y = int(Input.is_key_pressed(KEY_S)) - int(Input.is_key_pressed(KEY_W))
+	
+	# Detect movement by mouse (mouse is priorized)
+	if (Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)):
+		direction.x = int(get_global_mouse_position().x - global_position.x)
+		direction.y = int(get_global_mouse_position().y - global_position.y)
+		
+		# If mouse is very close to the mouse the speed is slower so the player is not "dancing" around the mouse
+		var distance_to_mouse = global_position.distance_to(get_global_mouse_position())
+		if (distance_to_mouse < speed * delta):
+			speed = distance_to_mouse / delta
 	
 	velocity = direction.normalized() * speed
 	
