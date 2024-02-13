@@ -13,3 +13,6 @@ func _process(delta):
 func take_damage():
 	# TODO: Este valor deberá recibirse por parámetros
 	$HeroStats.health -= 5
+
+func is_alive() -> bool:
+	return $HeroStats.health > 0
