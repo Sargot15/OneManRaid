@@ -37,3 +37,6 @@ func change_hero(index: int):
 	actual_hero = heroes[index]
 	actual_hero.visible = true
 	
+func take_damage():
+	actual_hero.take_damage()
+	
