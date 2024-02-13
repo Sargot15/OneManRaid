@@ -12,3 +12,4 @@ texture = ExtResource("1_cy88k")
 
 [node name="HeroStats" parent="." instance=ExtResource("2_hc4kx")]
 health = 175.0
+speed = 375.0
