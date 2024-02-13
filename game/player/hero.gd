@@ -8,9 +8,9 @@ func _ready():
 func _process(delta):
 	pass
 	
-func take_damage():
-	# TODO: Este valor deberá recibirse por parámetros
-	$HeroStats.health -= 5
+func take_damage(damage):
+	# Health should not be lower than 0
+	$HeroStats.health = max($HeroStats.health - damage, 0)
 
 func is_alive() -> bool:
 	return $HeroStats.health > 0

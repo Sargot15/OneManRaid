@@ -1,6 +1,7 @@
 extends Node2D
 
-const speed = 400
+@export var speed : float = 400
+@export var damage : float
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -13,6 +14,6 @@ func _on_kill_timer_timeout():
 
 func _on_body_entered(body):
 	if(body.has_method("take_damage")):
-		body.take_damage()
+		body.take_damage(damage)
 		
 	queue_free()

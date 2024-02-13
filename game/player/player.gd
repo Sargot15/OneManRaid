@@ -61,8 +61,8 @@ func change_hero(new_hero_index: int) -> bool:
 	else:
 		return false
 	
-func take_damage():
-	actual_hero.take_damage()
+func take_damage(damage):
+	actual_hero.take_damage(damage)
 	
 	# Actual hero is dead, change to next alive hero
 	if (!actual_hero.is_alive()):
