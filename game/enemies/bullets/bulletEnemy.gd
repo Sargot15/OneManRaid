@@ -2,6 +2,7 @@ extends Node2D
 
 @export var speed : float = 400
 @export var damage : float
+@export var type : Globals.COLOR_TYPE
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

@@ -1,0 +1,3 @@
+extends Node
+
+enum COLOR_TYPE {YELLOW, BLUE, BROWN, GREEN}

@@ -1,16 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://buo4x18g2wae"]
+[gd_scene load_steps=6 format=3 uid="uid://buo4x18g2wae"]
 
 [ext_resource type="Script" path="res://game/enemies/spawners/spawner.gd" id="1_7lnj1"]
+[ext_resource type="PackedScene" uid="uid://tpumnsniimq5" path="res://game/enemies/bullets/bulletEnemyBlue.tscn" id="2_eqovb"]
+[ext_resource type="PackedScene" uid="uid://c0jnkvgagkp3q" path="res://game/enemies/bullets/bulletEnemyBrown.tscn" id="3_lumac"]
+[ext_resource type="PackedScene" uid="uid://brgs5j7sqb5sm" path="res://game/enemies/bullets/bulletEnemyGreen.tscn" id="4_oe6bt"]
+[ext_resource type="PackedScene" uid="uid://bm0s2ay31idir" path="res://game/enemies/bullets/bulletEnemyYellow.tscn" id="5_6ifkl"]
 
 [node name="Spawner" type="Node2D"]
 script = ExtResource("1_7lnj1")
+bullet_types = Array[PackedScene]([ExtResource("2_eqovb"), ExtResource("3_lumac"), ExtResource("4_oe6bt"), ExtResource("5_6ifkl")])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 
 [node name="ShootTimer" type="Timer" parent="."]
+wait_time = 0.25
+autostart = true
+
+[node name="ChangeBulletTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
 
 [node name="Rotater" type="Node2D" parent="."]
 
 [connection signal="child_entered_tree" from="Sprite2D" to="." method="_on_sprite_2d_child_entered_tree"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
+[connection signal="timeout" from="ChangeBulletTimer" to="." method="_on_change_bullet_timer_timeout"]
