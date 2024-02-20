@@ -61,8 +61,8 @@ func change_hero(new_hero_index: int) -> bool:
 	else:
 		return false
 	
-func take_damage(damage):
-	actual_hero.take_damage(damage)
+func take_damage(damage : float, color_type : Globals.COLOR_TYPE):
+	actual_hero.take_damage(damage, color_type)
 	
 	# Actual hero is dead, change to next alive hero
 	if (!actual_hero.is_alive()):
