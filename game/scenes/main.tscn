@@ -1,14 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://bnoejrqn6gd7q"]
+[gd_scene load_steps=7 format=3 uid="uid://bnoejrqn6gd7q"]
 
 [ext_resource type="PackedScene" uid="uid://dl2kn4p8em6wa" path="res://game/player/player.tscn" id="1_7yei7"]
 [ext_resource type="PackedScene" uid="uid://cc407asobqgjd" path="res://game/ui/canvas.tscn" id="2_roc2n"]
 [ext_resource type="PackedScene" uid="uid://buo4x18g2wae" path="res://game/enemies/spawners/spawner.tscn" id="3_fqhyt"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ftxl5"]
+size = Vector2(3500, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e1u3x"]
+size = Vector2(3500, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vy1kk"]
+size = Vector2(20, 2000)
+
 [node name="Scene" type="Node2D"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 1920.0
-offset_bottom = 1080.0
+offset_right = 3482.0
+offset_bottom = 1963.0
 color = Color(0.843137, 0.843137, 0.843137, 1)
 
 [node name="Canvas" parent="." instance=ExtResource("2_roc2n")]
@@ -26,8 +35,33 @@ metadata/_edit_use_anchors_ = true
 [node name="Player" parent="." instance=ExtResource("1_7yei7")]
 position = Vector2(406, 295)
 
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")
+
 [node name="Spawner2" parent="." instance=ExtResource("3_fqhyt")]
 position = Vector2(781, 330)
 
 [node name="Spawner" parent="." instance=ExtResource("3_fqhyt")]
 position = Vector2(780, 179)
+
+[node name="MapLimits" type="StaticBody2D" parent="."]
+
+[node name="TopLimit" type="CollisionShape2D" parent="MapLimits"]
+position = Vector2(1742, -10)
+shape = SubResource("RectangleShape2D_ftxl5")
+
+[node name="BottomLimit" type="CollisionShape2D" parent="MapLimits"]
+position = Vector2(1742, 1970)
+shape = SubResource("RectangleShape2D_e1u3x")
+
+[node name="LeftLimit" type="CollisionShape2D" parent="MapLimits"]
+position = Vector2(-10, 980)
+shape = SubResource("RectangleShape2D_vy1kk")
+
+[node name="RightLimit" type="CollisionShape2D" parent="MapLimits"]
+position = Vector2(3492, 980)
+shape = SubResource("RectangleShape2D_vy1kk")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(406, 295)
+scale = Vector2(0.5, 0.5)
