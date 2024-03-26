@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2v8a2n3u41hx"
-path="res://.godot/imported/playerYellow.svg-f171cde1b474df5451c4655850da1dce.ctex"
+uid="uid://b7tgo274s586x"
+path="res://.godot/imported/playerBulletYellow.svg-7c31a9a2499fbbe2b666950cce276ca9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/playerYellow.svg"
-dest_files=["res://.godot/imported/playerYellow.svg-f171cde1b474df5451c4655850da1dce.ctex"]
+source_file="res://assets/images/heroes/bullets/playerBulletYellow.svg"
+dest_files=["res://.godot/imported/playerBulletYellow.svg-7c31a9a2499fbbe2b666950cce276ca9.ctex"]
 
 [params]
 

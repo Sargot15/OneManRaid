@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://brgs5j7sqb5sm"]
 
 [ext_resource type="Script" path="res://game/enemies/bullets/bulletEnemy.gd" id="1_w3apt"]
-[ext_resource type="Texture2D" uid="uid://b1r42s3afjpta" path="res://assets/images/playerGreen.svg" id="2_esacf"]
+[ext_resource type="Texture2D" uid="uid://b1r42s3afjpta" path="res://assets/images/heroes/playerGreen.svg" id="2_okreh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_efk10"]
 radius = 56.0
@@ -16,7 +16,7 @@ type = 3
 modulate = Color(1, 1, 0.32549, 1)
 texture_filter = 2
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("2_esacf")
+texture = ExtResource("2_okreh")
 
 [node name="KillTimer" type="Timer" parent="."]
 wait_time = 5.0

@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dl2kn4p8em6wa"]
 
 [ext_resource type="Script" path="res://game/player/player.gd" id="1_b33ml"]
-[ext_resource type="Texture2D" uid="uid://cxso2iontn7ox" path="res://assets/images/playerBlue.png" id="1_sic3u"]
+[ext_resource type="Texture2D" uid="uid://cxso2iontn7ox" path="res://assets/images/heroes/playerBlue.png" id="1_sic3u"]
 [ext_resource type="PackedScene" uid="uid://b1ljo2wdkjdj8" path="res://game/player/heroBlue.tscn" id="3_8mm0x"]
 [ext_resource type="PackedScene" uid="uid://bsnp1plw1ujwu" path="res://game/player/heroGreen.tscn" id="3_hwjb3"]
 [ext_resource type="PackedScene" uid="uid://cdspxhksac28g" path="res://game/player/heroBrown.tscn" id="4_t0anc"]
