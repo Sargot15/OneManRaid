@@ -1,6 +1,37 @@
-[gd_scene load_steps=2 format=3 uid="uid://cc407asobqgjd"]
+[gd_scene load_steps=20 format=3 uid="uid://cc407asobqgjd"]
 
 [ext_resource type="Script" path="res://game/ui/FPSMeter.gd" id="1_q7m4w"]
+[ext_resource type="Texture2D" uid="uid://dxvs4i757abyv" path="res://assets/images/UI/HeroesInfo/playerBlueUIBorder.svg" id="2_x3mmx"]
+[ext_resource type="Texture2D" uid="uid://lxptlwu6wy08" path="res://assets/images/UI/HeroesInfo/playerBlueUILife.svg" id="3_ytuw4"]
+[ext_resource type="FontFile" uid="uid://cjigwi46it8wo" path="res://assets/fonts/Roboto-Bold.ttf" id="4_8cd2x"]
+[ext_resource type="Texture2D" uid="uid://7fxqsl5i5bpd" path="res://assets/images/UI/HeroesInfo/lineSeparatorText.svg" id="4_p3y4m"]
+[ext_resource type="Texture2D" uid="uid://bvhuv2faodlno" path="res://assets/images/UI/HeroesInfo/playerBrownUIBorder.svg" id="6_81yyw"]
+[ext_resource type="Texture2D" uid="uid://b7omrdb7yac5g" path="res://assets/images/UI/HeroesInfo/playerBrownUILife.svg" id="7_hnr5q"]
+[ext_resource type="Texture2D" uid="uid://b2trsdn777cqt" path="res://assets/images/UI/HeroesInfo/playerGreenUIBorder.svg" id="8_gckoa"]
+[ext_resource type="Texture2D" uid="uid://b3drlcqutbx2k" path="res://assets/images/UI/HeroesInfo/playerGreenUILife.svg" id="9_wu0wu"]
+[ext_resource type="Texture2D" uid="uid://dtk5lgcaykudv" path="res://assets/images/UI/HeroesInfo/playerYellowUIBorder.svg" id="10_4ipcb"]
+[ext_resource type="Texture2D" uid="uid://dix7o2hbx4t8q" path="res://assets/images/UI/HeroesInfo/playerYellowUILife.svg" id="11_muv3r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hucmq"]
+bg_color = Color(0.458405, 0.458405, 0.458405, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jd8tb"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mewg0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aqjr7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bxdhx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gt7d6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5b84k"]
+font_size = 20
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rc8ib"]
 
 [node name="Canvas" type="Control"]
 layout_mode = 3
@@ -17,9 +48,886 @@ grow_vertical = 2
 anchors_preset = -1
 anchor_right = 0.999
 anchor_bottom = 1.0
-offset_left = 1010.0
+offset_left = 1.0
 offset_top = 1.0
-offset_right = 0.151855
+offset_right = -1008.85
 offset_bottom = -609.0
-horizontal_alignment = 2
 script = ExtResource("1_q7m4w")
+
+[node name="PanelHeroesInfo" type="Panel" parent="CanvasLayer"]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -385.0
+offset_right = -1.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_hucmq")
+
+[node name="PanelHeroBlue" type="Panel" parent="CanvasLayer/PanelHeroesInfo"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.2
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jd8tb")
+
+[node name="HeroInfo" type="Panel" parent="CanvasLayer/PanelHeroesInfo/PanelHeroBlue"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.02
+anchor_top = 0.02
+anchor_right = 0.98
+anchor_bottom = 0.98
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mewg0")
+
+[node name="Stats" type="Panel" parent="CanvasLayer/PanelHeroesInfo/PanelHeroBlue/HeroInfo"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.6
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_aqjr7")
+
+[node name="LifePanel" type="Panel" parent="CanvasLayer/PanelHeroesInfo/PanelHeroBlue/HeroInfo/Stats"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_bxdhx")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/PanelHeroesInfo/PanelHeroBlue/HeroInfo/Stats/LifePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.4081
+offset_top = -39.5998
+offset_right = 197.592
+offset_bottom = 197.4
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.33, 0.33)
+value = 62.0
+fill_mode = 3
+texture_under = ExtResource("2_x3mmx")
+texture_progress = ExtResource("3_ytuw4")
+
+[node name="MaxLife" type="RichTextLabel" parent="CanvasLayer/PanelHeroesInfo/PanelHeroBlue/HeroInfo/Stats/LifePanel/TextureProgressBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -97.2879
+offset_top = 8.77292
+offset_right = 95.712
+offset_bottom = 91.7729
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/normal_font = ExtResource("4_8cd2x")
+theme_override_fonts/bold_font = ExtResource("4_8cd2x")
+theme_override_font_sizes/normal_font_size = 70
+theme_override_font_sizes/bold_font_size = 70
+bbcode_enabled = true
+text = "[center][b]210[/b][/center]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ActualLife" type="RichTextLabel" parent="CanvasLayer/PanelHeroesInfo/PanelHeroBlue/HeroInfo/Stats/LifePanel/TextureProgressBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -97.2878
+offset_top = -88.1968
+offset_right = 95.7123
+offset_bottom = -5.19676
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/normal_font = ExtResource("4_8cd2x")
+theme_override_fonts/bold_font = ExtResource("4_8cd2x")
+theme_override_font_sizes/normal_font_size = 70
+theme_override_font_sizes/bold_font_size = 70
+bbcode_enabled = true
+text = "[center][b]130[/b][/center]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelHeroesInfo/PanelHeroBlue/HeroInfo/Stats/LifePanel/TextureProgressBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.5
+offset_top = -6.5
+offset_right = 68.5
+offset_bottom = 6.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_p3y4m")
+expand_mode = 1
+
+[node name="StatsTexts" type="Panel" parent="CanvasLayer/PanelHeroesInfo/PanelHeroBlue/HeroInfo/Stats"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_gt7d6")
+
+[node name="Attack" type="Label" parent="CanvasLayer/PanelHeroesInfo/PanelHeroBlue/HeroInfo/Stats/StatsTexts"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.1
+anchor_right = 0.5
+anchor_bottom = 0.3
+offset_left = 5.0
+offset_top = 0.0241461
+offset_right = -2.592
+offset_bottom = -0.0071106
+tooltip_text = "Attack"
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("4_8cd2x")
+text = "ATT: 80"
+label_settings = SubResource("LabelSettings_5b84k")
+
+[node name="AttackSpeed" type="Label" parent="CanvasLayer/PanelHeroesInfo/PanelHeroBlue/HeroInfo/Stats/StatsTexts"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.4
+anchor_right = 0.5
+anchor_bottom = 0.6
+offset_left = 5.0
+offset_right = -2.0
+offset_bottom = 0.0564041
+tooltip_text = "Attack Speed"
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("4_8cd2x")
+text = "ATS: 1.5"
+label_settings = SubResource("LabelSettings_5b84k")
+
+[node name="AttackRange" type="Label" parent="CanvasLayer/PanelHeroesInfo/PanelHeroBlue/HeroInfo/Stats/StatsTexts"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.7
+anchor_right = 0.5
+anchor_bottom = 0.9
+offset_left = 5.86389
+offset_right = -2.0
+tooltip_text = "Attack Range"
+focus_mode = 1
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("4_8cd2x")
+text = "RAN: 70"
+label_settings = SubResource("LabelSettings_5b84k")
+
+[node name="Defense" type="Label" parent="CanvasLayer/PanelHeroesInfo/PanelHeroBlue/HeroInfo/Stats/StatsTexts"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 0.3
+offset_left = 5.86389
+offset_right = -2.0
+tooltip_text = "Defense"
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("4_8cd2x")
+text = "DEF: 20"
+label_settings = SubResource("LabelSettings_5b84k")
+
+[node name="Speed" type="Label" parent="CanvasLayer/PanelHeroesInfo/PanelHeroBlue/HeroInfo/Stats/StatsTexts"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.4
+anchor_right = 1.0
+anchor_bottom = 0.6
+offset_left = 5.86389
+offset_right = -2.0
+tooltip_text = "Speed"
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("4_8cd2x")
+text = "SPD: 100"
+label_settings = SubResource("LabelSettings_5b84k")
+
+[node name="Spells" type="Panel" parent="CanvasLayer/PanelHeroesInfo/PanelHeroBlue/HeroInfo"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.6
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_rc8ib")
+
+[node name="PanelHeroBrown" type="Panel" parent="CanvasLayer/PanelHeroesInfo"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.2
+anchor_right = 1.0
+anchor_bottom = 0.4
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jd8tb")
+
+[node name="HeroInfo" type="Panel" parent="CanvasLayer/PanelHeroesInfo/PanelHeroBrown"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.02
+anchor_top = 0.02
+anchor_right = 0.98
+anchor_bottom = 0.98
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mewg0")
+
+[node name="Stats" type="Panel" parent="CanvasLayer/PanelHeroesInfo/PanelHeroBrown/HeroInfo"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.6
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_aqjr7")
+
+[node name="LifePanel" type="Panel" parent="CanvasLayer/PanelHeroesInfo/PanelHeroBrown/HeroInfo/Stats"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_bxdhx")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/PanelHeroesInfo/PanelHeroBrown/HeroInfo/Stats/LifePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.4081
+offset_top = -39.5998
+offset_right = 197.592
+offset_bottom = 197.4
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.33, 0.33)
+value = 25.0
+fill_mode = 3
+texture_under = ExtResource("6_81yyw")
+texture_progress = ExtResource("7_hnr5q")
+
+[node name="MaxLife" type="RichTextLabel" parent="CanvasLayer/PanelHeroesInfo/PanelHeroBrown/HeroInfo/Stats/LifePanel/TextureProgressBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -97.2879
+offset_top = 8.77292
+offset_right = 95.712
+offset_bottom = 91.7729
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/normal_font = ExtResource("4_8cd2x")
+theme_override_fonts/bold_font = ExtResource("4_8cd2x")
+theme_override_font_sizes/normal_font_size = 70
+theme_override_font_sizes/bold_font_size = 70
+bbcode_enabled = true
+text = "[center][b]500[/b][/center]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ActualLife" type="RichTextLabel" parent="CanvasLayer/PanelHeroesInfo/PanelHeroBrown/HeroInfo/Stats/LifePanel/TextureProgressBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -97.2878
+offset_top = -88.1968
+offset_right = 95.7123
+offset_bottom = -5.19676
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/normal_font = ExtResource("4_8cd2x")
+theme_override_fonts/bold_font = ExtResource("4_8cd2x")
+theme_override_font_sizes/normal_font_size = 70
+theme_override_font_sizes/bold_font_size = 70
+bbcode_enabled = true
+text = "[center][b]125[/b][/center]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelHeroesInfo/PanelHeroBrown/HeroInfo/Stats/LifePanel/TextureProgressBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.5
+offset_top = -6.5
+offset_right = 68.5
+offset_bottom = 6.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_p3y4m")
+expand_mode = 1
+
+[node name="StatsTexts" type="Panel" parent="CanvasLayer/PanelHeroesInfo/PanelHeroBrown/HeroInfo/Stats"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_gt7d6")
+
+[node name="Attack" type="Label" parent="CanvasLayer/PanelHeroesInfo/PanelHeroBrown/HeroInfo/Stats/StatsTexts"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.1
+anchor_right = 0.5
+anchor_bottom = 0.3
+offset_left = 5.0
+offset_top = -0.441602
+offset_right = -2.592
+offset_bottom = -1.32481
+tooltip_text = "Attack"
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("4_8cd2x")
+text = "ATT: 20"
+label_settings = SubResource("LabelSettings_5b84k")
+
+[node name="AttackSpeed" type="Label" parent="CanvasLayer/PanelHeroesInfo/PanelHeroBrown/HeroInfo/Stats/StatsTexts"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.4
+anchor_right = 0.5
+anchor_bottom = 0.6
+offset_left = 5.0
+offset_right = -2.0
+offset_bottom = 0.0564041
+tooltip_text = "Attack Speed"
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("4_8cd2x")
+text = "ATS: 0.9"
+label_settings = SubResource("LabelSettings_5b84k")
+
+[node name="AttackRange" type="Label" parent="CanvasLayer/PanelHeroesInfo/PanelHeroBrown/HeroInfo/Stats/StatsTexts"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.7
+anchor_right = 0.5
+anchor_bottom = 0.9
+offset_left = 5.86389
+offset_right = -2.0
+tooltip_text = "Attack Range"
+focus_mode = 1
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("4_8cd2x")
+text = "RAN: 25"
+label_settings = SubResource("LabelSettings_5b84k")
+
+[node name="Defense" type="Label" parent="CanvasLayer/PanelHeroesInfo/PanelHeroBrown/HeroInfo/Stats/StatsTexts"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 0.3
+offset_left = 5.86389
+offset_right = -2.0
+tooltip_text = "Defense"
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("4_8cd2x")
+text = "DEF: 45"
+label_settings = SubResource("LabelSettings_5b84k")
+
+[node name="Speed" type="Label" parent="CanvasLayer/PanelHeroesInfo/PanelHeroBrown/HeroInfo/Stats/StatsTexts"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.4
+anchor_right = 1.0
+anchor_bottom = 0.6
+offset_left = 5.86389
+offset_right = -2.0
+tooltip_text = "Speed"
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("4_8cd2x")
+text = "SPD: 70"
+label_settings = SubResource("LabelSettings_5b84k")
+
+[node name="Spells" type="Panel" parent="CanvasLayer/PanelHeroesInfo/PanelHeroBrown/HeroInfo"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.6
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_rc8ib")
+
+[node name="PanelHeroGreen" type="Panel" parent="CanvasLayer/PanelHeroesInfo"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.4
+anchor_right = 1.0
+anchor_bottom = 0.6
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jd8tb")
+
+[node name="HeroInfo" type="Panel" parent="CanvasLayer/PanelHeroesInfo/PanelHeroGreen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.02
+anchor_top = 0.02
+anchor_right = 0.98
+anchor_bottom = 0.98
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mewg0")
+
+[node name="Stats" type="Panel" parent="CanvasLayer/PanelHeroesInfo/PanelHeroGreen/HeroInfo"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.6
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_aqjr7")
+
+[node name="LifePanel" type="Panel" parent="CanvasLayer/PanelHeroesInfo/PanelHeroGreen/HeroInfo/Stats"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_bxdhx")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/PanelHeroesInfo/PanelHeroGreen/HeroInfo/Stats/LifePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.4081
+offset_top = -39.5998
+offset_right = 197.592
+offset_bottom = 197.4
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.33, 0.33)
+value = 80.0
+fill_mode = 3
+texture_under = ExtResource("8_gckoa")
+texture_progress = ExtResource("9_wu0wu")
+
+[node name="MaxLife" type="RichTextLabel" parent="CanvasLayer/PanelHeroesInfo/PanelHeroGreen/HeroInfo/Stats/LifePanel/TextureProgressBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -97.2879
+offset_top = 8.77292
+offset_right = 95.712
+offset_bottom = 91.7729
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/normal_font = ExtResource("4_8cd2x")
+theme_override_fonts/bold_font = ExtResource("4_8cd2x")
+theme_override_font_sizes/normal_font_size = 70
+theme_override_font_sizes/bold_font_size = 70
+bbcode_enabled = true
+text = "[center][b]286[/b][/center]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ActualLife" type="RichTextLabel" parent="CanvasLayer/PanelHeroesInfo/PanelHeroGreen/HeroInfo/Stats/LifePanel/TextureProgressBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -97.2878
+offset_top = -88.1968
+offset_right = 95.7123
+offset_bottom = -5.19676
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/normal_font = ExtResource("4_8cd2x")
+theme_override_fonts/bold_font = ExtResource("4_8cd2x")
+theme_override_font_sizes/normal_font_size = 70
+theme_override_font_sizes/bold_font_size = 70
+bbcode_enabled = true
+text = "[center][b]229[/b][/center]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelHeroesInfo/PanelHeroGreen/HeroInfo/Stats/LifePanel/TextureProgressBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.5
+offset_top = -6.5
+offset_right = 68.5
+offset_bottom = 6.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_p3y4m")
+expand_mode = 1
+
+[node name="StatsTexts" type="Panel" parent="CanvasLayer/PanelHeroesInfo/PanelHeroGreen/HeroInfo/Stats"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_gt7d6")
+
+[node name="Attack" type="Label" parent="CanvasLayer/PanelHeroesInfo/PanelHeroGreen/HeroInfo/Stats/StatsTexts"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.1
+anchor_right = 0.5
+anchor_bottom = 0.3
+offset_left = 5.0
+offset_top = 0.0241461
+offset_right = -2.592
+offset_bottom = -0.0071106
+tooltip_text = "Attack"
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("4_8cd2x")
+text = "ATT: 40"
+label_settings = SubResource("LabelSettings_5b84k")
+
+[node name="AttackSpeed" type="Label" parent="CanvasLayer/PanelHeroesInfo/PanelHeroGreen/HeroInfo/Stats/StatsTexts"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.4
+anchor_right = 0.5
+anchor_bottom = 0.6
+offset_left = 5.0
+offset_right = -2.0
+offset_bottom = 0.0564041
+tooltip_text = "Attack Speed"
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("4_8cd2x")
+text = "ATS: 2.5"
+label_settings = SubResource("LabelSettings_5b84k")
+
+[node name="AttackRange" type="Label" parent="CanvasLayer/PanelHeroesInfo/PanelHeroGreen/HeroInfo/Stats/StatsTexts"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.7
+anchor_right = 0.5
+anchor_bottom = 0.9
+offset_left = 5.86389
+offset_right = -2.0
+tooltip_text = "Attack Range"
+focus_mode = 1
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("4_8cd2x")
+text = "RAN: 85"
+label_settings = SubResource("LabelSettings_5b84k")
+
+[node name="Defense" type="Label" parent="CanvasLayer/PanelHeroesInfo/PanelHeroGreen/HeroInfo/Stats/StatsTexts"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 0.3
+offset_left = 5.86389
+offset_right = -2.0
+tooltip_text = "Defense"
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("4_8cd2x")
+text = "DEF: 30"
+label_settings = SubResource("LabelSettings_5b84k")
+
+[node name="Speed" type="Label" parent="CanvasLayer/PanelHeroesInfo/PanelHeroGreen/HeroInfo/Stats/StatsTexts"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.4
+anchor_right = 1.0
+anchor_bottom = 0.6
+offset_left = 5.86389
+offset_right = -2.0
+tooltip_text = "Speed"
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("4_8cd2x")
+text = "SPD: 120"
+label_settings = SubResource("LabelSettings_5b84k")
+
+[node name="Spells" type="Panel" parent="CanvasLayer/PanelHeroesInfo/PanelHeroGreen/HeroInfo"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.6
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_rc8ib")
+
+[node name="PanelHeroYellow" type="Panel" parent="CanvasLayer/PanelHeroesInfo"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.6
+anchor_right = 1.0
+anchor_bottom = 0.8
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jd8tb")
+
+[node name="HeroInfo" type="Panel" parent="CanvasLayer/PanelHeroesInfo/PanelHeroYellow"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.02
+anchor_top = 0.02
+anchor_right = 0.98
+anchor_bottom = 0.98
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mewg0")
+
+[node name="Stats" type="Panel" parent="CanvasLayer/PanelHeroesInfo/PanelHeroYellow/HeroInfo"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.6
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_aqjr7")
+
+[node name="LifePanel" type="Panel" parent="CanvasLayer/PanelHeroesInfo/PanelHeroYellow/HeroInfo/Stats"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_bxdhx")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/PanelHeroesInfo/PanelHeroYellow/HeroInfo/Stats/LifePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.4081
+offset_top = -39.5998
+offset_right = 197.592
+offset_bottom = 197.4
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.33, 0.33)
+value = 50.0
+fill_mode = 3
+texture_under = ExtResource("10_4ipcb")
+texture_progress = ExtResource("11_muv3r")
+
+[node name="MaxLife" type="RichTextLabel" parent="CanvasLayer/PanelHeroesInfo/PanelHeroYellow/HeroInfo/Stats/LifePanel/TextureProgressBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -97.2879
+offset_top = 8.77292
+offset_right = 95.712
+offset_bottom = 91.7729
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/normal_font = ExtResource("4_8cd2x")
+theme_override_fonts/bold_font = ExtResource("4_8cd2x")
+theme_override_font_sizes/normal_font_size = 70
+theme_override_font_sizes/bold_font_size = 70
+bbcode_enabled = true
+text = "[center][b]324[/b][/center]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ActualLife" type="RichTextLabel" parent="CanvasLayer/PanelHeroesInfo/PanelHeroYellow/HeroInfo/Stats/LifePanel/TextureProgressBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -97.2878
+offset_top = -88.1968
+offset_right = 95.7123
+offset_bottom = -5.19676
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/normal_font = ExtResource("4_8cd2x")
+theme_override_fonts/bold_font = ExtResource("4_8cd2x")
+theme_override_font_sizes/normal_font_size = 70
+theme_override_font_sizes/bold_font_size = 70
+bbcode_enabled = true
+text = "[center][b]162[/b][/center]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelHeroesInfo/PanelHeroYellow/HeroInfo/Stats/LifePanel/TextureProgressBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.5
+offset_top = -6.5
+offset_right = 68.5
+offset_bottom = 6.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_p3y4m")
+expand_mode = 1
+
+[node name="StatsTexts" type="Panel" parent="CanvasLayer/PanelHeroesInfo/PanelHeroYellow/HeroInfo/Stats"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_gt7d6")
+
+[node name="Attack" type="Label" parent="CanvasLayer/PanelHeroesInfo/PanelHeroYellow/HeroInfo/Stats/StatsTexts"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.1
+anchor_right = 0.5
+anchor_bottom = 0.3
+offset_left = 5.0
+offset_top = 0.0241461
+offset_right = -2.592
+offset_bottom = -0.0071106
+tooltip_text = "Attack"
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("4_8cd2x")
+text = "ATT: 90"
+label_settings = SubResource("LabelSettings_5b84k")
+
+[node name="AttackSpeed" type="Label" parent="CanvasLayer/PanelHeroesInfo/PanelHeroYellow/HeroInfo/Stats/StatsTexts"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.4
+anchor_right = 0.5
+anchor_bottom = 0.6
+offset_left = 5.0
+offset_right = -2.0
+offset_bottom = 0.0564041
+tooltip_text = "Attack Speed"
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("4_8cd2x")
+text = "ATS: 1.7"
+label_settings = SubResource("LabelSettings_5b84k")
+
+[node name="AttackRange" type="Label" parent="CanvasLayer/PanelHeroesInfo/PanelHeroYellow/HeroInfo/Stats/StatsTexts"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.7
+anchor_right = 0.5
+anchor_bottom = 0.9
+offset_left = 5.86389
+offset_right = -2.0
+tooltip_text = "Attack Range"
+focus_mode = 1
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("4_8cd2x")
+text = "RAN: 35"
+label_settings = SubResource("LabelSettings_5b84k")
+
+[node name="Defense" type="Label" parent="CanvasLayer/PanelHeroesInfo/PanelHeroYellow/HeroInfo/Stats/StatsTexts"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 0.3
+offset_left = 5.86389
+offset_right = -2.0
+tooltip_text = "Defense"
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("4_8cd2x")
+text = "DEF: 25"
+label_settings = SubResource("LabelSettings_5b84k")
+
+[node name="Speed" type="Label" parent="CanvasLayer/PanelHeroesInfo/PanelHeroYellow/HeroInfo/Stats/StatsTexts"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.4
+anchor_right = 1.0
+anchor_bottom = 0.6
+offset_left = 5.86389
+offset_right = -2.0
+tooltip_text = "Speed"
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("4_8cd2x")
+text = "SPD: 150"
+label_settings = SubResource("LabelSettings_5b84k")
+
+[node name="Spells" type="Panel" parent="CanvasLayer/PanelHeroesInfo/PanelHeroYellow/HeroInfo"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.6
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_rc8ib")
