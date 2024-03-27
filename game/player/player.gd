@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal hero_health_update(hero_type : Globals.COLOR_TYPE, health : int, max_health : int)
+
 @export var heroes : Array[Node2D]
 
 var direction = Vector2.ZERO
@@ -73,4 +75,8 @@ func take_damage(damage : float, color_type : Globals.COLOR_TYPE):
 		# No heroes alive, game over
 		if(!actual_hero.is_alive()):
 			# TODO: GAME OVER
-			pass
+			pass	
+
+func _on_hero_health_updated(hero_type, health, max_health):
+	hero_health_update.emit(hero_type, health, max_health)
+	

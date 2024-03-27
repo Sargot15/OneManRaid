@@ -1,6 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://cc407asobqgjd"]
+[gd_scene load_steps=22 format=3 uid="uid://cc407asobqgjd"]
 
+[ext_resource type="Script" path="res://game/ui/canvasManager.gd" id="1_6bt4b"]
 [ext_resource type="Script" path="res://game/ui/FPSMeter.gd" id="1_q7m4w"]
+[ext_resource type="Script" path="res://game/ui/LifeUIUpdate.gd" id="2_i3apx"]
 [ext_resource type="Texture2D" uid="uid://dxvs4i757abyv" path="res://assets/images/UI/HeroesInfo/playerBlueUIBorder.svg" id="2_x3mmx"]
 [ext_resource type="Texture2D" uid="uid://lxptlwu6wy08" path="res://assets/images/UI/HeroesInfo/playerBlueUILife.svg" id="3_ytuw4"]
 [ext_resource type="FontFile" uid="uid://cjigwi46it8wo" path="res://assets/fonts/Roboto-Bold.ttf" id="4_8cd2x"]
@@ -41,6 +43,7 @@ anchor_bottom = 1.0
 offset_top = -1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_6bt4b")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -99,6 +102,7 @@ anchor_right = 0.4
 anchor_bottom = 1.0
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_bxdhx")
+script = ExtResource("2_i3apx")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/PanelHeroesInfo/PanelHeroBlue/HeroInfo/Stats/LifePanel"]
 layout_mode = 1
@@ -316,6 +320,7 @@ anchor_right = 0.4
 anchor_bottom = 1.0
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_bxdhx")
+script = ExtResource("2_i3apx")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/PanelHeroesInfo/PanelHeroBrown/HeroInfo/Stats/LifePanel"]
 layout_mode = 1
@@ -533,6 +538,7 @@ anchor_right = 0.4
 anchor_bottom = 1.0
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_bxdhx")
+script = ExtResource("2_i3apx")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/PanelHeroesInfo/PanelHeroGreen/HeroInfo/Stats/LifePanel"]
 layout_mode = 1
@@ -750,6 +756,7 @@ anchor_right = 0.4
 anchor_bottom = 1.0
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_bxdhx")
+script = ExtResource("2_i3apx")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/PanelHeroesInfo/PanelHeroYellow/HeroInfo/Stats/LifePanel"]
 layout_mode = 1

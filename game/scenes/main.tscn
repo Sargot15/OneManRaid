@@ -65,3 +65,5 @@ shape = SubResource("RectangleShape2D_vy1kk")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(406, 295)
 scale = Vector2(0.5, 0.5)
+
+[connection signal="hero_health_update" from="Player" to="Canvas" method="_on_hero_health_update"]

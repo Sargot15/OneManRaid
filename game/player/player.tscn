@@ -38,3 +38,8 @@ visible = false
 
 [node name="HeroYellow" parent="Heroes" instance=ExtResource("6_y0h7f")]
 visible = false
+
+[connection signal="health_updated" from="Heroes/HeroBlue" to="." method="_on_hero_health_updated"]
+[connection signal="health_updated" from="Heroes/HeroBrown" to="." method="_on_hero_health_updated"]
+[connection signal="health_updated" from="Heroes/HeroGreen" to="." method="_on_hero_health_updated"]
+[connection signal="health_updated" from="Heroes/HeroYellow" to="." method="_on_hero_health_updated"]

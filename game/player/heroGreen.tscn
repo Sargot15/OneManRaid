@@ -13,5 +13,5 @@ texture_filter = 2
 texture = ExtResource("2_n2gue")
 
 [node name="HeroStats" parent="." instance=ExtResource("2_6gt3k")]
-health = 125.0
+max_health = 290.0
 speed = 250.0
