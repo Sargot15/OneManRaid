@@ -17,6 +17,9 @@ func _ready():
 func _physics_process(delta):
 	move_player(delta)
 	
+	if (Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT)):
+		actual_hero.shoot()
+	
 	# Var to change hero in case the key is pressed
 	var new_hero_index = -1
 	

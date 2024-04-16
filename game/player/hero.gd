@@ -10,10 +10,9 @@ signal health_updated(hero_type : Globals.COLOR_TYPE ,health : int,max_health : 
 func _ready():
 	health_updated.emit(hero_type, $HeroStats.health, $HeroStats.max_health)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	if (Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT)):
-		weapon.shoot()
+		
+func shoot():
+	weapon.shoot()
 	
 func take_damage(damage : float, color_type : Globals.COLOR_TYPE):
 	# Bullet does not do damage if color type are the same
