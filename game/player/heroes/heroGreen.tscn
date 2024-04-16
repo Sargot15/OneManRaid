@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjc70b11ymntk"]
+
+[ext_resource type="PackedScene" uid="uid://c6fimi1hkoreo" path="res://game/prefabs/hero.tscn" id="1_j8bdm"]
+[ext_resource type="Texture2D" uid="uid://b1r42s3afjpta" path="res://assets/images/heroes/playerGreen.svg" id="2_5bat3"]
+[ext_resource type="PackedScene" uid="uid://cbanw4mqkthnc" path="res://game/player/bullets/bulletHeroGreen.tscn" id="3_snrp8"]
+
+[node name="Hero" instance=ExtResource("1_j8bdm")]
+hero_type = 3
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_5bat3")
+
+[node name="HeroStats" parent="." index="1"]
+max_health = 290.0
+speed = 250.0
+
+[node name="Weapon" parent="." index="2"]
+bullet_scene = ExtResource("3_snrp8")

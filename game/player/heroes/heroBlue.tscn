@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgellnr12w2jt"]
+
+[ext_resource type="PackedScene" uid="uid://c6fimi1hkoreo" path="res://game/prefabs/hero.tscn" id="1_22hos"]
+
+[node name="Hero" instance=ExtResource("1_22hos")]
+
+[node name="HeroStats" parent="." index="1"]
+max_health = 50.0
+speed = 300.0

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbanw4mqkthnc"]
+
+[ext_resource type="PackedScene" uid="uid://cg5lm4cgfuntd" path="res://game/prefabs/bulletHero.tscn" id="1_yyjel"]
+[ext_resource type="Texture2D" uid="uid://dnr1dkqkpuqwf" path="res://assets/images/heroes/bullets/playerBulletGreen.svg" id="2_35pj5"]
+
+[node name="BulletHeroBlue" instance=ExtResource("1_yyjel")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_35pj5")
