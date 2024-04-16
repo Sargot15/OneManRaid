@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdspxhksac28g"]
+[gd_scene load_steps=6 format=3 uid="uid://cdspxhksac28g"]
 
 [ext_resource type="Script" path="res://game/player/hero.gd" id="1_vpia8"]
 [ext_resource type="Texture2D" uid="uid://4uekn30l2dle" path="res://assets/images/heroes/playerBrown.svg" id="2_00prx"]
 [ext_resource type="PackedScene" uid="uid://d2digs1504cha" path="res://game/player/hero_stats.tscn" id="2_wydfw"]
+[ext_resource type="Script" path="res://game/player/weapon.gd" id="4_0f4ch"]
+[ext_resource type="PackedScene" uid="uid://b1kv1ayxi2241" path="res://game/player/bullets/bulletHeroBlue.tscn" id="5_yeaw2"]
 
 [node name="Hero" type="Node2D"]
 script = ExtResource("1_vpia8")
@@ -15,3 +17,7 @@ texture = ExtResource("2_00prx")
 [node name="HeroStats" parent="." instance=ExtResource("2_wydfw")]
 max_health = 500.0
 speed = 225.0
+
+[node name="Weapon" type="Node2D" parent="."]
+script = ExtResource("4_0f4ch")
+bullet_scene = ExtResource("5_yeaw2")

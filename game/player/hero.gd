@@ -2,6 +2,8 @@ extends Node2D
 
 signal health_updated(hero_type : Globals.COLOR_TYPE ,health : int,max_health : int)
 
+@onready var weapon : Node2D = $Weapon
+
 @export var hero_type : Globals.COLOR_TYPE
 
 # Called when the node enters the scene tree for the first time.
@@ -10,7 +12,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if (Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT)):
+		weapon.shoot()
 	
 func take_damage(damage : float, color_type : Globals.COLOR_TYPE):
 	# Bullet does not do damage if color type are the same
