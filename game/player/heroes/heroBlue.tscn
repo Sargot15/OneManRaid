@@ -5,5 +5,10 @@
 [node name="Hero" instance=ExtResource("1_22hos")]
 
 [node name="HeroStats" parent="." index="1"]
+scale = Vector2(1.04376, 0.992309)
 max_health = 50.0
+defense = 20.0
 speed = 300.0
+attack = 80.0
+attack_range = 70.0
+attack_speed = 5.5

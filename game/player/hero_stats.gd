@@ -1,8 +1,14 @@
 extends Node
 
+# Base stats
 @export var max_health : float
+@export var defense : float
 @export var speed : float
+@export var attack : float
+@export var attack_range : float
+@export var attack_speed : float
 
+# Actual stats
 var health : float
 
 # Called when the node enters the scene tree for the first time.

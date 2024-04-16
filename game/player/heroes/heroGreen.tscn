@@ -11,8 +11,12 @@ hero_type = 3
 texture = ExtResource("2_5bat3")
 
 [node name="HeroStats" parent="." index="1"]
-max_health = 290.0
+max_health = 45.0
+defense = 30.0
 speed = 250.0
+attack = 40.0
+attack_range = 85.0
+attack_speed = 8.0
 
 [node name="Weapon" parent="." index="2"]
 bullet_scene = ExtResource("3_snrp8")
