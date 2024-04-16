@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 signal hero_health_update(hero_type : Globals.COLOR_TYPE, health : int, max_health : int)
+signal stats_updated(hero_type : Globals.COLOR_TYPE ,def : float, att : float, spd : float, att_range : float, att_speed : float)
 
 @export var heroes : Array[Node2D]
 
@@ -82,4 +83,7 @@ func take_damage(damage : float, color_type : Globals.COLOR_TYPE):
 
 func _on_hero_health_updated(hero_type, health, max_health):
 	hero_health_update.emit(hero_type, health, max_health)
+	
+func _on_hero_stats_updated(hero_type, def, att, spd, att_range, att_speed):
+	stats_updated.emit(hero_type, def, att, spd, att_range, att_speed)
 	

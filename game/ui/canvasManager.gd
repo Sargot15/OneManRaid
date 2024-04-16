@@ -19,3 +19,15 @@ func _on_hero_health_update(hero_type, health, max_health):
 		$CanvasLayer/PanelHeroesInfo/PanelHeroGreen/HeroInfo/Stats/LifePanel.update_UI_health(health, max_health)
 	if (hero_type == Globals.COLOR_TYPE.YELLOW):
 		$CanvasLayer/PanelHeroesInfo/PanelHeroYellow/HeroInfo/Stats/LifePanel.update_UI_health(health, max_health)
+
+
+func _on_hero_stats_updated(hero_type, def, att, spd, att_range, att_speed):
+	if (hero_type == Globals.COLOR_TYPE.BLUE):
+		$CanvasLayer/PanelHeroesInfo/PanelHeroBlue/HeroInfo/Stats/StatsTexts.update_stats(def, att, spd, att_range, att_speed)
+	if (hero_type == Globals.COLOR_TYPE.BROWN):
+		$CanvasLayer/PanelHeroesInfo/PanelHeroBrown/HeroInfo/Stats/StatsTexts.update_stats(def, att, spd, att_range, att_speed)
+	if (hero_type == Globals.COLOR_TYPE.GREEN):
+		$CanvasLayer/PanelHeroesInfo/PanelHeroGreen/HeroInfo/Stats/StatsTexts.update_stats(def, att, spd, att_range, att_speed)
+	if (hero_type == Globals.COLOR_TYPE.YELLOW):
+		$CanvasLayer/PanelHeroesInfo/PanelHeroYellow/HeroInfo/Stats/StatsTexts.update_stats(def, att, spd, att_range, att_speed)
+

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cc407asobqgjd"]
+[gd_scene load_steps=23 format=3 uid="uid://cc407asobqgjd"]
 
 [ext_resource type="Script" path="res://game/ui/canvasManager.gd" id="1_6bt4b"]
 [ext_resource type="Script" path="res://game/ui/FPSMeter.gd" id="1_q7m4w"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bvhuv2faodlno" path="res://assets/images/UI/HeroesInfo/playerBrownUIBorder.svg" id="6_81yyw"]
 [ext_resource type="Texture2D" uid="uid://b7omrdb7yac5g" path="res://assets/images/UI/HeroesInfo/playerBrownUILife.svg" id="7_hnr5q"]
 [ext_resource type="Texture2D" uid="uid://b2trsdn777cqt" path="res://assets/images/UI/HeroesInfo/playerGreenUIBorder.svg" id="8_gckoa"]
+[ext_resource type="Script" path="res://game/ui/StatsUIUpdate.gd" id="8_ksdqe"]
 [ext_resource type="Texture2D" uid="uid://b3drlcqutbx2k" path="res://assets/images/UI/HeroesInfo/playerGreenUILife.svg" id="9_wu0wu"]
 [ext_resource type="Texture2D" uid="uid://dtk5lgcaykudv" path="res://assets/images/UI/HeroesInfo/playerYellowUIBorder.svg" id="10_4ipcb"]
 [ext_resource type="Texture2D" uid="uid://dix7o2hbx4t8q" path="res://assets/images/UI/HeroesInfo/playerYellowUILife.svg" id="11_muv3r"]
@@ -198,6 +199,7 @@ anchor_bottom = 1.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_gt7d6")
+script = ExtResource("8_ksdqe")
 
 [node name="Attack" type="Label" parent="CanvasLayer/PanelHeroesInfo/PanelHeroBlue/HeroInfo/Stats/StatsTexts"]
 layout_mode = 1
@@ -416,6 +418,7 @@ anchor_bottom = 1.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_gt7d6")
+script = ExtResource("8_ksdqe")
 
 [node name="Attack" type="Label" parent="CanvasLayer/PanelHeroesInfo/PanelHeroBrown/HeroInfo/Stats/StatsTexts"]
 layout_mode = 1
@@ -634,6 +637,7 @@ anchor_bottom = 1.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_gt7d6")
+script = ExtResource("8_ksdqe")
 
 [node name="Attack" type="Label" parent="CanvasLayer/PanelHeroesInfo/PanelHeroGreen/HeroInfo/Stats/StatsTexts"]
 layout_mode = 1
@@ -852,6 +856,7 @@ anchor_bottom = 1.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_gt7d6")
+script = ExtResource("8_ksdqe")
 
 [node name="Attack" type="Label" parent="CanvasLayer/PanelHeroesInfo/PanelHeroYellow/HeroInfo/Stats/StatsTexts"]
 layout_mode = 1

@@ -1,6 +1,7 @@
 extends Node2D
 
 signal health_updated(hero_type : Globals.COLOR_TYPE ,health : int,max_health : int)
+signal stats_updated(hero_type : Globals.COLOR_TYPE ,def : float, att : float, spd : float, att_range : float, att_speed : float)
 
 @onready var weapon : Node2D = $Weapon
 
@@ -11,6 +12,7 @@ var time_to_next_attack : float = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	health_updated.emit(hero_type, $HeroStats.health, $HeroStats.max_health)
+	stats_updated.emit(hero_type, $HeroStats.defense, $HeroStats.attack, $HeroStats.speed, $HeroStats.attack_range, $HeroStats.attack_speed)
 	time_to_next_attack = 0
 
 func _process(delta):
