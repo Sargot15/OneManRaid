@@ -4,19 +4,19 @@
 [ext_resource type="Texture2D" uid="uid://c5dqejcs2d71b" path="res://assets/images/heroes/bullets/playerBulletBlue.svg" id="2_mk88h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xucih"]
-size = Vector2(192, 832)
+size = Vector2(6, 26)
 
 [node name="BulletHero" type="Area2D"]
 script = ExtResource("1_bw3r1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708
-scale = Vector2(0.025, 0.025)
 texture = ExtResource("2_mk88h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.90735e-06, 3.71733e-06)
 rotation = 1.5708
-scale = Vector2(0.025, 0.025)
+scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_xucih")
 
 [node name="TimeAlive" type="Timer" parent="."]
