@@ -15,7 +15,7 @@ max_health = 45.0
 defense = 30.0
 speed = 250.0
 attack = 40.0
-attack_range = 85.0
+attack_range = 425.0
 attack_speed = 8.0
 
 [node name="Weapon" parent="." index="2"]
