@@ -1,10 +1,27 @@
-[gd_scene load_steps=6 format=3 uid="uid://c6fimi1hkoreo"]
+[gd_scene load_steps=9 format=3 uid="uid://c6fimi1hkoreo"]
 
 [ext_resource type="Script" path="res://game/player/hero.gd" id="1_igtp0"]
 [ext_resource type="Texture2D" uid="uid://dmd0j5udvj4fd" path="res://assets/images/heroes/playerBlue.svg" id="2_stwi8"]
 [ext_resource type="PackedScene" uid="uid://d2digs1504cha" path="res://game/player/hero_stats.tscn" id="3_ts3fx"]
 [ext_resource type="Script" path="res://game/player/weapon.gd" id="4_kpa3e"]
-[ext_resource type="PackedScene" uid="uid://b1kv1ayxi2241" path="res://game/player/bullets/bulletHeroBlue.tscn" id="5_u7t7h"]
+[ext_resource type="Script" path="res://game/player/bullets/bulletHero.gd" id="5_u2ejl"]
+[ext_resource type="Texture2D" uid="uid://c5dqejcs2d71b" path="res://assets/images/heroes/bullets/playerBulletBlue.svg" id="6_dtfbq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xucih"]
+size = Vector2(192, 832)
+
+[sub_resource type="PackedScene" id="PackedScene_1ad50"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"names": PackedStringArray("BulletHeroBlue", "script", "Area2D", "Sprite2D", "rotation", "scale", "texture", "CollisionShape2D", "shape"),
+"node_count": 3,
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 2, 0, -1, 1, 1, 0, 0, 0, 0, 3, 3, -1, 3, 4, 1, 5, 2, 6, 3, 0, 0, 0, 7, 7, -1, 3, 4, 1, 5, 2, 8, 4, 0),
+"variants": [ExtResource("5_u2ejl"), 1.5708, Vector2(0.025, 0.025), ExtResource("6_dtfbq"), SubResource("RectangleShape2D_xucih")],
+"version": 3
+}
 
 [node name="Hero" type="Node2D"]
 script = ExtResource("1_igtp0")
@@ -18,4 +35,4 @@ texture = ExtResource("2_stwi8")
 
 [node name="Weapon" type="Node2D" parent="."]
 script = ExtResource("4_kpa3e")
-bullet_scene = ExtResource("5_u7t7h")
+bullet_scene = SubResource("PackedScene_1ad50")
