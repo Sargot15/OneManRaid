@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cg5lm4cgfuntd" path="res://game/prefabs/bulletHero.tscn" id="1_168tb"]
 [ext_resource type="Texture2D" uid="uid://cwbbnim1otbsp" path="res://assets/images/heroes/bullets/playerBulletBrown.svg" id="2_kjb0h"]
 
-[node name="BulletHeroBlue" instance=ExtResource("1_168tb")]
+[node name="BulletHero" instance=ExtResource("1_168tb")]
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_kjb0h")
