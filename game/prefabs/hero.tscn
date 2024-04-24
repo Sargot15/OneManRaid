@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://c6fimi1hkoreo"]
 
 [ext_resource type="Script" path="res://game/player/hero.gd" id="1_igtp0"]
-[ext_resource type="Texture2D" uid="uid://dmd0j5udvj4fd" path="res://assets/images/heroes/playerBlue.svg" id="2_stwi8"]
+[ext_resource type="Texture2D" uid="uid://c4p26r6nq0g8e" path="res://assets/images/heroes/playerBlue.svg" id="2_stwi8"]
 [ext_resource type="PackedScene" uid="uid://d2digs1504cha" path="res://game/player/hero_stats.tscn" id="3_ts3fx"]
 [ext_resource type="Script" path="res://game/player/weapon.gd" id="4_kpa3e"]
 [ext_resource type="Script" path="res://game/player/bullets/bulletHero.gd" id="5_u2ejl"]

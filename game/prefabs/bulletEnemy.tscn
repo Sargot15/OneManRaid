@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://kglkywockhqj"]
 
 [ext_resource type="Script" path="res://game/enemies/bullets/bulletEnemy.gd" id="1_4tgov"]
-[ext_resource type="Texture2D" uid="uid://dmd0j5udvj4fd" path="res://assets/images/heroes/playerBlue.svg" id="2_hfa61"]
+[ext_resource type="Texture2D" uid="uid://c4p26r6nq0g8e" path="res://assets/images/heroes/playerBlue.svg" id="2_hfa61"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_efk10"]
-radius = 56.0
+radius = 24.0
 
 [node name="BulletEnemy" type="Area2D"]
-scale = Vector2(0.125, 0.125)
+scale = Vector2(0.25, 0.25)
 script = ExtResource("1_4tgov")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

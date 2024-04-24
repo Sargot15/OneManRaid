@@ -1,24 +1,23 @@
 [gd_scene load_steps=8 format=3 uid="uid://dl2kn4p8em6wa"]
 
 [ext_resource type="Script" path="res://game/player/player.gd" id="1_b33ml"]
-[ext_resource type="Texture2D" uid="uid://cxso2iontn7ox" path="res://assets/images/heroes/playerBlue.png" id="1_sic3u"]
+[ext_resource type="Texture2D" uid="uid://c4p26r6nq0g8e" path="res://assets/images/heroes/playerBlue.svg" id="2_gxi6b"]
 [ext_resource type="PackedScene" uid="uid://bgellnr12w2jt" path="res://game/player/heroes/heroBlue.tscn" id="3_umt6u"]
 [ext_resource type="PackedScene" uid="uid://xg4rhetg2qpb" path="res://game/player/heroes/heroBrown.tscn" id="4_xfw4h"]
 [ext_resource type="PackedScene" uid="uid://cjc70b11ymntk" path="res://game/player/heroes/heroGreen.tscn" id="5_7v7ts"]
 [ext_resource type="PackedScene" uid="uid://ciev3xntypyea" path="res://game/player/heroes/heroYellow.tscn" id="6_nr7rm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_shk6a"]
-radius = 38.0
+radius = 32.0156
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("heroes")]
-scale = Vector2(0.5, 0.5)
 script = ExtResource("1_b33ml")
 heroes = [NodePath("Heroes/HeroBlue"), NodePath("Heroes/HeroBrown"), NodePath("Heroes/HeroGreen"), NodePath("Heroes/HeroYellow")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
 texture_filter = 2
-texture = ExtResource("1_sic3u")
+texture = ExtResource("2_gxi6b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_shk6a")
