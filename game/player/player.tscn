@@ -8,14 +8,13 @@
 [ext_resource type="PackedScene" uid="uid://ciev3xntypyea" path="res://game/player/heroes/heroYellow.tscn" id="6_nr7rm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_shk6a"]
-radius = 32.0156
+radius = 16.1245
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("heroes")]
 script = ExtResource("1_b33ml")
 heroes = [NodePath("Heroes/HeroBlue"), NodePath("Heroes/HeroBrown"), NodePath("Heroes/HeroGreen"), NodePath("Heroes/HeroYellow")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
 texture_filter = 2
 texture = ExtResource("2_gxi6b")
 
