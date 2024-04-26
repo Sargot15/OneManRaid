@@ -8,5 +8,4 @@ damage = 2.0
 type = 2
 
 [node name="Sprite2D" parent="." index="0"]
-scale = Vector2(1.49693, 1.5)
 texture = ExtResource("2_gd5y0")

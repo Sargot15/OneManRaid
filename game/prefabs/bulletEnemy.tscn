@@ -4,15 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://c4p26r6nq0g8e" path="res://assets/images/heroes/playerBlue.svg" id="2_hfa61"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_efk10"]
-radius = 24.0
+radius = 15.0
 
 [node name="BulletEnemy" type="Area2D"]
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.4, 0.4)
 script = ExtResource("1_4tgov")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 2
-scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_hfa61")
 
 [node name="KillTimer" type="Timer" parent="."]
