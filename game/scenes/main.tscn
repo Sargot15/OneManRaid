@@ -20,20 +20,6 @@ offset_right = 3482.0
 offset_bottom = 1963.0
 color = Color(0.843137, 0.843137, 0.843137, 1)
 
-[node name="ColorRect" type="ColorRect" parent="ColorRect"]
-layout_mode = 0
-offset_left = 3172.0
-offset_right = 3482.0
-offset_bottom = 1959.0
-color = Color(1, 0, 1, 1)
-
-[node name="ColorRect2" type="ColorRect" parent="ColorRect"]
-layout_mode = 0
-offset_left = 2860.0
-offset_right = 3175.0
-offset_bottom = 1959.0
-color = Color(0, 0, 1, 1)
-
 [node name="Canvas" parent="." instance=ExtResource("2_roc2n")]
 anchors_preset = 0
 anchor_right = 0.0
