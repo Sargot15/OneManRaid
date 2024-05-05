@@ -41,9 +41,26 @@ remote_path = NodePath("../../Camera2D")
 
 [node name="Spawner2" parent="." instance=ExtResource("3_fqhyt")]
 position = Vector2(781, 330)
+spawn_point_count = 30
+shooting_time = 2.0
+change_bullet_time = 2.0
+shoot_pattern = 2
+ed_radius = 10.0
+od_direction = 90.0
+od_bullet_separation = 18.0
+rotation_speed = 10.0
 
 [node name="Spawner" parent="." instance=ExtResource("3_fqhyt")]
-position = Vector2(780, 179)
+position = Vector2(780, 177)
+spawn_point_count = 20
+shooting_time = 0.15
+change_bullet_time = 2.0
+angle_radius = 20.0
+angle_direction = 270.0
+angle_arc = 90.0
+ed_radius = 10.0
+rotation_enabled = true
+rotation_speed = 80.0
 
 [node name="MapLimits" type="StaticBody2D" parent="."]
 

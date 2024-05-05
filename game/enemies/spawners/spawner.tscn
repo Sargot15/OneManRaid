@@ -1,17 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://buo4x18g2wae"]
+[gd_scene load_steps=10 format=3 uid="uid://buo4x18g2wae"]
 
 [ext_resource type="Script" path="res://game/enemies/spawners/spawner.gd" id="1_7lnj1"]
 [ext_resource type="PackedScene" uid="uid://dh2gjonypu00p" path="res://game/enemies/bullets/bulletEnemyBlue.tscn" id="2_eqovb"]
 [ext_resource type="PackedScene" uid="uid://bfvidc12weevw" path="res://game/enemies/bullets/bulletEnemyBrown.tscn" id="3_lumac"]
 [ext_resource type="PackedScene" uid="uid://dcoe82nj0jmhb" path="res://game/enemies/bullets/bulletEnemyGreen.tscn" id="4_oe6bt"]
 [ext_resource type="PackedScene" uid="uid://chbmuk04fuig8" path="res://game/enemies/bullets/bulletEnemyYellow.tscn" id="5_6ifkl"]
+[ext_resource type="Script" path="res://game/enemies/spawners/SpawnerRotater.gd" id="6_kam7f"]
+[ext_resource type="Script" path="res://game/enemies/spawners/SpawnerPatternAngle.gd" id="7_ddf50"]
+[ext_resource type="Script" path="res://game/enemies/spawners/SpawnerPatternEquallyDistributed.gd" id="7_yao41"]
+[ext_resource type="Script" path="res://game/enemies/spawners/SpawnerPatternOneDirection.gd" id="9_amlx4"]
 
 [node name="Spawner" type="Node2D"]
 script = ExtResource("1_7lnj1")
 bullet_types = Array[PackedScene]([ExtResource("2_eqovb"), ExtResource("3_lumac"), ExtResource("4_oe6bt"), ExtResource("5_6ifkl")])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.05, 0.05)
 
 [node name="ShootTimer" type="Timer" parent="."]
 wait_time = 0.25
@@ -19,9 +23,22 @@ autostart = true
 
 [node name="ChangeBulletTimer" type="Timer" parent="."]
 wait_time = 2.0
-autostart = true
 
 [node name="Rotater" type="Node2D" parent="."]
+script = ExtResource("6_kam7f")
+
+[node name="SpawnerPoints" type="Node2D" parent="."]
+
+[node name="ShootPatterns" type="Node" parent="."]
+
+[node name="Angle" type="Node" parent="ShootPatterns"]
+script = ExtResource("7_ddf50")
+
+[node name="EquallyDistributed" type="Node" parent="ShootPatterns"]
+script = ExtResource("7_yao41")
+
+[node name="OneDirection" type="Node" parent="ShootPatterns"]
+script = ExtResource("9_amlx4")
 
 [connection signal="child_entered_tree" from="Sprite2D" to="." method="_on_sprite_2d_child_entered_tree"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
