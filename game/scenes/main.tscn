@@ -39,29 +39,6 @@ position = Vector2(406, 295)
 position = Vector2(192, 0)
 remote_path = NodePath("../../Camera2D")
 
-[node name="Spawner2" parent="." instance=ExtResource("3_fqhyt")]
-position = Vector2(781, 330)
-spawn_point_count = 30
-shooting_time = 2.0
-change_bullet_time = 2.0
-shoot_pattern = 2
-ed_radius = 10.0
-od_direction = 90.0
-od_bullet_separation = 18.0
-rotation_speed = 10.0
-
-[node name="Spawner" parent="." instance=ExtResource("3_fqhyt")]
-position = Vector2(780, 177)
-spawn_point_count = 20
-shooting_time = 0.15
-change_bullet_time = 2.0
-angle_radius = 20.0
-angle_direction = 270.0
-angle_arc = 90.0
-ed_radius = 10.0
-rotation_enabled = true
-rotation_speed = 80.0
-
 [node name="MapLimits" type="StaticBody2D" parent="."]
 
 [node name="TopLimit" type="CollisionShape2D" parent="MapLimits"]
@@ -86,6 +63,78 @@ limit_left = 0
 limit_top = 0
 limit_right = 3866
 limit_bottom = 1963
+
+[node name="Spawners" type="Node" parent="."]
+
+[node name="Spawner" parent="Spawners" instance=ExtResource("3_fqhyt")]
+position = Vector2(780, 177)
+spawn_point_count = 20
+shooting_time = 0.15
+change_bullet_time = 2.0
+angle_radius = 20.0
+angle_direction = 270.0
+angle_arc = 90.0
+ed_radius = 10.0
+rotation_enabled = true
+rotation_speed = 80.0
+
+[node name="Spawner2" parent="Spawners" instance=ExtResource("3_fqhyt")]
+position = Vector2(781, 330)
+spawn_point_count = 30
+shooting_time = 0.5
+change_bullet_time = 2.0
+shoot_pattern = 2
+ed_radius = 10.0
+od_direction = 90.0
+od_bullet_separation = 18.0
+rotation_enabled = true
+rotation_speed = 25.0
+
+[node name="Spawner3" parent="Spawners" instance=ExtResource("3_fqhyt")]
+position = Vector2(378, 1299)
+spawn_point_count = 30
+shooting_time = 0.5
+change_bullet_time = 2.0
+shoot_pattern = 2
+ed_radius = 10.0
+od_bullet_separation = 18.0
+rotation_speed = 10.0
+
+[node name="Spawner5" parent="Spawners" instance=ExtResource("3_fqhyt")]
+position = Vector2(1599, 1289)
+spawn_point_count = 8
+shooting_time = 0.2
+change_bullet_time = 2.0
+shoot_pattern = 1
+ed_radius = 10.0
+od_direction = 90.0
+od_bullet_separation = 18.0
+rotation_enabled = true
+rotation_speed = 10.0
+
+[node name="Spawner6" parent="Spawners" instance=ExtResource("3_fqhyt")]
+position = Vector2(2104, 1316)
+spawn_point_count = 20
+shooting_time = 0.5
+change_bullet_time = 2.0
+angle_radius = 2.0
+angle_direction = 270.0
+angle_arc = 180.0
+ed_radius = 10.0
+od_direction = 90.0
+od_bullet_separation = 18.0
+rotation_speed = 10.0
+
+[node name="Spawner7" parent="Spawners" instance=ExtResource("3_fqhyt")]
+position = Vector2(2588, 1303)
+spawn_point_count = 30
+shooting_time = 0.2
+change_bullet_time = 2.0
+shoot_pattern = 2
+ed_radius = 10.0
+od_direction = 90.0
+od_bullet_separation = 18.0
+rotation_speed = 10.0
 
 [connection signal="hero_health_update" from="Player" to="Canvas" method="_on_hero_health_update"]
 [connection signal="stats_updated" from="Player" to="Canvas" method="_on_hero_stats_updated"]
