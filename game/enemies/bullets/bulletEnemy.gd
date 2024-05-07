@@ -2,6 +2,7 @@ extends Node2D
 
 @export var speed : float = 400
 @export var damage : float
+@export var is_static : bool = false
 @export var type : Globals.COLOR_TYPE
 
 func _ready():
@@ -9,7 +10,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	position += transform.x * speed * delta
+	if (!is_static):
+		position += transform.x * speed * delta
 	
 
 func _on_kill_timer_timeout():
