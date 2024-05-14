@@ -40,6 +40,7 @@ position = Vector2(192, 0)
 remote_path = NodePath("../../Camera2D")
 
 [node name="MapLimits" type="StaticBody2D" parent="."]
+collision_layer = 2
 
 [node name="TopLimit" type="CollisionShape2D" parent="MapLimits"]
 position = Vector2(1740.5, -20.5)
@@ -68,7 +69,7 @@ limit_bottom = 1963
 
 [node name="Spawner" parent="Spawners" instance=ExtResource("3_fqhyt")]
 position = Vector2(780, 177)
-spawn_point_count = 20
+spawn_point_count = 10
 shooting_time = 0.15
 change_bullet_time = 2.0
 angle_radius = 20.0
@@ -80,11 +81,15 @@ rotation_speed = 80.0
 
 [node name="Spawner2" parent="Spawners" instance=ExtResource("3_fqhyt")]
 position = Vector2(781, 330)
-spawn_point_count = 30
+spawn_point_count = 4
 shooting_time = 0.5
 change_bullet_time = 2.0
-shoot_pattern = 2
-ed_radius = 10.0
+has_static_bullets = true
+sb_bullets_per_spawn = 40
+shoot_pattern = 1
+angle_radius = 20.0
+angle_arc = 120.0
+ed_radius = 15.0
 od_direction = 90.0
 od_bullet_separation = 18.0
 rotation_enabled = true
