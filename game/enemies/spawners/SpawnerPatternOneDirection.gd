@@ -22,7 +22,6 @@ func initialize_pattern(direction: float, separation: float, spawn_point_count: 
 		var spawn_point = Node2D.new()
 		var pos = Vector2(1, start_point - i * separation)
 		spawn_point.position = pos
-		#spawn_point.rotation = pos.angle()
 		spawner_points.add_child(spawn_point)
 		
 	# Then we rotated to point to the direction

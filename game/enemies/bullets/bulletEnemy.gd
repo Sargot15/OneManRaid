@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var kill_timer = $KillTimer
+
 @export var speed : float = 400
 @export var damage : float
 @export var is_static : bool = false
@@ -25,3 +27,9 @@ func _on_body_entered(body):
 	
 	Globals.debug_total_enemy_bullets -= 1
 	queue_free()
+
+func set_time_alive(time_alive : float):
+	kill_timer.stop()
+	if (time_alive > 0):
+		kill_timer.wait_time = time_alive
+		kill_timer.start()

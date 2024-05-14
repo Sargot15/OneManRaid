@@ -3,3 +3,5 @@
 [ext_resource type="PackedScene" uid="uid://kglkywockhqj" path="res://game/prefabs/bulletEnemy.tscn" id="1_v31at"]
 
 [node name="BulletEnemy" instance=ExtResource("1_v31at")]
+damage = 2.0
+type = 1

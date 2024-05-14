@@ -21,6 +21,10 @@ extends Node2D
 ## Time in seconds to change bullet's type. If the value is 0 then the bullet type it is going to be always the same
 @export var change_bullet_time : float
 
+@export_subgroup("Static bullets")
+@export var has_static_bullets : bool = false
+@export var sb_bullets_per_spawn : int = 1
+
 @export_category("Shoot pattern")
 enum ShootPattern {ANGLE, EQUALLIY_DISTRIBUTED, ONE_DIRECTION}
 @export var shoot_pattern : ShootPattern
@@ -63,21 +67,27 @@ func _ready():
 
 
 func initialize_components():
-	#Set timers
-	set_shoot_timer(shooting_time)
-	if (change_bullet_time > 0):
-		set_change_bullet_timer(change_bullet_time)
 	
 	# Set first bullet
 	bullet_scene = bullet_types.pick_random()
 	
 	# Set pattern
 	initialize_pattern()
-		
+	
+	if (has_static_bullets):
+		initialize_static_bullets()
+		shoot_timer.stop()
+	else:
+		#Set timers
+		set_shoot_timer(shooting_time)
+		if (change_bullet_time > 0):
+			set_change_bullet_timer(change_bullet_time)
+	
 	# Behaviours
 	if (rotation_enabled):
 		rotater.initialize(rotation_speed)
-		
+
+
 func initialize_pattern():
 	if (shoot_pattern == ShootPattern.ANGLE):
 		pattern_angle.initialize_pattern(angle_direction, angle_arc, angle_radius, spawn_point_count)
@@ -88,6 +98,14 @@ func initialize_pattern():
 	else:
 		pass
 
+func initialize_static_bullets():
+	for s in spawner_points.get_children():
+		for i in sb_bullets_per_spawn:
+			var bullet = bullet_scene.instantiate()
+			s.add_child(bullet)
+			bullet.position.x += i * 20
+			bullet.is_static = true
+			bullet.set_time_alive(0)
 
 func set_shoot_timer(shooting_time : float):
 	shoot_timer.stop()
@@ -98,7 +116,7 @@ func set_shoot_timer(shooting_time : float):
 func set_change_bullet_timer(change_bullet_time : float):
 	change_bullet_timer.stop()
 	change_bullet_timer.wait_time = change_bullet_time
-	change_bullet_timer.start()		
+	change_bullet_timer.start()
 
 #------------------------------------
 # TIMERS
