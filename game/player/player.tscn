@@ -11,6 +11,7 @@
 radius = 16.1245
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("heroes")]
+collision_mask = 2
 script = ExtResource("1_b33ml")
 heroes = [NodePath("Heroes/HeroBlue"), NodePath("Heroes/HeroBrown"), NodePath("Heroes/HeroGreen"), NodePath("Heroes/HeroYellow")]
 
