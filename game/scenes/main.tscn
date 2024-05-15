@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bnoejrqn6gd7q"]
+[gd_scene load_steps=8 format=3 uid="uid://bnoejrqn6gd7q"]
 
 [ext_resource type="PackedScene" uid="uid://dl2kn4p8em6wa" path="res://game/player/player.tscn" id="1_7yei7"]
 [ext_resource type="PackedScene" uid="uid://cc407asobqgjd" path="res://game/ui/canvas.tscn" id="2_roc2n"]
 [ext_resource type="PackedScene" uid="uid://buo4x18g2wae" path="res://game/enemies/spawners/spawner.tscn" id="3_fqhyt"]
+[ext_resource type="PackedScene" uid="uid://35ioia0g3u0x" path="res://game/enemies/bullets/bulletEnemyGray.tscn" id="4_j57nn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ftxl5"]
 size = Vector2(3563, 40)
@@ -82,6 +83,7 @@ rotation_speed = 80.0
 [node name="Spawner2" parent="Spawners" instance=ExtResource("3_fqhyt")]
 position = Vector2(781, 330)
 spawn_point_count = 4
+bullet_types = Array[PackedScene]([ExtResource("4_j57nn")])
 shooting_time = 0.5
 change_bullet_time = 2.0
 has_static_bullets = true
@@ -110,11 +112,12 @@ position = Vector2(1599, 1289)
 spawn_point_count = 8
 shooting_time = 0.2
 change_bullet_time = 2.0
+has_static_bullets = true
+sb_bullets_per_spawn = 20
 shoot_pattern = 1
 ed_radius = 10.0
 od_direction = 90.0
 od_bullet_separation = 18.0
-rotation_enabled = true
 rotation_speed = 10.0
 
 [node name="Spawner6" parent="Spawners" instance=ExtResource("3_fqhyt")]
