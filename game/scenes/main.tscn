@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bnoejrqn6gd7q"]
+[gd_scene load_steps=9 format=3 uid="uid://bnoejrqn6gd7q"]
 
 [ext_resource type="PackedScene" uid="uid://dl2kn4p8em6wa" path="res://game/player/player.tscn" id="1_7yei7"]
 [ext_resource type="PackedScene" uid="uid://cc407asobqgjd" path="res://game/ui/canvas.tscn" id="2_roc2n"]
 [ext_resource type="PackedScene" uid="uid://buo4x18g2wae" path="res://game/enemies/spawners/spawner.tscn" id="3_fqhyt"]
 [ext_resource type="PackedScene" uid="uid://35ioia0g3u0x" path="res://game/enemies/bullets/bulletEnemyGray.tscn" id="4_j57nn"]
+[ext_resource type="PackedScene" uid="uid://dcoy01oiym2ng" path="res://game/prefabs/boss.tscn" id="5_3wx8c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ftxl5"]
 size = Vector2(3563, 40)
@@ -19,7 +20,7 @@ size = Vector2(40, 2045.5)
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 3482.0
 offset_bottom = 1963.0
-color = Color(0.843137, 0.843137, 0.843137, 1)
+color = Color(0.305882, 0.392157, 0.431373, 1)
 
 [node name="Canvas" parent="." instance=ExtResource("2_roc2n")]
 anchors_preset = 0
@@ -143,6 +144,10 @@ ed_radius = 10.0
 od_direction = 90.0
 od_bullet_separation = 18.0
 rotation_speed = 10.0
+
+[node name="Boss" parent="." instance=ExtResource("5_3wx8c")]
+position = Vector2(74, 1148)
+max_health = 10000.0
 
 [connection signal="hero_health_update" from="Player" to="Canvas" method="_on_hero_health_update"]
 [connection signal="stats_updated" from="Player" to="Canvas" method="_on_hero_stats_updated"]

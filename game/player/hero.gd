@@ -21,7 +21,7 @@ func _process(delta):
 
 func shoot():
 	if (time_to_next_attack <= 0):
-		weapon.shoot($HeroStats.attack_range)
+		weapon.shoot($HeroStats.attack, $HeroStats.attack_range)
 		time_to_next_attack = 1 / $HeroStats.attack_speed
 	
 func take_damage(damage : float, color_type : Globals.COLOR_TYPE):
