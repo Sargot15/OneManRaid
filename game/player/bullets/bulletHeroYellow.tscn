@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://b7tgo274s586x" path="res://assets/images/heroes/bullets/playerBulletYellow.svg" id="2_noaj6"]
 
 [node name="BulletHero" instance=ExtResource("1_s4mrj")]
-speed = 400.0
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_noaj6")

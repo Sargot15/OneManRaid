@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://gimdnar0twai" path="res://icon.svg" id="2_cc5l6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_60dcp"]
-size = Vector2(127, 127)
+size = Vector2(128, 128)
 
 [node name="Boss" type="CharacterBody2D"]
 collision_layer = 4
@@ -14,5 +14,4 @@ script = ExtResource("1_0wt7v")
 texture = ExtResource("2_cc5l6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_60dcp")
