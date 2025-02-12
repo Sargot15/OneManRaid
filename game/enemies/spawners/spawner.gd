@@ -5,6 +5,7 @@ extends Node2D
 #------------------------------------
 @onready var shoot_timer = $ShootTimer
 @onready var change_bullet_timer = $ChangeBulletTimer
+@onready var time_alive_timer = $TimeAliveTimer
 @onready var rotater = $Rotater
 @onready var spawner_points = $SpawnerPoints
 @onready var pattern_angle = $ShootPatterns/Angle
@@ -20,6 +21,7 @@ extends Node2D
 @export_range(0.01, 100) var shooting_time : float
 ## Time in seconds to change bullet's type. If the value is 0 then the bullet type it is going to be always the same
 @export var change_bullet_time : float
+@export var time_alive : float
 
 @export_subgroup("Static bullets")
 @export var has_static_bullets : bool = false
@@ -86,6 +88,10 @@ func initialize_components():
 	# Behaviours
 	if (rotation_enabled):
 		rotater.initialize(rotation_speed)
+		
+	if (time_alive > 0):
+		time_alive_timer.wait_time = time_alive
+		time_alive_timer.start()
 
 
 func initialize_pattern():
@@ -132,7 +138,12 @@ func _on_shoot_timer_timeout():
 func _on_change_bullet_timer_timeout():
 	bullet_scene = bullet_types.pick_random()
 
+func _on_time_alive_timer_timeout():
+	queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+
+

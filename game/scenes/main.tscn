@@ -103,6 +103,7 @@ position = Vector2(378, 1299)
 spawn_point_count = 30
 shooting_time = 0.5
 change_bullet_time = 2.0
+time_alive = 15.0
 shoot_pattern = 2
 ed_radius = 10.0
 od_bullet_separation = 18.0

@@ -24,6 +24,8 @@ autostart = true
 [node name="ChangeBulletTimer" type="Timer" parent="."]
 wait_time = 2.0
 
+[node name="TimeAliveTimer" type="Timer" parent="."]
+
 [node name="Rotater" type="Node2D" parent="."]
 script = ExtResource("6_kam7f")
 
@@ -43,3 +45,4 @@ script = ExtResource("9_amlx4")
 [connection signal="child_entered_tree" from="Sprite2D" to="." method="_on_sprite_2d_child_entered_tree"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
 [connection signal="timeout" from="ChangeBulletTimer" to="." method="_on_change_bullet_timer_timeout"]
+[connection signal="timeout" from="TimeAliveTimer" to="." method="_on_time_alive_timer_timeout"]
