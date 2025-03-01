@@ -29,5 +29,7 @@ window/stretch/mode="canvas_items"
 
 folder_colors={
 "res://assets/": "blue",
+"res://game/enemies/": "red",
+"res://game/player/": "green",
 "res://game/prefabs/": "orange"
 }
