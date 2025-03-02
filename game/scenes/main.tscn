@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cc407asobqgjd" path="res://game/ui/canvas.tscn" id="2_roc2n"]
 [ext_resource type="PackedScene" uid="uid://buo4x18g2wae" path="res://game/enemies/spawners/spawner.tscn" id="3_fqhyt"]
 [ext_resource type="PackedScene" uid="uid://35ioia0g3u0x" path="res://game/enemies/bullets/bulletEnemyGray.tscn" id="4_j57nn"]
-[ext_resource type="PackedScene" uid="uid://5e8na2s7dfum" path="res://game/enemies/bosses/test_boss.tscn" id="5_44wt8"]
+[ext_resource type="PackedScene" uid="uid://cgcuj4xh4swtq" path="res://game/enemies/bosses/entities/azrael.tscn" id="5_4fhmr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ftxl5"]
 size = Vector2(3563, 40)
@@ -35,7 +35,7 @@ grow_vertical = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Player" parent="." instance=ExtResource("1_7yei7")]
-position = Vector2(2188, 352)
+position = Vector2(1274, 1386)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 position = Vector2(192, 0)
@@ -61,7 +61,7 @@ position = Vector2(3502, 982)
 shape = SubResource("RectangleShape2D_vy1kk")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(2380, 352)
+position = Vector2(1466, 1386)
 limit_left = 0
 limit_top = 0
 limit_right = 3866
@@ -71,6 +71,7 @@ limit_bottom = 1963
 
 [node name="Spawner" parent="Spawners" instance=ExtResource("3_fqhyt")]
 position = Vector2(780, 177)
+enabled = false
 spawn_point_count = 10
 shooting_time = 0.15
 change_bullet_time = 2.0
@@ -83,6 +84,7 @@ rotation_speed = 80.0
 
 [node name="Spawner2" parent="Spawners" instance=ExtResource("3_fqhyt")]
 position = Vector2(781, 330)
+enabled = false
 spawn_point_count = 4
 bullet_types = Array[PackedScene]([ExtResource("4_j57nn")])
 shooting_time = 0.5
@@ -100,6 +102,7 @@ rotation_speed = 25.0
 
 [node name="Spawner3" parent="Spawners" instance=ExtResource("3_fqhyt")]
 position = Vector2(378, 1299)
+enabled = false
 spawn_point_count = 30
 shooting_time = 0.5
 change_bullet_time = 2.0
@@ -110,7 +113,8 @@ od_bullet_separation = 18.0
 rotation_speed = 10.0
 
 [node name="Spawner5" parent="Spawners" instance=ExtResource("3_fqhyt")]
-position = Vector2(1599, 1289)
+position = Vector2(1599, 1287)
+enabled = false
 spawn_point_count = 8
 shooting_time = 0.2
 change_bullet_time = 2.0
@@ -124,6 +128,7 @@ rotation_speed = 10.0
 
 [node name="Spawner6" parent="Spawners" instance=ExtResource("3_fqhyt")]
 position = Vector2(2104, 1316)
+enabled = false
 spawn_point_count = 20
 shooting_time = 0.5
 change_bullet_time = 2.0
@@ -137,6 +142,7 @@ rotation_speed = 10.0
 
 [node name="Spawner7" parent="Spawners" instance=ExtResource("3_fqhyt")]
 position = Vector2(2588, 1303)
+enabled = false
 spawn_point_count = 30
 shooting_time = 0.2
 change_bullet_time = 2.0
@@ -148,6 +154,7 @@ rotation_speed = 10.0
 
 [node name="Spawner8" parent="Spawners" instance=ExtResource("3_fqhyt")]
 position = Vector2(2760, 359)
+enabled = false
 spawn_point_count = 30
 shooting_time = 0.2
 change_bullet_time = 2.0
@@ -161,8 +168,8 @@ od_bullet_separation = 18.0
 rotation_enabled = true
 rotation_speed = 25.0
 
-[node name="Boss" parent="." instance=ExtResource("5_44wt8")]
-position = Vector2(2156, 732)
+[node name="Boss" parent="." instance=ExtResource("5_4fhmr")]
+position = Vector2(1628, 1107)
 
 [connection signal="hero_health_update" from="Player" to="Canvas" method="_on_hero_health_update"]
 [connection signal="stats_updated" from="Player" to="Canvas" method="_on_hero_stats_updated"]

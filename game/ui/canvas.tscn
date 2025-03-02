@@ -957,3 +957,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_rc8ib")
+
+[node name="Debug_EnableSpawners" type="Button" parent="CanvasLayer"]
+offset_top = 51.0
+offset_right = 203.0
+offset_bottom = 82.0
+text = "Enable/Disable Spawners"
+
+[connection signal="pressed" from="CanvasLayer/Debug_EnableSpawners" to="." method="_on_debug_enable_spawners_pressed"]

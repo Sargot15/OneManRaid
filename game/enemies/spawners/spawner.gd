@@ -16,6 +16,7 @@ extends Node2D
 #------------------------------------
 # EXPORT VARIABLES
 #------------------------------------
+@export var enabled : bool = true
 @export var spawn_point_count : int
 @export var bullet_types : Array[PackedScene]
 @export_range(0.01, 100) var shooting_time : float
@@ -65,7 +66,8 @@ var bullet_scene : PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	initialize_components()
+	if (enabled):
+		initialize_components()
 
 
 func initialize_components():
@@ -123,6 +125,24 @@ func set_change_bullet_timer(change_bullet_time : float):
 	change_bullet_timer.stop()
 	change_bullet_timer.wait_time = change_bullet_time
 	change_bullet_timer.start()
+	
+func enable():
+	# initialize components again
+	initialize_components()
+	
+	enabled = true
+	
+func disable():
+	# stop all timers
+	shoot_timer.stop()
+	change_bullet_timer.stop()
+	time_alive_timer.stop()
+	
+	# remove all the spawner points
+	for s in spawner_points.get_children():
+		s.queue_free()
+	
+	enabled = false
 
 #------------------------------------
 # TIMERS

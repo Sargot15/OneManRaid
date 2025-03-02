@@ -31,3 +31,11 @@ func _on_hero_stats_updated(hero_type, def, att, spd, att_range, att_speed):
 	if (hero_type == Globals.COLOR_TYPE.YELLOW):
 		$CanvasLayer/PanelHeroesInfo/PanelHeroYellow/HeroInfo/Stats/StatsTexts.update_stats(def, att, spd, att_range, att_speed)
 
+
+
+func _on_debug_enable_spawners_pressed():
+	for s in $"../Spawners".get_children():
+		if (s.enabled):
+			s.disable()
+		else:
+			s.enable()
