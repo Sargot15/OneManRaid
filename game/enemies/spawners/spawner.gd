@@ -127,22 +127,24 @@ func set_change_bullet_timer(change_bullet_time : float):
 	change_bullet_timer.start()
 	
 func enable():
-	# initialize components again
-	initialize_components()
-	
-	enabled = true
+	if (!enabled):
+		# initialize components again
+		initialize_components()
+		
+		enabled = true
 	
 func disable():
-	# stop all timers
-	shoot_timer.stop()
-	change_bullet_timer.stop()
-	time_alive_timer.stop()
-	
-	# remove all the spawner points
-	for s in spawner_points.get_children():
-		s.queue_free()
-	
-	enabled = false
+	if (enabled):
+		# stop all timers
+		shoot_timer.stop()
+		change_bullet_timer.stop()
+		time_alive_timer.stop()
+		
+		# remove all the spawner points
+		for s in spawner_points.get_children():
+			s.queue_free()
+		
+		enabled = false
 
 #------------------------------------
 # TIMERS
