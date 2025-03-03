@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgcuj4xh4swtq"]
+
+[ext_resource type="PackedScene" uid="uid://dcoy01oiym2ng" path="res://game/prefabs/boss.tscn" id="1_j7aka"]
+[ext_resource type="PackedScene" uid="uid://buo4x18g2wae" path="res://game/enemies/spawners/spawner.tscn" id="2_etffr"]
+
+[node name="Boss" instance=ExtResource("1_j7aka")]
+
+[node name="TopScreen" parent="GlobalSpawners" index="0" instance=ExtResource("2_etffr")]
+position = Vector2(1742, 0)
+spawn_point_count = 174
+shooting_time = 5.0
+change_bullet_time = 5.0
+shoot_pattern = 2
+od_direction = 90.0
+od_bullet_separation = 20.0
+bullet_speed = 600.0
+bullet_damage = 5.0
+bullet_time_alive = 0.0
+bullet_max_distance = 2000.0
+
+[node name="BottomScreen" parent="GlobalSpawners" index="1" instance=ExtResource("2_etffr")]
+position = Vector2(1742, 1965)
+spawn_point_count = 174
+shooting_time = 5.0
+change_bullet_time = 5.0
+shoot_pattern = 2
+od_direction = 270.0
+od_bullet_separation = 20.0
+bullet_speed = 600.0
+bullet_damage = 5.0
+bullet_time_alive = 0.0
+bullet_max_distance = 2000.0
+
+[node name="LeftScreen" parent="GlobalSpawners" index="2" instance=ExtResource("2_etffr")]
+position = Vector2(0, 982)
+spawn_point_count = 100
+shooting_time = 5.0
+change_bullet_time = 5.0
+shoot_pattern = 2
+od_bullet_separation = 20.0
+bullet_speed = 600.0
+bullet_damage = 5.0
+bullet_time_alive = 0.0
+bullet_max_distance = 3500.0
+
+[node name="RightScreen" parent="GlobalSpawners" index="3" instance=ExtResource("2_etffr")]
+position = Vector2(3484, 982)
+spawn_point_count = 100
+shooting_time = 5.0
+change_bullet_time = 5.0
+shoot_pattern = 2
+od_direction = 180.0
+od_bullet_separation = 20.0
+bullet_speed = 600.0
+bullet_damage = 5.0
+bullet_time_alive = 0.0
+bullet_max_distance = 3500.0

@@ -55,6 +55,12 @@ enum ShootPattern {ANGLE, EQUALLIY_DISTRIBUTED, ONE_DIRECTION}
 @export var rotation_enabled : bool
 @export var rotation_speed : float
 
+@export_category("Bullets modifiers")
+@export var bullet_speed : float = -1
+@export var bullet_damage : float = -1
+@export var bullet_time_alive : float = -1
+@export var bullet_max_distance : float = -1
+
 #------------------------------------
 # LOCAL VARIABLES
 #------------------------------------
@@ -111,9 +117,10 @@ func initialize_static_bullets():
 		for i in sb_bullets_per_spawn:
 			var bullet = bullet_scene.instantiate()
 			s.add_child(bullet)
-			bullet.position.x += i * 20
+			bullet.position.x += i * 20 #TODO: Make that '20' an export var
 			bullet.is_static = true
 			bullet.set_time_alive(0)
+			apply_bullet_modifiers(bullet)
 
 func set_shoot_timer(shooting_time : float):
 	shoot_timer.stop()
@@ -145,6 +152,16 @@ func disable():
 			s.queue_free()
 		
 		enabled = false
+		
+func apply_bullet_modifiers(bullet):
+	if (bullet_speed != -1):
+		bullet.speed = bullet_speed
+	if (bullet_damage != -1):
+		bullet.damage = bullet_damage
+	if (bullet_max_distance != -1):
+		bullet.max_distance = bullet_max_distance
+	if (bullet_time_alive != -1):
+		bullet.set_time_alive(bullet_time_alive)
 
 #------------------------------------
 # TIMERS
@@ -155,6 +172,7 @@ func _on_shoot_timer_timeout():
 		get_tree().root.add_child(bullet)
 		bullet.position = s.global_position
 		bullet.rotation = s.global_rotation
+		apply_bullet_modifiers(bullet)
 
 
 func _on_change_bullet_timer_timeout():

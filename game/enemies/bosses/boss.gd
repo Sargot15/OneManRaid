@@ -17,4 +17,3 @@ func _process(delta):
 
 func take_damage(damage : float):
 	health -= damage
-	print("Actual health Boss : " + str(health))

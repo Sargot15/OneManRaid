@@ -24,4 +24,8 @@ script = ExtResource("3_ybibf")
 
 [node name="Abilities" type="Node2D" parent="AbilitiesCaster"]
 
+[node name="LocalSpawners" type="Node2D" parent="."]
+
+[node name="GlobalSpawners" type="Node" parent="."]
+
 [connection signal="timeout" from="AbilitiesCaster/TryCastAbilityTimer" to="AbilitiesCaster" method="_on_try_cast_ability_timer_timeout"]

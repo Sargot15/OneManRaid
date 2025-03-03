@@ -1,15 +1,20 @@
 extends Node2D
 
+class_name bulletEnemy
+
 @onready var kill_timer = $KillTimer
 @onready var hit_again_timer = $HitAgainTimer
 
 @export var speed : float = 400
 @export var damage : float
 @export var is_static : bool = false
+# When reached this distance the bullet will be destroyed unless it's -1
+@export var max_distance : float = -1 
 @export var destroy_on_collistion : bool = true
 @export var type : Globals.COLOR_TYPE
 
 var hit_recently : bool = false
+var distance_traveled : float = 0
 
 func _ready():
 	Globals.debug_total_enemy_bullets += 1
@@ -18,11 +23,14 @@ func _ready():
 func _process(delta):
 	if (!is_static):
 		position += transform.x * speed * delta
+		distance_traveled += scale.x * speed * delta
+		
+	if (max_distance != -1 && distance_traveled >= max_distance):
+		destroy()
 	
 
 func _on_kill_timer_timeout():
-	Globals.debug_total_enemy_bullets -= 1
-	queue_free()
+	destroy()
 
 
 func _on_body_entered(body):
@@ -32,9 +40,7 @@ func _on_body_entered(body):
 		hit_again_timer.start()
 	
 	if (destroy_on_collistion):
-		Globals.debug_total_enemy_bullets -= 1
-		queue_free()
-
+		destroy()
 
 func _on_hit_again_timer_timeout():
 	hit_recently = false
@@ -45,3 +51,7 @@ func set_time_alive(time_alive : float):
 	if (time_alive > 0):
 		kill_timer.wait_time = time_alive
 		kill_timer.start()
+
+func destroy():
+	Globals.debug_total_enemy_bullets -= 1
+	queue_free()

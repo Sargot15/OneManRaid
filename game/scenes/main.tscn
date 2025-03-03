@@ -35,7 +35,7 @@ grow_vertical = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Player" parent="." instance=ExtResource("1_7yei7")]
-position = Vector2(1274, 1386)
+position = Vector2(2265, 427)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 position = Vector2(192, 0)
@@ -61,7 +61,7 @@ position = Vector2(3502, 982)
 shape = SubResource("RectangleShape2D_vy1kk")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(1466, 1386)
+position = Vector2(2457, 427)
 limit_left = 0
 limit_top = 0
 limit_right = 3866
