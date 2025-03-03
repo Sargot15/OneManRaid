@@ -24,6 +24,8 @@ script = ExtResource("3_ybibf")
 
 [node name="Abilities" type="Node2D" parent="AbilitiesCaster"]
 
+[node name="Passives" type="Node" parent="."]
+
 [node name="LocalSpawners" type="Node2D" parent="."]
 
 [node name="GlobalSpawners" type="Node" parent="."]

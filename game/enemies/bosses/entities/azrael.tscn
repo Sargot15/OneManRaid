@@ -1,12 +1,43 @@
-[gd_scene load_steps=3 format=3 uid="uid://cgcuj4xh4swtq"]
+[gd_scene load_steps=5 format=3 uid="uid://cgcuj4xh4swtq"]
 
 [ext_resource type="PackedScene" uid="uid://dcoy01oiym2ng" path="res://game/prefabs/boss.tscn" id="1_j7aka"]
+[ext_resource type="Script" path="res://game/enemies/bosses/abilities/passives/spawners_fixed.gd" id="2_1onmv"]
+[ext_resource type="Script" path="res://game/enemies/bosses/entities/azrael.gd" id="2_cr3xf"]
 [ext_resource type="PackedScene" uid="uid://buo4x18g2wae" path="res://game/enemies/spawners/spawner.tscn" id="2_etffr"]
 
 [node name="Boss" instance=ExtResource("1_j7aka")]
+script = ExtResource("2_cr3xf")
+max_health = 2500.0
+
+[node name="SpawnersFixedFullFight" type="Node" parent="Passives" index="0" node_paths=PackedStringArray("spawners")]
+script = ExtResource("2_1onmv")
+spawners = [NodePath("../../GlobalSpawners/TopScreen"), NodePath("../../GlobalSpawners/BottomScreen")]
+
+[node name="SpawnersFixedPhase1" type="Node" parent="Passives" index="1" node_paths=PackedStringArray("spawners")]
+script = ExtResource("2_1onmv")
+spawners = [NodePath("../../LocalSpawners/CircleExplosion")]
+
+[node name="SpawnersFixedPhase2" type="Node" parent="Passives" index="2" node_paths=PackedStringArray("spawners")]
+script = ExtResource("2_1onmv")
+spawners = [NodePath("../../GlobalSpawners/LeftScreen"), NodePath("../../GlobalSpawners/RightScreen")]
+
+[node name="CircleExplosion" parent="LocalSpawners" index="0" instance=ExtResource("2_etffr")]
+enabled = false
+spawn_point_count = 40
+shooting_time = 10.0
+change_bullet_time = 10.0
+shoot_pattern = 1
+ed_radius = 10.0
+od_direction = 90.0
+od_bullet_separation = 20.0
+bullet_speed = 600.0
+bullet_damage = 5.0
+bullet_time_alive = 0.0
+bullet_max_distance = 2000.0
 
 [node name="TopScreen" parent="GlobalSpawners" index="0" instance=ExtResource("2_etffr")]
 position = Vector2(1742, 0)
+enabled = false
 spawn_point_count = 174
 shooting_time = 5.0
 change_bullet_time = 5.0
@@ -20,6 +51,7 @@ bullet_max_distance = 2000.0
 
 [node name="BottomScreen" parent="GlobalSpawners" index="1" instance=ExtResource("2_etffr")]
 position = Vector2(1742, 1965)
+enabled = false
 spawn_point_count = 174
 shooting_time = 5.0
 change_bullet_time = 5.0
@@ -33,6 +65,7 @@ bullet_max_distance = 2000.0
 
 [node name="LeftScreen" parent="GlobalSpawners" index="2" instance=ExtResource("2_etffr")]
 position = Vector2(0, 982)
+enabled = false
 spawn_point_count = 100
 shooting_time = 5.0
 change_bullet_time = 5.0
@@ -45,6 +78,7 @@ bullet_max_distance = 3500.0
 
 [node name="RightScreen" parent="GlobalSpawners" index="3" instance=ExtResource("2_etffr")]
 position = Vector2(3484, 982)
+enabled = false
 spawn_point_count = 100
 shooting_time = 5.0
 change_bullet_time = 5.0

@@ -5,6 +5,7 @@ extends Node2D
 
 # Actual stats
 var health : float
+var actual_phase : int
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
