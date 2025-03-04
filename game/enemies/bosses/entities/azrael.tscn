@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cgcuj4xh4swtq"]
+[gd_scene load_steps=6 format=3 uid="uid://cgcuj4xh4swtq"]
 
 [ext_resource type="PackedScene" uid="uid://dcoy01oiym2ng" path="res://game/prefabs/boss.tscn" id="1_j7aka"]
 [ext_resource type="Script" path="res://game/enemies/bosses/abilities/passives/spawners_fixed.gd" id="2_1onmv"]
 [ext_resource type="Script" path="res://game/enemies/bosses/entities/azrael.gd" id="2_cr3xf"]
 [ext_resource type="PackedScene" uid="uid://buo4x18g2wae" path="res://game/enemies/spawners/spawner.tscn" id="2_etffr"]
+[ext_resource type="PackedScene" path="res://game/enemies/bullets/bulletEnemyGray.tscn" id="5_p7x5c"]
 
 [node name="Boss" instance=ExtResource("1_j7aka")]
 script = ExtResource("2_cr3xf")
@@ -19,7 +20,7 @@ spawners = [NodePath("../../LocalSpawners/CircleExplosion")]
 
 [node name="SpawnersFixedPhase2" type="Node" parent="Passives" index="2" node_paths=PackedStringArray("spawners")]
 script = ExtResource("2_1onmv")
-spawners = [NodePath("../../GlobalSpawners/LeftScreen"), NodePath("../../GlobalSpawners/RightScreen")]
+spawners = [NodePath("../../GlobalSpawners/LeftScreen"), NodePath("../../GlobalSpawners/RightScreen"), NodePath("../../LocalSpawners/RingShield")]
 
 [node name="CircleExplosion" parent="LocalSpawners" index="0" instance=ExtResource("2_etffr")]
 enabled = false
@@ -30,6 +31,26 @@ shoot_pattern = 1
 ed_radius = 10.0
 od_direction = 90.0
 od_bullet_separation = 20.0
+bullet_speed = 600.0
+bullet_damage = 5.0
+bullet_time_alive = 0.0
+bullet_max_distance = 2000.0
+
+[node name="RingShield" parent="LocalSpawners" index="1" instance=ExtResource("2_etffr")]
+enabled = false
+spawn_point_count = 25
+bullet_types = Array[PackedScene]([ExtResource("5_p7x5c")])
+shooting_time = 10.0
+change_bullet_time = 10.0
+has_static_bullets = true
+sb_bullets_per_spawn = 10
+angle_radius = 60.0
+angle_arc = 315.0
+ed_radius = 10.0
+od_direction = 90.0
+od_bullet_separation = 20.0
+rotation_enabled = true
+rotation_speed = 30.0
 bullet_speed = 600.0
 bullet_damage = 5.0
 bullet_time_alive = 0.0
