@@ -22,9 +22,13 @@ autostart = true
 [node name="HitAgainTimer" type="Timer" parent="."]
 one_shot = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="StartHittingTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Collisioner" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_efk10")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="KillTimer" to="." method="_on_kill_timer_timeout"]
 [connection signal="timeout" from="HitAgainTimer" to="." method="_on_hit_again_timer_timeout"]
+[connection signal="timeout" from="StartHittingTimer" to="." method="_on_start_hitting_timer_timeout"]

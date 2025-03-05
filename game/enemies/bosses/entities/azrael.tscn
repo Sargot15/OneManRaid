@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://game/enemies/bosses/abilities/passives/spawners_fixed.gd" id="2_1onmv"]
 [ext_resource type="Script" path="res://game/enemies/bosses/entities/azrael.gd" id="2_cr3xf"]
 [ext_resource type="PackedScene" uid="uid://buo4x18g2wae" path="res://game/enemies/spawners/spawner.tscn" id="2_etffr"]
-[ext_resource type="PackedScene" path="res://game/enemies/bullets/bulletEnemyGray.tscn" id="5_p7x5c"]
+[ext_resource type="PackedScene" uid="uid://35ioia0g3u0x" path="res://game/enemies/bullets/bulletEnemyGray.tscn" id="5_p7x5c"]
 
 [node name="Boss" instance=ExtResource("1_j7aka")]
 script = ExtResource("2_cr3xf")
@@ -55,6 +55,7 @@ bullet_speed = 600.0
 bullet_damage = 5.0
 bullet_time_alive = 0.0
 bullet_max_distance = 2000.0
+bullet_time_to_start_hit = 1.0
 
 [node name="TopScreen" parent="GlobalSpawners" index="0" instance=ExtResource("2_etffr")]
 position = Vector2(1742, 0)

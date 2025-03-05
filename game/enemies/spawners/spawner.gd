@@ -6,8 +6,11 @@ extends Node2D
 @onready var shoot_timer = $ShootTimer
 @onready var change_bullet_timer = $ChangeBulletTimer
 @onready var time_alive_timer = $TimeAliveTimer
+@onready var bullet_start_hitting_timer = $BulletsStartHittingTimer
+
 @onready var rotater = $Rotater
 @onready var spawner_points = $SpawnerPoints
+
 @onready var pattern_angle = $ShootPatterns/Angle
 @onready var pattern_equally_distributed = $ShootPatterns/EquallyDistributed
 @onready var pattern_one_direction = $ShootPatterns/OneDirection
@@ -60,6 +63,7 @@ enum ShootPattern {ANGLE, EQUALLIY_DISTRIBUTED, ONE_DIRECTION}
 @export var bullet_damage : float = -1
 @export var bullet_time_alive : float = -1
 @export var bullet_max_distance : float = -1
+@export var bullet_time_to_start_hit : float = -1
 
 #------------------------------------
 # LOCAL VARIABLES
@@ -80,6 +84,11 @@ func initialize_components():
 	
 	# Set first bullet
 	bullet_scene = bullet_types.pick_random()
+	
+	# If it is set to the bullets start hitting player after some time we initialize the timer
+	if (bullet_time_to_start_hit > 0):
+		bullet_start_hitting_timer.wait_time = bullet_time_to_start_hit
+		bullet_start_hitting_timer.start()
 	
 	# Set pattern
 	initialize_pattern()
@@ -162,6 +171,8 @@ func apply_bullet_modifiers(bullet):
 		bullet.max_distance = bullet_max_distance
 	if (bullet_time_alive != -1):
 		bullet.set_time_alive(bullet_time_alive)
+	if (bullet_time_to_start_hit != -1):
+		bullet.set_time_start_hitting(bullet_start_hitting_timer.time_left)
 
 #------------------------------------
 # TIMERS
@@ -180,10 +191,7 @@ func _on_change_bullet_timer_timeout():
 
 func _on_time_alive_timer_timeout():
 	queue_free()
-
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-
-
-
