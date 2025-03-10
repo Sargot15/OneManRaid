@@ -7,6 +7,7 @@ extends Node2D
 @onready var change_bullet_timer = $ChangeBulletTimer
 @onready var time_alive_timer = $TimeAliveTimer
 @onready var bullet_start_hitting_timer = $BulletsStartHittingTimer
+@onready var time_to_restart_timer = $TimeToRestartTimer
 
 @onready var rotater = $Rotater
 @onready var spawner_points = $SpawnerPoints
@@ -26,6 +27,8 @@ extends Node2D
 ## Time in seconds to change bullet's type. If the value is 0 then the bullet type it is going to be always the same
 @export var change_bullet_time : float
 @export var time_alive : float
+## Time in seconds to restart the spawner after it is dead
+@export var time_to_restart : float = -1
 
 @export_subgroup("Static bullets")
 @export var has_static_bullets : bool = false
@@ -190,7 +193,17 @@ func _on_change_bullet_timer_timeout():
 	bullet_scene = bullet_types.pick_random()
 
 func _on_time_alive_timer_timeout():
-	queue_free()
+	# If the timer has a time to restart we initialize the timer. Else, destroy the spawners
+	if (time_to_restart >= 0):
+		time_to_restart_timer.wait_time = time_to_restart
+		time_to_restart_timer.start()
+		disable()
+	else:
+		queue_free()
+		
+func _on_time_to_restart_timer_timeout():
+	time_to_restart_timer.stop()
+	enable()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
