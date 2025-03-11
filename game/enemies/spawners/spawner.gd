@@ -29,6 +29,7 @@ extends Node2D
 @export var time_alive : float
 ## Time in seconds to restart the spawner after it is dead
 @export var time_to_restart : float = -1
+@export var look_at_player : bool = false
 
 @export_subgroup("Static bullets")
 @export var has_static_bullets : bool = false
@@ -207,4 +208,5 @@ func _on_time_to_restart_timer_timeout():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if (look_at_player):
+		look_at(Globals.get_player_position())

@@ -13,6 +13,7 @@ var actual_hero_index : int = 0
 func _ready():
 	actual_hero = heroes[actual_hero_index]
 	actual_hero.visible = true
+	Globals.set_player(self)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
