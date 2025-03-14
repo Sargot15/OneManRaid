@@ -4,3 +4,12 @@
 
 [node name="BossAbility" type="Node2D"]
 script = ExtResource("1_mn676")
+
+[node name="TimeCastingTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="TimeBetweenCastsTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="TimeCastingTimer" to="." method="_on_time_casting_timer_timeout"]
+[connection signal="timeout" from="TimeBetweenCastsTimer" to="." method="_on_time_between_casts_timer_timeout"]

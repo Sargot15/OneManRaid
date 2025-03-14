@@ -159,12 +159,17 @@ func disable():
 		shoot_timer.stop()
 		change_bullet_timer.stop()
 		time_alive_timer.stop()
+		time_to_restart_timer.stop()
 		
 		# remove all the spawner points
 		for s in spawner_points.get_children():
 			s.queue_free()
 		
 		enabled = false
+		
+	else:
+		# if the spawner it is restarting we stopped it
+		time_to_restart_timer.stop()
 		
 func apply_bullet_modifiers(bullet):
 	if (bullet_speed != -1):
@@ -196,9 +201,9 @@ func _on_change_bullet_timer_timeout():
 func _on_time_alive_timer_timeout():
 	# If the timer has a time to restart we initialize the timer. Else, destroy the spawners
 	if (time_to_restart >= 0):
+		disable()
 		time_to_restart_timer.wait_time = time_to_restart
 		time_to_restart_timer.start()
-		disable()
 	else:
 		queue_free()
 		

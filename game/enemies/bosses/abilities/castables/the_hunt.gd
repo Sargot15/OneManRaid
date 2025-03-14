@@ -15,3 +15,19 @@ func cast():
 	print("Casteando 'The Hunt'")
 	for spawner in spawners:
 		spawner.enable()
+		
+	is_casteable = false
+	
+	time_casting_timer.wait_time = time_casting
+	time_casting_timer.start()
+
+func _on_time_casting_timer_timeout():
+	print("Deshabilitando spawners de 'The Hunt'")
+	for spawner in spawners:
+		spawner.disable()
+	
+	time_between_casts_timer.wait_time = time_between_casts
+	time_between_casts_timer.start()
+	
+func _on_time_between_casts_timer_timeout():
+	is_casteable = true 

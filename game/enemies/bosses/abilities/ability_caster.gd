@@ -17,14 +17,16 @@ func _on_try_cast_ability_timer_timeout():
 	var total_weight : float = 0
 	
 	for ability in abilities.get_children():
-		total_weight += ability.weight
+		if (ability.is_casteable):
+			total_weight += ability.weight
 	
 	var pick = randf_range(0, total_weight)
 	var accumulated_weight : float = 0
 	
 	for ability in abilities.get_children():
-		accumulated_weight += ability.weight
-		if pick < accumulated_weight:
-			ability.cast()
-			break
+		if (ability.is_casteable):
+			accumulated_weight += ability.weight
+			if pick < accumulated_weight:
+				ability.cast()
+				break
 	
