@@ -34,3 +34,6 @@ func start_phase_2():
 	
 	#Set phase
 	actual_phase = 2
+	
+func _on_shield_shield_destroyed():
+	print("shield destroyed")

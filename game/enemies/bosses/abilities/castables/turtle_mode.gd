@@ -1,11 +1,14 @@
 extends "res://game/enemies/bosses/abilities/boss_ability.gd"
 
+@export var shield_life : float
 @export var spawners : Array[Node2D]
+@export var shield : PackedScene
+
+var shield_ins
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	pass 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -19,10 +22,21 @@ func cast():
 	
 	time_casting_timer.wait_time = time_casting
 	time_casting_timer.start()
+	
+	shield_ins = shield.instantiate()
+	shield_ins.shield_life = shield_life
+	add_child(shield_ins)
+	
+	shield_ins.connect("shield_destroyed", on_shield_destroyed)
 
-func _on_time_casting_timer_timeout():
+func on_shield_destroyed():
+	finish_cast()
+
+func finish_cast():
 	for spawner in spawners:
 		spawner.disable()
+		
+	shield_ins.queue_free()
 	
 	time_between_casts_timer.wait_time = time_between_casts
 	time_between_casts_timer.start()

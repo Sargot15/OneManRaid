@@ -168,7 +168,7 @@ func disable():
 		enabled = false
 		
 	else:
-		# if the spawner it is restarting we stopped it
+		# if the spawner is restarting we stopped it
 		time_to_restart_timer.stop()
 		
 func apply_bullet_modifiers(bullet):
