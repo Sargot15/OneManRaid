@@ -7,6 +7,9 @@ extends Node
 @export var weight : float # The higher, the more probability to cast this ability
 @export var time_casting : float
 @export var time_between_casts : float
+@export var is_unique_cast : bool # If this ability is on then others abilities can not be casted
+
+var boss : Node = null
 
 var is_casteable : bool = true
 
@@ -26,3 +29,4 @@ func _on_time_casting_timer_timeout():
 	
 func _on_time_between_casts_timer_timeout():
 	pass 
+

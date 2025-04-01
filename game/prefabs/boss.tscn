@@ -17,8 +17,9 @@ texture = ExtResource("2_cc5l6")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_60dcp")
 
-[node name="AbilitiesCaster" type="Node2D" parent="."]
+[node name="AbilitiesCaster" type="Node2D" parent="." node_paths=PackedStringArray("boss")]
 script = ExtResource("3_ybibf")
+boss = NodePath("..")
 
 [node name="TryCastAbilityTimer" type="Timer" parent="AbilitiesCaster"]
 

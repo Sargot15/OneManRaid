@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://crxnb410jvmu2"]
+
+[ext_resource type="PackedScene" uid="uid://dlyeuaxpdvod7" path="res://game/prefabs/boss_ability.tscn" id="1_mcwet"]
+[ext_resource type="Script" path="res://game/enemies/bosses/abilities/castables/turtle_mode.gd" id="2_fwbxs"]
+
+[node name="BossAbility" node_paths=PackedStringArray("spawners") instance=ExtResource("1_mcwet")]
+script = ExtResource("2_fwbxs")
+shield_life = 0.0
+spawners = []
+shield = null
+amount_heal = 0.0
+
+[node name="TimeToStartHealingBoss" type="Timer" parent="." index="2"]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="TimeBetweenHealings" type="Timer" parent="." index="3"]
+
+[connection signal="timeout" from="TimeToStartHealingBoss" to="." method="_on_time_to_heal_boss_timeout"]
+[connection signal="timeout" from="TimeBetweenHealings" to="." method="_on_time_between_healings_timeout"]
