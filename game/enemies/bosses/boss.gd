@@ -25,20 +25,15 @@ func heal(heal_amount : float):
 	update_health(heal_amount)
 	
 func update_health(amount : float):
-	print("Entrando en update health con " + str (amount))
 	# Check if something is updating the health
 	if updating_health:
-		print("Esperando a que se libere la funcion")
 		await get_tree().process_frame  # Espera hasta que termine la otra ejecución
 
 	updating_health = true
 	
-	print("Actualizando health con " + str (amount))
 	health += amount
 	
 	if (health > max_health):
 		health = max_health
-		
-	print("healt boss: " + str(health))
 		
 	updating_health = false

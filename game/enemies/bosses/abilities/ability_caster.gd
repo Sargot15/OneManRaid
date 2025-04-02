@@ -20,7 +20,7 @@ func _process(delta):
 
 
 func _on_try_cast_ability_timer_timeout():
-	if (can_cast):
+	if (!can_cast):
 		return
 
 	var total_weight : float = 0
