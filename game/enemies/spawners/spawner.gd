@@ -20,6 +20,7 @@ extends Node2D
 #------------------------------------
 # EXPORT VARIABLES
 #------------------------------------
+@export_subgroup("General parameters")
 @export var enabled : bool = true
 @export var spawn_point_count : int
 @export var bullet_types : Array[PackedScene]
@@ -61,6 +62,7 @@ enum ShootPattern {ANGLE, EQUALLIY_DISTRIBUTED, ONE_DIRECTION}
 @export_group("Rotation")
 @export var rotation_enabled : bool
 @export var rotation_speed : float
+@export var rotation_clockwise : bool = true
 
 @export_category("Bullets modifiers")
 @export var bullet_speed : float = -1
@@ -108,7 +110,7 @@ func initialize_components():
 	
 	# Behaviours
 	if (rotation_enabled):
-		rotater.initialize(rotation_speed)
+		rotater.initialize(rotation_speed, rotation_clockwise)
 		
 	if (time_alive > 0):
 		time_alive_timer.wait_time = time_alive
@@ -146,6 +148,21 @@ func set_change_bullet_timer(change_bullet_time : float):
 	change_bullet_timer.wait_time = change_bullet_time
 	change_bullet_timer.start()
 	
+func apply_bullet_modifiers(bullet):
+	if (bullet_speed != -1):
+		bullet.speed = bullet_speed
+	if (bullet_damage != -1):
+		bullet.damage = bullet_damage
+	if (bullet_max_distance != -1):
+		bullet.max_distance = bullet_max_distance
+	if (bullet_time_alive != -1):
+		bullet.set_time_alive(bullet_time_alive)
+	if (bullet_time_to_start_hit != -1):
+		bullet.set_time_start_hitting(bullet_start_hitting_timer.time_left)
+		
+#------------------------------------
+# BEHAVIOURS
+#------------------------------------
 func enable():
 	if (!enabled):
 		# initialize components again
@@ -171,18 +188,6 @@ func disable():
 		# if the spawner is restarting we stopped it
 		time_to_restart_timer.stop()
 		
-func apply_bullet_modifiers(bullet):
-	if (bullet_speed != -1):
-		bullet.speed = bullet_speed
-	if (bullet_damage != -1):
-		bullet.damage = bullet_damage
-	if (bullet_max_distance != -1):
-		bullet.max_distance = bullet_max_distance
-	if (bullet_time_alive != -1):
-		bullet.set_time_alive(bullet_time_alive)
-	if (bullet_time_to_start_hit != -1):
-		bullet.set_time_start_hitting(bullet_start_hitting_timer.time_left)
-
 #------------------------------------
 # TIMERS
 #------------------------------------
