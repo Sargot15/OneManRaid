@@ -15,6 +15,7 @@ func _process(delta):
 	
 func take_damage(damage : float):
 	shield_life -= damage
+	FloatingTextManager.show_damage_shield_text(damage, global_position)
 	
 	if (shield_life <= 0):
 		shield_destroyed.emit()

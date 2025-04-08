@@ -34,6 +34,7 @@ func take_damage(damage : float, color_type : Globals.COLOR_TYPE):
 		# Health should not be lower than 0
 		$HeroStats.health = max($HeroStats.health - damage, 0)
 		health_updated.emit(hero_type, $HeroStats.health, $HeroStats.max_health)
+		FloatingTextManager.show_damage_text(damage, global_position)
 		
 
 func is_alive() -> bool:

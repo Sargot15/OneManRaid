@@ -20,9 +20,11 @@ func _process(delta):
 
 func take_damage(damage : float):
 	update_health(-damage)
+	FloatingTextManager.show_damage_text(damage, global_position)
 
 func heal(heal_amount : float):
 	update_health(heal_amount)
+	FloatingTextManager.show_heal_text(heal_amount, global_position)
 	
 func update_health(amount : float):
 	# Check if something is updating the health
