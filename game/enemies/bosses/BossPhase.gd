@@ -2,6 +2,10 @@ class_name BossPhase extends Node
 
 signal finished(next_state_name)
 
+@export var passives_enter : Array[Node] #Passives to activate at entering the phase
+@export var passives_exit : Array[Node] #Passives to deactivate at exiting the phase
+@export var abilities : Array[Node]
+
 var phase_manager: PhaseManager = null
 var boss : Boss = null
 var ability_caster : AbilityCaster = null

@@ -4,20 +4,10 @@ func condition_to_next_phase() -> bool:
 	return boss.health < boss.max_health * 0.1
 
 func enter():
-	print("Entrando en Fase 2")
-	
 	# Passives
-	var passives: Array[Node] = [
-		boss.get_node("Passives/SpawnersFixedPhase2")
-	]
-	
-	change_passives(passives, true)
+	change_passives(passives_enter, true)
 	
 	# Abilities
-	var abilities : Array[Node] = [
-		ability_caster.get_node("Abilities/TheHunt")
-	]
-	
 	change_abilities(abilities)
 
 func update(delta: float):
@@ -25,4 +15,5 @@ func update(delta: float):
 		emit_signal("finished", "Phase3")
 
 func exit():
-	print("Saliendo de Fase 2")
+	# Passives
+	change_passives(passives_exit, true)

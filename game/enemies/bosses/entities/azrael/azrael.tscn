@@ -258,11 +258,16 @@ bullet_max_distance = 3500.0
 [node name="PhaseManager" parent="." index="6" node_paths=PackedStringArray("initial_phase")]
 initial_phase = NodePath("Phase1")
 
-[node name="Phase1" type="Node" parent="PhaseManager" index="0"]
+[node name="Phase1" type="Node" parent="PhaseManager" index="0" node_paths=PackedStringArray("passives_enter", "passives_exit", "abilities")]
 script = ExtResource("10_78fq8")
+passives_enter = [NodePath("../../Passives/SpawnersFixedFullFight"), NodePath("../../Passives/SpawnersFixedPhase1")]
+passives_exit = [NodePath("../../Passives/SpawnersFixedPhase1")]
+abilities = [NodePath("../../AbilitiesCaster/Abilities/TheHunt"), NodePath("../../AbilitiesCaster/Abilities/TurtleMode")]
 
-[node name="Phase2" type="Node" parent="PhaseManager" index="1"]
+[node name="Phase2" type="Node" parent="PhaseManager" index="1" node_paths=PackedStringArray("passives_enter", "abilities")]
 script = ExtResource("11_csg3l")
+passives_enter = [NodePath("../../Passives/SpawnersFixedPhase2")]
+abilities = [NodePath("../../AbilitiesCaster/Abilities/TheHunt")]
 
 [node name="Phase3" type="Node" parent="PhaseManager" index="2"]
 script = ExtResource("12_opgop")

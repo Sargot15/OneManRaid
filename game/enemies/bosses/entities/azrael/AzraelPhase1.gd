@@ -5,19 +5,9 @@ func condition_to_next_phase() -> bool:
 
 func enter():
 	# Passives
-	var passives: Array[Node] = [
-		boss.get_node("Passives/SpawnersFixedFullFight"),
-		boss.get_node("Passives/SpawnersFixedPhase1")
-	]
-	
-	change_passives(passives, true)
+	change_passives(passives_enter, true)
 	
 	# Abilities
-	var abilities : Array[Node] = [
-		ability_caster.get_node("Abilities/TheHunt"),
-		ability_caster.get_node("Abilities/TurtleMode")
-	]
-	
 	change_abilities(abilities)
 
 func update(delta: float):
@@ -26,8 +16,5 @@ func update(delta: float):
 
 func exit():
 	# Passives
-	var passives: Array[Node] = [
-		boss.get_node("Passives/SpawnersFixedPhase1")
-	]	
-	
-	change_passives(passives, false)
+
+	change_passives(passives_exit, false)
