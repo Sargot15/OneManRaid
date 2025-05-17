@@ -1,14 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://cgcuj4xh4swtq"]
+[gd_scene load_steps=13 format=3 uid="uid://cgcuj4xh4swtq"]
 
 [ext_resource type="PackedScene" uid="uid://dcoy01oiym2ng" path="res://game/prefabs/boss.tscn" id="1_j7aka"]
 [ext_resource type="Script" path="res://game/enemies/bosses/abilities/passives/spawners_fixed.gd" id="2_1onmv"]
-[ext_resource type="Script" path="res://game/enemies/bosses/entities/azrael.gd" id="2_cr3xf"]
+[ext_resource type="Script" path="res://game/enemies/bosses/entities/azrael/azrael.gd" id="2_cr3xf"]
 [ext_resource type="PackedScene" uid="uid://buo4x18g2wae" path="res://game/enemies/spawners/spawner.tscn" id="2_etffr"]
 [ext_resource type="PackedScene" uid="uid://dlyeuaxpdvod7" path="res://game/prefabs/boss_ability.tscn" id="3_8dgim"]
 [ext_resource type="Script" path="res://game/enemies/bosses/abilities/castables/the_hunt.gd" id="3_el1j3"]
 [ext_resource type="PackedScene" uid="uid://35ioia0g3u0x" path="res://game/enemies/bullets/bulletEnemyGray.tscn" id="5_p7x5c"]
 [ext_resource type="PackedScene" uid="uid://crxnb410jvmu2" path="res://game/enemies/bosses/abilities/castables/turtleMode.tscn" id="5_uoktf"]
 [ext_resource type="PackedScene" uid="uid://dtg7ieupjii1l" path="res://game/enemies/bosses/abilities/spells/shield.tscn" id="6_qg4u1"]
+[ext_resource type="Script" path="res://game/enemies/bosses/entities/azrael/AzraelPhase1.gd" id="10_78fq8"]
+[ext_resource type="Script" path="res://game/enemies/bosses/entities/azrael/AzraelPhase2.gd" id="11_csg3l"]
+[ext_resource type="Script" path="res://game/enemies/bosses/entities/azrael/AzraelPhase3.gd" id="12_opgop"]
 
 [node name="Boss" instance=ExtResource("1_j7aka")]
 script = ExtResource("2_cr3xf")
@@ -21,6 +24,8 @@ ability_name = "The Hunt"
 weight = 10.0
 time_casting = 15.0
 time_between_casts = 15.0
+stop_on_phase_change = true
+stop_only_if_not_on_next_phase = true
 
 [node name="TurtleMode" parent="AbilitiesCaster/Abilities" index="1" node_paths=PackedStringArray("spawners") instance=ExtResource("5_uoktf")]
 shield_life = 750.0
@@ -31,6 +36,8 @@ ability_name = "TurtleMode"
 weight = 3.0
 time_between_casts = 15.0
 is_unique_cast = true
+stop_on_phase_change = true
+stop_only_if_not_on_next_phase = true
 
 [node name="SpawnersFixedFullFight" type="Node" parent="Passives" index="0" node_paths=PackedStringArray("spawners")]
 script = ExtResource("2_1onmv")
@@ -247,3 +254,15 @@ bullet_speed = 600.0
 bullet_damage = 5.0
 bullet_time_alive = 0.0
 bullet_max_distance = 3500.0
+
+[node name="PhaseManager" parent="." index="6" node_paths=PackedStringArray("initial_phase")]
+initial_phase = NodePath("Phase1")
+
+[node name="Phase1" type="Node" parent="PhaseManager" index="0"]
+script = ExtResource("10_78fq8")
+
+[node name="Phase2" type="Node" parent="PhaseManager" index="1"]
+script = ExtResource("11_csg3l")
+
+[node name="Phase3" type="Node" parent="PhaseManager" index="2"]
+script = ExtResource("12_opgop")

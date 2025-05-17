@@ -1,4 +1,6 @@
-extends Node2D
+class_name Boss extends Node2D
+
+@onready var phase_manager = $PhaseManager
 
 # Base stats
 @export var max_health : float
@@ -29,7 +31,7 @@ func heal(heal_amount : float):
 func update_health(amount : float):
 	# Check if something is updating the health
 	if updating_health:
-		await get_tree().process_frame  # Espera hasta que termine la otra ejecución
+		await get_tree().process_frame  # Wait until last execution finished
 
 	updating_health = true
 	

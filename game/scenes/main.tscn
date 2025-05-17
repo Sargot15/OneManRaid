@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cc407asobqgjd" path="res://game/ui/canvas.tscn" id="2_roc2n"]
 [ext_resource type="PackedScene" uid="uid://buo4x18g2wae" path="res://game/enemies/spawners/spawner.tscn" id="3_fqhyt"]
 [ext_resource type="PackedScene" uid="uid://35ioia0g3u0x" path="res://game/enemies/bullets/bulletEnemyGray.tscn" id="4_j57nn"]
-[ext_resource type="PackedScene" uid="uid://cgcuj4xh4swtq" path="res://game/enemies/bosses/entities/azrael.tscn" id="5_4fhmr"]
+[ext_resource type="PackedScene" uid="uid://cgcuj4xh4swtq" path="res://game/enemies/bosses/entities/azrael/azrael.tscn" id="5_4fhmr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ftxl5"]
 size = Vector2(3563, 40)

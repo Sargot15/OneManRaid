@@ -22,6 +22,7 @@ func _process(delta):
 
 func cast():
 	is_casteable = false
+	is_casting = true
 		
 	for spawner in spawners:
 		spawner.enable()
@@ -36,6 +37,9 @@ func cast():
 	add_child(shield_ins)
 	
 	shield_ins.connect("shield_destroyed", on_shield_destroyed)
+
+func stop():
+	finish_cast()
 
 func on_shield_destroyed():
 	finish_cast()
@@ -53,6 +57,8 @@ func finish_cast():
 	time_between_casts_timer.start()
 	
 	finished_cast.emit()
+	
+	is_casting = false
 	
 func _on_time_between_casts_timer_timeout():
 	is_casteable = true 
