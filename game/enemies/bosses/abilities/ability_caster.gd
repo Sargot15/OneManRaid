@@ -48,7 +48,6 @@ func change_abilities(new_abilities : Array[Node]):
 		# Search if this ability is part of the new abilities
 		var ability_on_next_phase : bool = false
 		for new_ability in new_abilities:
-			# TODO: Testear bien esto
 			if ability.ability_name == new_ability.ability_name:
 				ability_on_next_phase = true
 				

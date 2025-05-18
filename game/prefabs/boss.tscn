@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dcoy01oiym2ng"]
+[gd_scene load_steps=7 format=3 uid="uid://dcoy01oiym2ng"]
 
 [ext_resource type="Script" path="res://game/enemies/bosses/boss.gd" id="1_0wt7v"]
 [ext_resource type="Texture2D" uid="uid://gimdnar0twai" path="res://icon.svg" id="2_cc5l6"]
 [ext_resource type="Script" path="res://game/enemies/bosses/abilities/ability_caster.gd" id="3_ybibf"]
 [ext_resource type="Script" path="res://game/enemies/bosses/PhaseManager.gd" id="4_l5cph"]
+[ext_resource type="Script" path="res://game/debug/debug_boss_info.gd" id="5_37xbo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_60dcp"]
 size = Vector2(128, 128)
@@ -36,5 +37,41 @@ boss = NodePath("..")
 script = ExtResource("4_l5cph")
 boss = NodePath("..")
 ability_caster = NodePath("../AbilitiesCaster")
+
+[node name="DebugInfo" type="CanvasLayer" parent="."]
+script = ExtResource("5_37xbo")
+
+[node name="BoxContainer" type="VBoxContainer" parent="DebugInfo"]
+offset_top = 1030.0
+offset_right = 111.0
+offset_bottom = 1080.0
+grow_vertical = 0
+
+[node name="DebugLabel" type="Label" parent="DebugInfo/BoxContainer"]
+layout_mode = 2
+text = "Debug BOSS"
+
+[node name="PhaseLabel" type="Label" parent="DebugInfo/BoxContainer"]
+layout_mode = 2
+text = "Phase: Phase1"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DebugInfo/BoxContainer"]
+layout_mode = 2
+
+[node name="PassivesLabel" type="Label" parent="DebugInfo/BoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+text = "PASSIVES:"
+
+[node name="Passives" type="VBoxContainer" parent="DebugInfo/BoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="AbilitiesLabel" type="Label" parent="DebugInfo/BoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+text = "ABILITIES:"
+
+[node name="Abilities" type="VBoxContainer" parent="DebugInfo/BoxContainer/VBoxContainer"]
+layout_mode = 2
 
 [connection signal="timeout" from="AbilitiesCaster/TryCastAbilityTimer" to="AbilitiesCaster" method="_on_try_cast_ability_timer_timeout"]

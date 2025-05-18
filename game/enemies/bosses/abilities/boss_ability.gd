@@ -1,4 +1,4 @@
-extends Node
+class_name BossAbility extends Node
 
 @onready var time_casting_timer = $TimeCastingTimer
 @onready var time_between_casts_timer = $TimeBetweenCastsTimer
@@ -36,7 +36,6 @@ func _on_time_between_casts_timer_timeout():
 	
 func boss_phase_changed(ability_on_next_phase : bool):
 	if is_casting and stop_on_phase_change:
-		# TODO: Testear bien esto
 		if not ability_on_next_phase or not stop_only_if_not_on_next_phase:
 			stop()
 
