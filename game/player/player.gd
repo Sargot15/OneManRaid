@@ -53,7 +53,7 @@ func _move_player(delta) -> void:
 		if distance_to_mouse < speed * delta:
 			speed = distance_to_mouse / delta
 	
-	velocity = direction.normalized() * speed
+	velocity = velocity.lerp(direction.normalized() * speed, 1.0 - exp(-15 * delta))
 	
 	move_and_slide()
 	
