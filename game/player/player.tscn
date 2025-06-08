@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://game/player/player.gd" id="1_b33ml"]
 [ext_resource type="Texture2D" uid="uid://c4p26r6nq0g8e" path="res://assets/images/heroes/playerBlue.svg" id="2_gxi6b"]
-[ext_resource type="PackedScene" uid="uid://bgellnr12w2jt" path="res://game/player/heroes/heroBlue.tscn" id="3_umt6u"]
-[ext_resource type="PackedScene" uid="uid://xg4rhetg2qpb" path="res://game/player/heroes/heroBrown.tscn" id="4_xfw4h"]
-[ext_resource type="PackedScene" uid="uid://cjc70b11ymntk" path="res://game/player/heroes/heroGreen.tscn" id="5_7v7ts"]
-[ext_resource type="PackedScene" uid="uid://ciev3xntypyea" path="res://game/player/heroes/heroYellow.tscn" id="6_nr7rm"]
+[ext_resource type="PackedScene" uid="uid://bgellnr12w2jt" path="res://game/player/heroes/hero_blue.tscn" id="3_umt6u"]
+[ext_resource type="PackedScene" uid="uid://xg4rhetg2qpb" path="res://game/player/heroes/hero_brown.tscn" id="4_xfw4h"]
+[ext_resource type="PackedScene" uid="uid://cjc70b11ymntk" path="res://game/player/heroes/hero_green.tscn" id="5_7v7ts"]
+[ext_resource type="PackedScene" uid="uid://ciev3xntypyea" path="res://game/player/heroes/hero_yellow.tscn" id="6_nr7rm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_shk6a"]
 radius = 16.1245

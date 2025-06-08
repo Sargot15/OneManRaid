@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://buo4x18g2wae"]
 
 [ext_resource type="Script" path="res://game/enemies/spawners/spawner.gd" id="1_7lnj1"]
-[ext_resource type="PackedScene" uid="uid://dh2gjonypu00p" path="res://game/enemies/bullets/bulletEnemyBlue.tscn" id="2_eqovb"]
-[ext_resource type="PackedScene" uid="uid://bfvidc12weevw" path="res://game/enemies/bullets/bulletEnemyBrown.tscn" id="3_lumac"]
-[ext_resource type="PackedScene" uid="uid://dcoe82nj0jmhb" path="res://game/enemies/bullets/bulletEnemyGreen.tscn" id="4_oe6bt"]
-[ext_resource type="PackedScene" uid="uid://chbmuk04fuig8" path="res://game/enemies/bullets/bulletEnemyYellow.tscn" id="5_6ifkl"]
+[ext_resource type="PackedScene" uid="uid://dh2gjonypu00p" path="res://game/enemies/bullets/bullet_enemy_blue.tscn" id="2_m3ac2"]
+[ext_resource type="PackedScene" uid="uid://bfvidc12weevw" path="res://game/enemies/bullets/bullet_enemy_brown.tscn" id="3_17aw6"]
+[ext_resource type="PackedScene" uid="uid://dcoe82nj0jmhb" path="res://game/enemies/bullets/bullet_enemy_green.tscn" id="4_i5gmh"]
+[ext_resource type="PackedScene" uid="uid://chbmuk04fuig8" path="res://game/enemies/bullets/bullet_enemy_yellow.tscn" id="5_1adn4"]
 [ext_resource type="Script" path="res://game/enemies/spawners/spawner_rotater.gd" id="6_y8yqy"]
 [ext_resource type="Script" path="res://game/enemies/spawners/spawner_pattern_angle.gd" id="7_vbk2c"]
 [ext_resource type="Script" path="res://game/enemies/spawners/spawner_pattern_equally_distributed.gd" id="8_e5vy1"]
@@ -12,7 +12,7 @@
 
 [node name="Spawner" type="Node2D"]
 script = ExtResource("1_7lnj1")
-bullet_types = Array[PackedScene]([ExtResource("2_eqovb"), ExtResource("3_lumac"), ExtResource("4_oe6bt"), ExtResource("5_6ifkl")])
+bullet_types = Array[PackedScene]([ExtResource("2_m3ac2"), ExtResource("3_17aw6"), ExtResource("4_i5gmh"), ExtResource("5_1adn4")])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.05, 0.05)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://d15dbc7dv2t48"]
 
-[ext_resource type="PackedScene" uid="uid://cg5lm4cgfuntd" path="res://game/prefabs/bulletHero.tscn" id="1_s4mrj"]
+[ext_resource type="PackedScene" uid="uid://cg5lm4cgfuntd" path="res://game/prefabs/bullet_hero.tscn" id="1_s4mrj"]
 [ext_resource type="Texture2D" uid="uid://b7tgo274s586x" path="res://assets/images/heroes/bullets/playerBulletYellow.svg" id="2_noaj6"]
 
 [node name="BulletHero" instance=ExtResource("1_s4mrj")]

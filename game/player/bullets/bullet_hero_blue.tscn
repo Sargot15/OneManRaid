@@ -1,5 +1,5 @@
 [gd_scene load_steps=2 format=3 uid="uid://k5u3tuvsrvnl"]
 
-[ext_resource type="PackedScene" uid="uid://cg5lm4cgfuntd" path="res://game/prefabs/bulletHero.tscn" id="1_50bla"]
+[ext_resource type="PackedScene" uid="uid://cg5lm4cgfuntd" path="res://game/prefabs/bullet_hero.tscn" id="1_50bla"]
 
 [node name="BulletHero" instance=ExtResource("1_50bla")]

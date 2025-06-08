@@ -1,6 +1,6 @@
 extends Node
 
-var FloatingTextScene := preload("res://game/utils/floatingText.tscn")
+var FloatingTextScene := preload("res://game/utils/floating_text.tscn")
 
 const DAMAGE_COLOR : Color = Color.RED
 const DAMAGE_SHIELD_COLOR : Color = Color.CADET_BLUE

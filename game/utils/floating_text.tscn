@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bxqc5racbiowx"]
 
-[ext_resource type="FontFile" uid="uid://cjigwi46it8wo" path="res://assets/fonts/Roboto-Bold.ttf" id="1_t32fq"]
-[ext_resource type="Script" path="res://game/utils/floating_text.gd" id="2_0x3ry"]
+[ext_resource type="FontFile" uid="uid://cjigwi46it8wo" path="res://assets/fonts/Roboto-Bold.ttf" id="1_naxkg"]
+[ext_resource type="Script" path="res://game/utils/floating_text.gd" id="2_bqnh7"]
 
 [node name="FloatingText" type="RichTextLabel"]
 anchors_preset = 8
@@ -17,8 +17,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 12
-theme_override_fonts/normal_font = ExtResource("1_t32fq")
-theme_override_fonts/bold_font = ExtResource("1_t32fq")
+theme_override_fonts/normal_font = ExtResource("1_naxkg")
+theme_override_fonts/bold_font = ExtResource("1_naxkg")
 theme_override_font_sizes/normal_font_size = 25
 theme_override_font_sizes/bold_font_size = 25
 bbcode_enabled = true
@@ -26,7 +26,7 @@ text = " 130 "
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
-script = ExtResource("2_0x3ry")
+script = ExtResource("2_bqnh7")
 
 [node name="AliveTimer" type="Timer" parent="."]
 one_shot = true

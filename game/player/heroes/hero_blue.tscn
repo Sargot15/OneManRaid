@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bgellnr12w2jt"]
 
 [ext_resource type="PackedScene" uid="uid://c6fimi1hkoreo" path="res://game/prefabs/hero.tscn" id="1_22hos"]
-[ext_resource type="PackedScene" uid="uid://k5u3tuvsrvnl" path="res://game/player/bullets/bulletHeroBlue.tscn" id="2_jyb4g"]
+[ext_resource type="PackedScene" uid="uid://k5u3tuvsrvnl" path="res://game/player/bullets/bullet_hero_blue.tscn" id="2_jyb4g"]
 
 [node name="Hero" instance=ExtResource("1_22hos")]
 

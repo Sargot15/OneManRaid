@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://chbmuk04fuig8"]
+
+[ext_resource type="PackedScene" uid="uid://kglkywockhqj" path="res://game/prefabs/bullet_enemy.tscn" id="1_yt060"]
+[ext_resource type="Texture2D" uid="uid://b2v8a2n3u41hx" path="res://assets/images/heroes/playerYellow.svg" id="2_jkwtw"]
+
+[node name="BulletEnemy" instance=ExtResource("1_yt060")]
+damage = 2.0
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_jkwtw")

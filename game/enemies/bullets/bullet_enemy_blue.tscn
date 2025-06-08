@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dh2gjonypu00p"]
+
+[ext_resource type="PackedScene" uid="uid://kglkywockhqj" path="res://game/prefabs/bullet_enemy.tscn" id="1_co4sg"]
+
+[node name="BulletEnemy" instance=ExtResource("1_co4sg")]
+damage = 2.0
+type = 1

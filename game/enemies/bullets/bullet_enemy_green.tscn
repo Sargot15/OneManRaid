@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dcoe82nj0jmhb"]
 
-[ext_resource type="PackedScene" uid="uid://kglkywockhqj" path="res://game/prefabs/bulletEnemy.tscn" id="1_d10wx"]
+[ext_resource type="PackedScene" uid="uid://kglkywockhqj" path="res://game/prefabs/bullet_enemy.tscn" id="1_d10wx"]
 [ext_resource type="Texture2D" uid="uid://b1r42s3afjpta" path="res://assets/images/heroes/playerGreen.svg" id="2_okreh"]
 
 [node name="BulletEnemy" instance=ExtResource("1_d10wx")]

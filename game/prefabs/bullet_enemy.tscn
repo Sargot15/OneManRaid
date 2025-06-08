@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://kglkywockhqj"]
 
-[ext_resource type="Script" path="res://game/enemies/bullets/bullet_enemy.gd" id="1_bkj0i"]
-[ext_resource type="Texture2D" uid="uid://c4p26r6nq0g8e" path="res://assets/images/heroes/playerBlue.svg" id="2_hfa61"]
+[ext_resource type="Script" path="res://game/enemies/bullets/bullet_enemy.gd" id="1_a42ng"]
+[ext_resource type="Texture2D" uid="uid://c4p26r6nq0g8e" path="res://assets/images/heroes/playerBlue.svg" id="2_1fgya"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_efk10"]
 radius = 15.0
@@ -9,11 +9,11 @@ radius = 15.0
 [node name="BulletEnemy" type="Area2D"]
 scale = Vector2(0.4, 0.4)
 collision_layer = 2
-script = ExtResource("1_bkj0i")
+script = ExtResource("1_a42ng")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 2
-texture = ExtResource("2_hfa61")
+texture = ExtResource("2_1fgya")
 
 [node name="KillTimer" type="Timer" parent="."]
 wait_time = 5.0

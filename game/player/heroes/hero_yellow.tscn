@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c6fimi1hkoreo" path="res://game/prefabs/hero.tscn" id="1_461p3"]
 [ext_resource type="Texture2D" uid="uid://b2v8a2n3u41hx" path="res://assets/images/heroes/playerYellow.svg" id="2_wcyol"]
-[ext_resource type="PackedScene" uid="uid://d15dbc7dv2t48" path="res://game/player/bullets/bulletHeroYellow.tscn" id="3_m0dr0"]
+[ext_resource type="PackedScene" uid="uid://d15dbc7dv2t48" path="res://game/player/bullets/bullet_hero_yellow.tscn" id="3_m0dr0"]
 
 [node name="Hero" instance=ExtResource("1_461p3")]
 hero_type = 0
