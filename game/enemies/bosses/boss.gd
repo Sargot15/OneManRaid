@@ -1,9 +1,9 @@
 class_name Boss extends Node2D
 
-@onready var phase_manager = $PhaseManager
-
 # Base stats
 @export var max_health : float
+
+@onready var phase_manager = $PhaseManager
 
 # Actual stats
 var health : float
@@ -20,15 +20,15 @@ func _ready():
 func _process(delta):
 	pass
 
-func take_damage(damage : float):
-	update_health(-damage)
+func take_damage(damage : float) -> void:
+	_update_health(-damage)
 	FloatingTextManager.show_damage_text(damage, global_position)
 
-func heal(heal_amount : float):
-	update_health(heal_amount)
+func heal(heal_amount : float) -> void:
+	_update_health(heal_amount)
 	FloatingTextManager.show_heal_text(heal_amount, global_position)
 	
-func update_health(amount : float):
+func _update_health(amount : float) -> void:
 	# Check if something is updating the health
 	if updating_health:
 		await get_tree().process_frame  # Wait until last execution finished
@@ -37,7 +37,7 @@ func update_health(amount : float):
 	
 	health += amount
 	
-	if (health > max_health):
+	if health > max_health:
 		health = max_health
 		
 	updating_health = false

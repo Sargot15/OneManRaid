@@ -1,11 +1,11 @@
-extends Node2D
+class_name Hero extends Node2D
 
 signal health_updated(hero_type : Globals.COLOR_TYPE ,health : int,max_health : int)
 signal stats_updated(hero_type : Globals.COLOR_TYPE ,def : float, att : float, spd : float, att_range : float, att_speed : float)
 
-@onready var weapon : Node2D = $Weapon
-
 @export var hero_type : Globals.COLOR_TYPE
+
+@onready var weapon : Weapon = $Weapon
 
 var time_to_next_attack : float = 0
 
@@ -16,17 +16,17 @@ func _ready():
 	time_to_next_attack = 0
 
 func _process(delta):
-	if (time_to_next_attack > 0):
+	if time_to_next_attack > 0:
 		time_to_next_attack -= delta
 
-func shoot():
-	if (time_to_next_attack <= 0):
+func shoot() -> void:
+	if time_to_next_attack <= 0:
 		weapon.shoot($HeroStats.attack, $HeroStats.attack_range)
 		time_to_next_attack = 1 / $HeroStats.attack_speed
 	
-func take_damage(damage : float, color_type : Globals.COLOR_TYPE):
+func take_damage(damage : float, color_type : Globals.COLOR_TYPE) -> void:
 	# Bullet does not do damage if color type are the same
-	if (hero_type == color_type):
+	if hero_type == color_type:
 		#TODO: To be designed what happen in this scenario
 		pass
 		

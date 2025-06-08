@@ -1,4 +1,4 @@
-extends Node
+class_name SpawnerPatternAngle extends Node
 
 @onready var spawner_points = $"../../SpawnerPoints"
 
@@ -11,12 +11,20 @@ func _ready():
 func _process(delta):
 	pass
 
-func initialize_pattern(radius: float, spawn_point_count: int):
-	var step = 2 * PI / spawn_point_count
+func initialize_pattern(direction: float, arc: float, radius: float, spawn_point_count: int) -> void:
+	var start_point : float
+	var step = 0
 	
+	if spawn_point_count == 1:
+		start_point = direction
+	elif spawn_point_count > 1:
+		start_point = (direction - arc / 2)
+		step = arc / (spawn_point_count - 1)
+		
 	for i in range (spawn_point_count):
 		var spawn_point = Node2D.new()
-		var pos = Vector2(radius, 0).rotated(step * i)
+		var angle = deg_to_rad(start_point + step * i)
+		var pos = Vector2(radius, 0).rotated(angle)
 		spawn_point.position = pos
 		spawn_point.rotation = pos.angle()
 		spawner_points.add_child(spawn_point)

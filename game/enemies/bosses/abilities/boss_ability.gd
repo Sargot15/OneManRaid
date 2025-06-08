@@ -1,8 +1,5 @@
 class_name BossAbility extends Node
 
-@onready var time_casting_timer = $TimeCastingTimer
-@onready var time_between_casts_timer = $TimeBetweenCastsTimer
-
 @export var ability_name : String
 @export var weight : float # The higher, the more probability to cast this ability
 @export var time_casting : float
@@ -12,7 +9,10 @@ class_name BossAbility extends Node
 @export var stop_on_phase_change : bool
 @export var stop_only_if_not_on_next_phase : bool
 
-var boss : Node = null
+@onready var time_casting_timer = $TimeCastingTimer
+@onready var time_between_casts_timer = $TimeBetweenCastsTimer
+
+var boss : Boss = null
 
 var is_casteable : bool = true
 var is_casting : bool = false
@@ -25,20 +25,19 @@ func _ready():
 func _process(delta):
 	pass
 	
-func cast():
+func cast() -> void:
 	pass
 
-func _on_time_casting_timer_timeout():
-	pass 
-	
-func _on_time_between_casts_timer_timeout():
-	pass 
-	
-func boss_phase_changed(ability_on_next_phase : bool):
+func boss_phase_changed(ability_on_next_phase : bool) -> void:
 	if is_casting and stop_on_phase_change:
 		if not ability_on_next_phase or not stop_only_if_not_on_next_phase:
 			stop()
 
-func stop():
+func stop() -> void:
 	pass
 
+func _on_time_casting_timer_timeout() -> void:
+	pass 
+	
+func _on_time_between_casts_timer_timeout() -> void:
+	pass 

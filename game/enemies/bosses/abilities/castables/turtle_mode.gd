@@ -1,26 +1,18 @@
-extends "res://game/enemies/bosses/abilities/boss_ability.gd"
+class_name TurtleMode extends BossAbility
 
 signal finished_cast
-
-@onready var time_between_healings_timer = $TimeBetweenHealings
-@onready var time_start_healing_boss_timer = $TimeToStartHealingBoss
 
 @export var shield_life : float
 @export var spawners : Array[Node2D]
 @export var shield : PackedScene
 @export var amount_heal : float
 
+@onready var time_between_healings_timer = $TimeBetweenHealings
+@onready var time_start_healing_boss_timer = $TimeToStartHealingBoss
+
 var shield_ins
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-func cast():
+func cast() -> void:
 	is_casteable = false
 	is_casting = true
 		
@@ -38,13 +30,13 @@ func cast():
 	
 	shield_ins.connect("shield_destroyed", on_shield_destroyed)
 
-func stop():
+func stop() -> void:
 	finish_cast()
 
-func on_shield_destroyed():
+func on_shield_destroyed() -> void:
 	finish_cast()
 
-func finish_cast():
+func finish_cast() -> void:
 	for spawner in spawners:
 		spawner.disable()
 		
@@ -69,5 +61,5 @@ func _on_time_to_heal_boss_timeout():
 	
 func _on_time_between_healings_timeout():
 	#TODO: Esto se está lanzando incluso cuando se acaba el hechizo, habría que parar todos los timers en el finish_cast?
-	if (boss.has_method("heal")):
+	if boss.has_method("heal"):
 		boss.heal(amount_heal)

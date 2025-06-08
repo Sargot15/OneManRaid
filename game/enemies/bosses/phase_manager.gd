@@ -1,6 +1,5 @@
 class_name PhaseManager extends Node
 
-
 @export var initial_phase: BossPhase
 @export var boss : Boss
 @export var ability_caster : AbilityCaster
@@ -14,14 +13,18 @@ func _ready():
 		if child is BossPhase:
 			phases_map[child.name] = child
 			child.phase_manager = self
-			child.finished.connect(change_phase)
 			child.boss = boss
 			child.ability_caster = ability_caster
+			child.finished.connect(change_phase)
 	
 	if initial_phase:
 		change_phase(initial_phase.name)
 
-func change_phase(phase_name: String):
+func _process(delta):
+	if current_phase:
+		current_phase.update(delta)
+
+func change_phase(phase_name: String) -> void:
 	if not phases_map.has(phase_name):
 		return
 	
@@ -33,7 +36,3 @@ func change_phase(phase_name: String):
 	current_phase.enter()
 	
 	#emit_signal("state_changed", previous_state, current_state)
-
-func _process(delta):
-	if current_phase:
-		current_phase.update(delta)

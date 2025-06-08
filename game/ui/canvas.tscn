@@ -1,17 +1,17 @@
 [gd_scene load_steps=24 format=3 uid="uid://cc407asobqgjd"]
 
-[ext_resource type="Script" path="res://game/ui/canvasManager.gd" id="1_6bt4b"]
-[ext_resource type="Script" path="res://game/ui/FPSMeter.gd" id="1_q7m4w"]
-[ext_resource type="Script" path="res://game/ui/LifeUIUpdate.gd" id="2_i3apx"]
+[ext_resource type="Script" path="res://game/ui/canvas_manager.gd" id="1_6bt4b"]
+[ext_resource type="Script" path="res://game/ui/fps_meter.gd" id="1_q7m4w"]
+[ext_resource type="Script" path="res://game/ui/life_ui_update.gd" id="2_i3apx"]
 [ext_resource type="Texture2D" uid="uid://dxvs4i757abyv" path="res://assets/images/UI/HeroesInfo/playerBlueUIBorder.svg" id="2_x3mmx"]
-[ext_resource type="Script" path="res://game/ui/BulletsCounter.gd" id="3_s5ohp"]
+[ext_resource type="Script" path="res://game/ui/bullets_counter.gd" id="3_s5ohp"]
 [ext_resource type="Texture2D" uid="uid://lxptlwu6wy08" path="res://assets/images/UI/HeroesInfo/playerBlueUILife.svg" id="3_ytuw4"]
 [ext_resource type="FontFile" uid="uid://cjigwi46it8wo" path="res://assets/fonts/Roboto-Bold.ttf" id="4_8cd2x"]
 [ext_resource type="Texture2D" uid="uid://7fxqsl5i5bpd" path="res://assets/images/UI/HeroesInfo/lineSeparatorText.svg" id="4_p3y4m"]
 [ext_resource type="Texture2D" uid="uid://bvhuv2faodlno" path="res://assets/images/UI/HeroesInfo/playerBrownUIBorder.svg" id="6_81yyw"]
 [ext_resource type="Texture2D" uid="uid://b7omrdb7yac5g" path="res://assets/images/UI/HeroesInfo/playerBrownUILife.svg" id="7_hnr5q"]
 [ext_resource type="Texture2D" uid="uid://b2trsdn777cqt" path="res://assets/images/UI/HeroesInfo/playerGreenUIBorder.svg" id="8_gckoa"]
-[ext_resource type="Script" path="res://game/ui/StatsUIUpdate.gd" id="8_ksdqe"]
+[ext_resource type="Script" path="res://game/ui/stats_ui_update.gd" id="8_ksdqe"]
 [ext_resource type="Texture2D" uid="uid://b3drlcqutbx2k" path="res://assets/images/UI/HeroesInfo/playerGreenUILife.svg" id="9_wu0wu"]
 [ext_resource type="Texture2D" uid="uid://dtk5lgcaykudv" path="res://assets/images/UI/HeroesInfo/playerYellowUIBorder.svg" id="10_4ipcb"]
 [ext_resource type="Texture2D" uid="uid://dix7o2hbx4t8q" path="res://assets/images/UI/HeroesInfo/playerYellowUILife.svg" id="11_muv3r"]
@@ -956,10 +956,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_rc8ib")
 
-[node name="Debug_EnableSpawners" type="Button" parent="CanvasLayer"]
+[node name="DebugEnableSpawners" type="Button" parent="CanvasLayer"]
 offset_top = 51.0
 offset_right = 203.0
 offset_bottom = 82.0
 text = "Enable/Disable Spawners"
 
-[connection signal="pressed" from="CanvasLayer/Debug_EnableSpawners" to="." method="_on_debug_enable_spawners_pressed"]
+[connection signal="pressed" from="CanvasLayer/DebugEnableSpawners" to="." method="_on_debug_enable_spawners_pressed"]

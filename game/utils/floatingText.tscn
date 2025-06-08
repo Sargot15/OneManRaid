@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bxqc5racbiowx"]
 
 [ext_resource type="FontFile" uid="uid://cjigwi46it8wo" path="res://assets/fonts/Roboto-Bold.ttf" id="1_t32fq"]
-[ext_resource type="Script" path="res://game/utils/floatingText.gd" id="2_i8n6v"]
+[ext_resource type="Script" path="res://game/utils/floating_text.gd" id="2_0x3ry"]
 
 [node name="FloatingText" type="RichTextLabel"]
 anchors_preset = 8
@@ -26,7 +26,7 @@ text = " 130 "
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
-script = ExtResource("2_i8n6v")
+script = ExtResource("2_0x3ry")
 
 [node name="AliveTimer" type="Timer" parent="."]
 one_shot = true

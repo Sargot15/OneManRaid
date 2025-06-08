@@ -5,10 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://bfvidc12weevw" path="res://game/enemies/bullets/bulletEnemyBrown.tscn" id="3_lumac"]
 [ext_resource type="PackedScene" uid="uid://dcoe82nj0jmhb" path="res://game/enemies/bullets/bulletEnemyGreen.tscn" id="4_oe6bt"]
 [ext_resource type="PackedScene" uid="uid://chbmuk04fuig8" path="res://game/enemies/bullets/bulletEnemyYellow.tscn" id="5_6ifkl"]
-[ext_resource type="Script" path="res://game/enemies/spawners/SpawnerRotater.gd" id="6_kam7f"]
-[ext_resource type="Script" path="res://game/enemies/spawners/SpawnerPatternAngle.gd" id="7_ddf50"]
-[ext_resource type="Script" path="res://game/enemies/spawners/SpawnerPatternEquallyDistributed.gd" id="7_yao41"]
-[ext_resource type="Script" path="res://game/enemies/spawners/SpawnerPatternOneDirection.gd" id="9_amlx4"]
+[ext_resource type="Script" path="res://game/enemies/spawners/spawner_rotater.gd" id="6_y8yqy"]
+[ext_resource type="Script" path="res://game/enemies/spawners/spawner_pattern_angle.gd" id="7_vbk2c"]
+[ext_resource type="Script" path="res://game/enemies/spawners/spawner_pattern_equally_distributed.gd" id="8_e5vy1"]
+[ext_resource type="Script" path="res://game/enemies/spawners/spawner_pattern_one_direction.gd" id="9_indqa"]
 
 [node name="Spawner" type="Node2D"]
 script = ExtResource("1_7lnj1")
@@ -32,20 +32,20 @@ one_shot = true
 [node name="TimeToRestartTimer" type="Timer" parent="."]
 
 [node name="Rotater" type="Node2D" parent="."]
-script = ExtResource("6_kam7f")
+script = ExtResource("6_y8yqy")
 
 [node name="SpawnerPoints" type="Node2D" parent="."]
 
 [node name="ShootPatterns" type="Node" parent="."]
 
 [node name="Angle" type="Node" parent="ShootPatterns"]
-script = ExtResource("7_ddf50")
+script = ExtResource("7_vbk2c")
 
 [node name="EquallyDistributed" type="Node" parent="ShootPatterns"]
-script = ExtResource("7_yao41")
+script = ExtResource("8_e5vy1")
 
 [node name="OneDirection" type="Node" parent="ShootPatterns"]
-script = ExtResource("9_amlx4")
+script = ExtResource("9_indqa")
 
 [connection signal="child_entered_tree" from="Sprite2D" to="." method="_on_sprite_2d_child_entered_tree"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

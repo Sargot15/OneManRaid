@@ -1,4 +1,4 @@
-extends Node
+class_name HeroStats extends Node
 
 # Base stats
 @export var max_health : float

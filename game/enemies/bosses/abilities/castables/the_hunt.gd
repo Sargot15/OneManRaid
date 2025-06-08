@@ -1,17 +1,8 @@
-extends "res://game/enemies/bosses/abilities/boss_ability.gd"
+class_name TheHunt extends BossAbility
 
 @export var spawners : Array[Node2D]
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-func cast():
+func cast() -> void:
 	is_casteable = false
 	is_casting = true
 		
@@ -21,7 +12,7 @@ func cast():
 	time_casting_timer.wait_time = time_casting
 	time_casting_timer.start()
 
-func stop():
+func stop() -> void:
 	for spawner in spawners:
 		spawner.disable()
 	

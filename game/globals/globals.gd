@@ -4,9 +4,9 @@ enum COLOR_TYPE {YELLOW, BLUE, BROWN, GREEN, GRAY}
 
 var debug_total_enemy_bullets : int = 0
 
-var player: Node = null
+var player: Player = null
 
-func set_player(p):
+func set_player(p : Player):
 	player = p
 
 func get_player_position() -> Vector2:

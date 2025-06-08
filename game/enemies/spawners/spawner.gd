@@ -1,20 +1,4 @@
-extends Node2D
-
-#------------------------------------
-# REFERENCES
-#------------------------------------
-@onready var shoot_timer = $ShootTimer
-@onready var change_bullet_timer = $ChangeBulletTimer
-@onready var time_alive_timer = $TimeAliveTimer
-@onready var bullet_start_hitting_timer = $BulletsStartHittingTimer
-@onready var time_to_restart_timer = $TimeToRestartTimer
-
-@onready var rotater = $Rotater
-@onready var spawner_points = $SpawnerPoints
-
-@onready var pattern_angle = $ShootPatterns/Angle
-@onready var pattern_equally_distributed = $ShootPatterns/EquallyDistributed
-@onready var pattern_one_direction = $ShootPatterns/OneDirection
+class_name Spawner extends Node2D
 
 
 #------------------------------------
@@ -72,6 +56,23 @@ enum ShootPattern {ANGLE, EQUALLIY_DISTRIBUTED, ONE_DIRECTION}
 @export var bullet_time_to_start_hit : float = -1
 
 #------------------------------------
+# REFERENCES
+#------------------------------------
+@onready var shoot_timer = $ShootTimer
+@onready var change_bullet_timer = $ChangeBulletTimer
+@onready var time_alive_timer = $TimeAliveTimer
+@onready var bullet_start_hitting_timer = $BulletsStartHittingTimer
+@onready var time_to_restart_timer = $TimeToRestartTimer
+
+@onready var rotater = $Rotater
+@onready var spawner_points = $SpawnerPoints
+
+@onready var pattern_angle = $ShootPatterns/Angle
+@onready var pattern_equally_distributed = $ShootPatterns/EquallyDistributed
+@onready var pattern_one_direction = $ShootPatterns/OneDirection
+
+
+#------------------------------------
 # LOCAL VARIABLES
 #------------------------------------
 var bullet_scene : PackedScene
@@ -82,96 +83,100 @@ var bullet_scene : PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if (enabled):
-		initialize_components()
+	if enabled:
+		_initialize_components()
+		
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	if look_at_player:
+		look_at(Globals.get_player_position())
 
-
-func initialize_components():
+func _initialize_components() -> void:
 	
 	# Set first bullet
 	bullet_scene = bullet_types.pick_random()
 	
 	# If it is set to the bullets start hitting player after some time we initialize the timer
-	if (bullet_time_to_start_hit > 0):
+	if bullet_time_to_start_hit > 0:
 		bullet_start_hitting_timer.wait_time = bullet_time_to_start_hit
 		bullet_start_hitting_timer.start()
 	
 	# Set pattern
-	initialize_pattern()
+	_initialize_pattern()
 	
-	if (has_static_bullets):
-		initialize_static_bullets()
+	if has_static_bullets:
+		_initialize_static_bullets()
 		shoot_timer.stop()
 	else:
 		#Set timers
-		set_shoot_timer(shooting_time)
-		if (change_bullet_time > 0):
-			set_change_bullet_timer(change_bullet_time)
+		_set_shoot_timer(shooting_time)
+		if change_bullet_time > 0:
+			_set_change_bullet_timer(change_bullet_time)
 	
 	# Behaviours
-	if (rotation_enabled):
+	if rotation_enabled:
 		rotater.initialize(rotation_speed, rotation_clockwise)
 		
-	if (time_alive > 0):
+	if time_alive > 0:
 		time_alive_timer.wait_time = time_alive
 		time_alive_timer.start()
 
 
-func initialize_pattern():
-	if (shoot_pattern == ShootPattern.ANGLE):
+func _initialize_pattern() -> void:
+	if shoot_pattern == ShootPattern.ANGLE:
 		pattern_angle.initialize_pattern(angle_direction, angle_arc, angle_radius, spawn_point_count)
-	elif (shoot_pattern == ShootPattern.ONE_DIRECTION):
+	elif shoot_pattern == ShootPattern.ONE_DIRECTION:
 		pattern_one_direction.initialize_pattern(od_direction, od_bullet_separation, spawn_point_count)
-	elif (shoot_pattern == ShootPattern.EQUALLIY_DISTRIBUTED):
+	elif shoot_pattern == ShootPattern.EQUALLIY_DISTRIBUTED:
 		pattern_equally_distributed.initialize_pattern(ed_radius, spawn_point_count)
 	else:
 		pass
 
-func initialize_static_bullets():
+func _initialize_static_bullets() -> void:
 	for s in spawner_points.get_children():
 		for i in sb_bullets_per_spawn:
-			var bullet = bullet_scene.instantiate()
+			var bullet : BulletEnemy = bullet_scene.instantiate()
 			s.add_child(bullet)
 			bullet.position.x += i * 20 #TODO: Make that '20' an export var
 			bullet.is_static = true
 			bullet.set_time_alive(0)
-			apply_bullet_modifiers(bullet)
+			_apply_bullet_modifiers(bullet)
 
-func set_shoot_timer(shooting_time : float):
+func _set_shoot_timer(shooting_time : float) -> void:
 	shoot_timer.stop()
 	shoot_timer.wait_time = shooting_time
 	shoot_timer.start()
 
 
-func set_change_bullet_timer(change_bullet_time : float):
+func _set_change_bullet_timer(change_bullet_time : float) -> void:
 	change_bullet_timer.stop()
 	change_bullet_timer.wait_time = change_bullet_time
 	change_bullet_timer.start()
 	
-func apply_bullet_modifiers(bullet):
-	if (bullet_speed != -1):
+func _apply_bullet_modifiers(bullet : BulletEnemy) -> void:
+	if bullet_speed != -1:
 		bullet.speed = bullet_speed
-	if (bullet_damage != -1):
+	if bullet_damage != -1:
 		bullet.damage = bullet_damage
-	if (bullet_max_distance != -1):
+	if bullet_max_distance != -1:
 		bullet.max_distance = bullet_max_distance
-	if (bullet_time_alive != -1):
+	if bullet_time_alive != -1:
 		bullet.set_time_alive(bullet_time_alive)
-	if (bullet_time_to_start_hit != -1):
+	if bullet_time_to_start_hit != -1:
 		bullet.set_time_start_hitting(bullet_start_hitting_timer.time_left)
 		
 #------------------------------------
 # BEHAVIOURS
 #------------------------------------
-func enable():
-	if (!enabled):
+func enable() -> void:
+	if not enabled:
 		# initialize components again
-		initialize_components()
+		_initialize_components()
 		
 		enabled = true
 	
-func disable():
-	if (enabled):
+func disable() -> void:
+	if enabled:
 		# stop all timers
 		shoot_timer.stop()
 		change_bullet_timer.stop()
@@ -193,11 +198,11 @@ func disable():
 #------------------------------------
 func _on_shoot_timer_timeout():
 	for s in spawner_points.get_children():
-		var bullet = bullet_scene.instantiate()
+		var bullet : BulletEnemy = bullet_scene.instantiate()
 		get_tree().root.add_child(bullet)
 		bullet.position = s.global_position
 		bullet.rotation = s.global_rotation
-		apply_bullet_modifiers(bullet)
+		_apply_bullet_modifiers(bullet)
 
 
 func _on_change_bullet_timer_timeout():
@@ -205,7 +210,7 @@ func _on_change_bullet_timer_timeout():
 
 func _on_time_alive_timer_timeout():
 	# If the timer has a time to restart we initialize the timer. Else, destroy the spawners
-	if (time_to_restart >= 0):
+	if time_to_restart >= 0:
 		disable()
 		time_to_restart_timer.wait_time = time_to_restart
 		time_to_restart_timer.start()
@@ -216,7 +221,3 @@ func _on_time_to_restart_timer_timeout():
 	time_to_restart_timer.stop()
 	enable()
 	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	if (look_at_player):
-		look_at(Globals.get_player_position())

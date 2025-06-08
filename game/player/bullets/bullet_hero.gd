@@ -1,4 +1,4 @@
-extends Area2D
+class_name BulletHero extends Area2D
 
 @export var speed : float = 400
 
@@ -16,19 +16,18 @@ func _process(delta):
 	var direction = Vector2.RIGHT.rotated(rotation)
 	position += direction * speed * delta
 
-func set_max_distance(max_distance : float):
+func set_max_distance(max_distance : float) -> void:
 	# Calculate how much time the bullet will be alive based on speed and max_distance
 	timerAlive.wait_time = max_distance / speed
 	timerAlive.start()
 	
-func set_damage(dam : float):
+func set_damage(dam : float) -> void:
 	damage = dam
 
 func _on_time_alive_timeout():
 	queue_free()
 
-
-func _on_body_entered(body):
+func _on_body_entered(body : Node):
 	if(body.has_method("take_damage")):
 		body.take_damage(damage)
 		

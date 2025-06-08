@@ -1,4 +1,4 @@
-extends Node
+class_name SpawnerPatternOneDirection extends Node
 
 @onready var spawner_points = $"../../SpawnerPoints"
 
@@ -11,10 +11,10 @@ func _ready():
 func _process(delta):
 	pass
 
-func initialize_pattern(direction: float, separation: float, spawn_point_count: int):
+func initialize_pattern(direction: float, separation: float, spawn_point_count: int) -> void:
 	var start_point : float = (separation * spawn_point_count) / 2;
 	
-	if (spawn_point_count % 2 == 0):
+	if spawn_point_count % 2 == 0:
 		start_point -= separation / 2
 
 	# First we set the points in the Y axis

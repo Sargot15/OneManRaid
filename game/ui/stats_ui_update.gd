@@ -1,4 +1,4 @@
-extends Panel
+class_name StatsUIUpdate extends Panel
 
 
 # Called when the node enters the scene tree for the first time.
@@ -10,7 +10,7 @@ func _ready():
 func _process(delta):
 	pass
 
-func update_stats(def : float, att : float, spd : float, att_range : float, att_speed : float):
+func update_stats(def : float, att : float, spd : float, att_range : float, att_speed : float) -> void:
 	$Attack.text = "ATT: " + str(att)
 	$Defense.text = "DEF: " + str(def)
 	$Speed.text = "SPD: " + str(spd)

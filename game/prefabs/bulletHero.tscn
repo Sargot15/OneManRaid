@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cg5lm4cgfuntd"]
 
-[ext_resource type="Script" path="res://game/player/bullets/bulletHero.gd" id="1_bw3r1"]
+[ext_resource type="Script" path="res://game/player/bullets/bullet_hero.gd" id="1_k2yv5"]
 [ext_resource type="Texture2D" uid="uid://c5dqejcs2d71b" path="res://assets/images/heroes/bullets/playerBulletBlue.svg" id="2_mk88h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xucih"]
@@ -8,7 +8,7 @@ size = Vector2(6, 26)
 
 [node name="BulletHero" type="Area2D"]
 collision_mask = 4
-script = ExtResource("1_bw3r1")
+script = ExtResource("1_k2yv5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708

@@ -1,4 +1,4 @@
-extends "res://game/enemies/bosses/boss.gd"
+class_name Azrael extends Boss
 
 
 # Called when the node enters the scene tree for the first time.

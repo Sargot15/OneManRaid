@@ -9,9 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://35ioia0g3u0x" path="res://game/enemies/bullets/bulletEnemyGray.tscn" id="5_p7x5c"]
 [ext_resource type="PackedScene" uid="uid://crxnb410jvmu2" path="res://game/enemies/bosses/abilities/castables/turtleMode.tscn" id="5_uoktf"]
 [ext_resource type="PackedScene" uid="uid://dtg7ieupjii1l" path="res://game/enemies/bosses/abilities/spells/shield.tscn" id="6_qg4u1"]
-[ext_resource type="Script" path="res://game/enemies/bosses/entities/azrael/AzraelPhase1.gd" id="10_78fq8"]
-[ext_resource type="Script" path="res://game/enemies/bosses/entities/azrael/AzraelPhase2.gd" id="11_csg3l"]
-[ext_resource type="Script" path="res://game/enemies/bosses/entities/azrael/AzraelPhase3.gd" id="12_opgop"]
+[ext_resource type="Script" path="res://game/enemies/bosses/entities/azrael/azrael_phase_1.gd" id="10_78fq8"]
+[ext_resource type="Script" path="res://game/enemies/bosses/entities/azrael/azrael_phase_2.gd" id="11_csg3l"]
+[ext_resource type="Script" path="res://game/enemies/bosses/entities/azrael/azrael_phase_3.gd" id="12_opgop"]
 
 [node name="Boss" instance=ExtResource("1_j7aka")]
 script = ExtResource("2_cr3xf")

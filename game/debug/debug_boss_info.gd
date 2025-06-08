@@ -1,4 +1,4 @@
-extends CanvasLayer
+class_name DebugBossInfo extends CanvasLayer
 
 @onready var phase_manager : PhaseManager = $"../PhaseManager"
 @onready var ability_caster : AbilityCaster = $"../AbilitiesCaster"

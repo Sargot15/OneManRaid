@@ -1,12 +1,4 @@
-extends Node2D
-
-class_name bulletEnemy
-
-@onready var kill_timer = $KillTimer
-@onready var hit_again_timer = $HitAgainTimer
-@onready var start_hitting_timer = $StartHittingTimer
-
-@onready var collisioner = $CollisionShape2D
+class_name BulletEnemy extends Node2D
 
 @export var speed : float = 400
 @export var damage : float
@@ -15,6 +7,12 @@ class_name bulletEnemy
 @export var max_distance : float = -1 
 @export var destroy_on_collistion : bool = true
 @export var type : Globals.COLOR_TYPE
+
+@onready var kill_timer = $KillTimer
+@onready var hit_again_timer = $HitAgainTimer
+@onready var start_hitting_timer = $StartHittingTimer
+
+@onready var collisioner = $CollisionShape2D
 
 var hit_recently : bool = false
 var can_hit : bool = true
@@ -30,12 +28,23 @@ func _process(delta):
 		distance_traveled += scale.x * speed * delta
 		
 	if (max_distance != -1 && distance_traveled >= max_distance):
-		destroy()
+		_destroy()
 	
+func set_time_alive(time_alive : float) -> void:
+	kill_timer.stop()
+	if (time_alive > 0):
+		kill_timer.wait_time = time_alive
+		kill_timer.start()
 
-func _on_kill_timer_timeout():
-	destroy()
+func set_time_start_hitting(time_to_hit : float) -> void:
+	if (time_to_hit > 0):
+		start_hitting_timer.wait_time = time_to_hit
+		start_hitting_timer.start()
+		can_hit = false
 
+func _destroy() -> void:
+	Globals.debug_total_enemy_bullets -= 1
+	queue_free()
 
 func _on_body_entered(body):
 	if (!can_hit):
@@ -47,28 +56,14 @@ func _on_body_entered(body):
 		hit_again_timer.start()
 	
 	if (destroy_on_collistion):
-		destroy()
+		_destroy()
 
+func _on_kill_timer_timeout():
+	_destroy()
+	
 func _on_hit_again_timer_timeout():
 	hit_recently = false
 
-
-func set_time_alive(time_alive : float):
-	kill_timer.stop()
-	if (time_alive > 0):
-		kill_timer.wait_time = time_alive
-		kill_timer.start()
-
-func destroy():
-	Globals.debug_total_enemy_bullets -= 1
-	queue_free()
-
-func set_time_start_hitting(time_to_hit : float):
-	if (time_to_hit > 0):
-		start_hitting_timer.wait_time = time_to_hit
-		start_hitting_timer.start()
-		can_hit = false
-		
-
 func _on_start_hitting_timer_timeout():
 	can_hit = true
+

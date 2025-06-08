@@ -1,4 +1,4 @@
-extends Label
+class_name FPSMeter extends Label
 
 
 # Called when the node enters the scene tree for the first time.

@@ -1,4 +1,4 @@
-extends Node2D
+class_name Shield extends Node2D
 
 signal shield_destroyed
 
@@ -13,9 +13,9 @@ func _ready():
 func _process(delta):
 	pass
 	
-func take_damage(damage : float):
+func take_damage(damage : float) -> void:
 	shield_life -= damage
 	FloatingTextManager.show_damage_shield_text(damage, global_position)
 	
-	if (shield_life <= 0):
+	if shield_life <= 0:
 		shield_destroyed.emit()

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://game/enemies/bosses/boss.gd" id="1_0wt7v"]
 [ext_resource type="Texture2D" uid="uid://gimdnar0twai" path="res://icon.svg" id="2_cc5l6"]
 [ext_resource type="Script" path="res://game/enemies/bosses/abilities/ability_caster.gd" id="3_ybibf"]
-[ext_resource type="Script" path="res://game/enemies/bosses/PhaseManager.gd" id="4_l5cph"]
+[ext_resource type="Script" path="res://game/enemies/bosses/phase_manager.gd" id="4_0ylfn"]
 [ext_resource type="Script" path="res://game/debug/debug_boss_info.gd" id="5_37xbo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_60dcp"]
@@ -11,6 +11,7 @@ size = Vector2(128, 128)
 
 [node name="Boss" type="CharacterBody2D"]
 collision_layer = 4
+motion_mode = 1
 script = ExtResource("1_0wt7v")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -34,7 +35,7 @@ boss = NodePath("..")
 [node name="GlobalSpawners" type="Node" parent="."]
 
 [node name="PhaseManager" type="Node" parent="." node_paths=PackedStringArray("boss", "ability_caster")]
-script = ExtResource("4_l5cph")
+script = ExtResource("4_0ylfn")
 boss = NodePath("..")
 ability_caster = NodePath("../AbilitiesCaster")
 
