@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bxqc5racbiowx"]
 
 [ext_resource type="FontFile" uid="uid://cjigwi46it8wo" path="res://assets/fonts/Roboto-Bold.ttf" id="1_naxkg"]
-[ext_resource type="Script" path="res://game/utils/floating_text.gd" id="2_bqnh7"]
+[ext_resource type="Script" uid="uid://ctk4lut3p2yfg" path="res://game/utils/floating_text.gd" id="2_bqnh7"]
 
 [node name="FloatingText" type="RichTextLabel"]
 anchors_preset = 8

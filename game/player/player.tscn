@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dl2kn4p8em6wa"]
 
-[ext_resource type="Script" path="res://game/player/player.gd" id="1_b33ml"]
+[ext_resource type="Script" uid="uid://dxl07107o4be" path="res://game/player/player.gd" id="1_b33ml"]
 [ext_resource type="Texture2D" uid="uid://c4p26r6nq0g8e" path="res://assets/images/heroes/playerBlue.svg" id="2_gxi6b"]
 [ext_resource type="PackedScene" uid="uid://bgellnr12w2jt" path="res://game/player/heroes/hero_blue.tscn" id="3_umt6u"]
 [ext_resource type="PackedScene" uid="uid://xg4rhetg2qpb" path="res://game/player/heroes/hero_brown.tscn" id="4_xfw4h"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dtg7ieupjii1l"]
 
 [ext_resource type="Texture2D" uid="uid://dr5rjehn6siwy" path="res://assets/images/bosses/spells/shield.svg" id="1_hcsc1"]
-[ext_resource type="Script" path="res://game/enemies/bosses/abilities/spells/shield.gd" id="1_wrejm"]
+[ext_resource type="Script" uid="uid://ba68o45s5fd7v" path="res://game/enemies/bosses/abilities/spells/shield.gd" id="1_wrejm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xqulo"]
 radius = 121.004

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://d2digs1504cha"]
 
-[ext_resource type="Script" path="res://game/player/hero_stats.gd" id="1_xuwqu"]
+[ext_resource type="Script" uid="uid://bsxot1tfle4xr" path="res://game/player/hero_stats.gd" id="1_xuwqu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6g3sa"]
 outline_size = 2

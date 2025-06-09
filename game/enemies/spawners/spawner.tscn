@@ -1,14 +1,14 @@
 [gd_scene load_steps=10 format=3 uid="uid://buo4x18g2wae"]
 
-[ext_resource type="Script" path="res://game/enemies/spawners/spawner.gd" id="1_7lnj1"]
+[ext_resource type="Script" uid="uid://5bekwlsefgix" path="res://game/enemies/spawners/spawner.gd" id="1_7lnj1"]
 [ext_resource type="PackedScene" uid="uid://dh2gjonypu00p" path="res://game/enemies/bullets/bullet_enemy_blue.tscn" id="2_m3ac2"]
 [ext_resource type="PackedScene" uid="uid://bfvidc12weevw" path="res://game/enemies/bullets/bullet_enemy_brown.tscn" id="3_17aw6"]
 [ext_resource type="PackedScene" uid="uid://dcoe82nj0jmhb" path="res://game/enemies/bullets/bullet_enemy_green.tscn" id="4_i5gmh"]
 [ext_resource type="PackedScene" uid="uid://chbmuk04fuig8" path="res://game/enemies/bullets/bullet_enemy_yellow.tscn" id="5_1adn4"]
-[ext_resource type="Script" path="res://game/enemies/spawners/spawner_rotater.gd" id="6_y8yqy"]
-[ext_resource type="Script" path="res://game/enemies/spawners/spawner_pattern_angle.gd" id="7_vbk2c"]
-[ext_resource type="Script" path="res://game/enemies/spawners/spawner_pattern_equally_distributed.gd" id="8_e5vy1"]
-[ext_resource type="Script" path="res://game/enemies/spawners/spawner_pattern_one_direction.gd" id="9_indqa"]
+[ext_resource type="Script" uid="uid://fwg6xrhofg1j" path="res://game/enemies/spawners/spawner_rotater.gd" id="6_y8yqy"]
+[ext_resource type="Script" uid="uid://doakx4b63k7nf" path="res://game/enemies/spawners/spawner_pattern_angle.gd" id="7_vbk2c"]
+[ext_resource type="Script" uid="uid://cfvmdq3slde1m" path="res://game/enemies/spawners/spawner_pattern_equally_distributed.gd" id="8_e5vy1"]
+[ext_resource type="Script" uid="uid://dxabp44dl136h" path="res://game/enemies/spawners/spawner_pattern_one_direction.gd" id="9_indqa"]
 
 [node name="Spawner" type="Node2D"]
 script = ExtResource("1_7lnj1")

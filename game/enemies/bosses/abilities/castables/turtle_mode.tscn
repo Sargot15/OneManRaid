@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://crxnb410jvmu2"]
 
 [ext_resource type="PackedScene" uid="uid://dlyeuaxpdvod7" path="res://game/prefabs/boss_ability.tscn" id="1_8fpvg"]
-[ext_resource type="Script" path="res://game/enemies/bosses/abilities/castables/turtle_mode.gd" id="2_ycu6k"]
+[ext_resource type="Script" uid="uid://b86u2md3rdxam" path="res://game/enemies/bosses/abilities/castables/turtle_mode.gd" id="2_ycu6k"]
 
 [node name="BossAbility" node_paths=PackedStringArray("spawners") instance=ExtResource("1_8fpvg")]
 script = ExtResource("2_ycu6k")

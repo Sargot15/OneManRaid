@@ -66,4 +66,3 @@ func _on_hit_again_timer_timeout():
 
 func _on_start_hitting_timer_timeout():
 	can_hit = true
-

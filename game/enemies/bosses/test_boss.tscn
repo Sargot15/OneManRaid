@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://5e8na2s7dfum"]
 
 [ext_resource type="PackedScene" uid="uid://dcoy01oiym2ng" path="res://game/prefabs/boss.tscn" id="1_i6vxg"]
-[ext_resource type="Script" path="res://game/enemies/bosses/test_boss.gd" id="2_mpycn"]
+[ext_resource type="Script" uid="uid://oc7ncb11yjph" path="res://game/enemies/bosses/test_boss.gd" id="2_mpycn"]
 
 [node name="Boss" instance=ExtResource("1_i6vxg")]
 script = ExtResource("2_mpycn")

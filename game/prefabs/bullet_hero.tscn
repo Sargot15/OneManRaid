@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cg5lm4cgfuntd"]
 
-[ext_resource type="Script" path="res://game/player/bullets/bullet_hero.gd" id="1_jauog"]
+[ext_resource type="Script" uid="uid://cusl35jkjqloo" path="res://game/player/bullets/bullet_hero.gd" id="1_jauog"]
 [ext_resource type="Texture2D" uid="uid://c5dqejcs2d71b" path="res://assets/images/heroes/bullets/playerBulletBlue.svg" id="2_km1c8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xucih"]

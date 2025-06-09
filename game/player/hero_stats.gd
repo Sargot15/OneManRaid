@@ -18,4 +18,4 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$Label.text = str(health)
+	$Label.text = str(int(health))

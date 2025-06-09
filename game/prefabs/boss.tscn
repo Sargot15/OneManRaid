@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://dcoy01oiym2ng"]
 
-[ext_resource type="Script" path="res://game/enemies/bosses/boss.gd" id="1_0wt7v"]
+[ext_resource type="Script" uid="uid://cgupd4dh55wk2" path="res://game/enemies/bosses/boss.gd" id="1_0wt7v"]
 [ext_resource type="Texture2D" uid="uid://gimdnar0twai" path="res://icon.svg" id="2_cc5l6"]
-[ext_resource type="Script" path="res://game/enemies/bosses/abilities/ability_caster.gd" id="3_ybibf"]
-[ext_resource type="Script" path="res://game/enemies/bosses/phase_manager.gd" id="4_0ylfn"]
-[ext_resource type="Script" path="res://game/debug/debug_boss_info.gd" id="5_37xbo"]
+[ext_resource type="Script" uid="uid://cewa08i3p0t4g" path="res://game/enemies/bosses/abilities/ability_caster.gd" id="3_ybibf"]
+[ext_resource type="Script" uid="uid://co202n15kunm4" path="res://game/enemies/bosses/phase_manager.gd" id="4_0ylfn"]
+[ext_resource type="Script" uid="uid://bgrsxbqybfkpn" path="res://game/debug/debug_boss_info.gd" id="5_37xbo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_60dcp"]
 size = Vector2(128, 128)

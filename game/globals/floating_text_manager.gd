@@ -21,4 +21,3 @@ func show_text(amount : int, world_position : Vector2, color : Color) -> void:
 	text_instance.global_position = world_position + Vector2(randf_range(-20, 20) - (text_instance.size.x / 2), randf_range(-20, 0))
 	text_instance.text_color = color
 	get_tree().current_scene.add_child(text_instance)
-

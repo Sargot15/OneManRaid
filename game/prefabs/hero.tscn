@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://c6fimi1hkoreo"]
 
-[ext_resource type="Script" path="res://game/player/hero.gd" id="1_igtp0"]
+[ext_resource type="Script" uid="uid://cjyi52h77nqx1" path="res://game/player/hero.gd" id="1_igtp0"]
 [ext_resource type="Texture2D" uid="uid://c4p26r6nq0g8e" path="res://assets/images/heroes/playerBlue.svg" id="2_stwi8"]
 [ext_resource type="PackedScene" uid="uid://d2digs1504cha" path="res://game/player/hero_stats.tscn" id="3_ts3fx"]
-[ext_resource type="Script" path="res://game/player/weapon.gd" id="4_kpa3e"]
-[ext_resource type="Script" path="res://game/player/bullets/bullet_hero.gd" id="5_grvt5"]
+[ext_resource type="Script" uid="uid://cvvkno5b8ts5e" path="res://game/player/weapon.gd" id="4_kpa3e"]
+[ext_resource type="Script" uid="uid://cusl35jkjqloo" path="res://game/player/bullets/bullet_hero.gd" id="5_grvt5"]
 [ext_resource type="Texture2D" uid="uid://c5dqejcs2d71b" path="res://assets/images/heroes/bullets/playerBulletBlue.svg" id="6_dtfbq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xucih"]
