@@ -16,4 +16,4 @@ func update(delta: float) -> void:
 
 func exit() -> void:
 	# Passives
-	change_passives(passives_exit, true)
+	change_passives(passives_exit, false)

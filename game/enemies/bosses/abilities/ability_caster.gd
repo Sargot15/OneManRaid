@@ -3,17 +3,31 @@ class_name AbilityCaster extends Node
 @export var boss : Boss
 
 var abilities : Array[Node]
-var can_cast : bool = true
+var can_cast : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$TryCastAbilityTimer.start()
+	start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+	
+func start() -> void:
+	if not can_cast:
+		can_cast = true
+		$TryCastAbilityTimer.start()
+	
+func stop() -> void:
+	if can_cast:
+		can_cast = false
+		$TryCastAbilityTimer.stop()
+		
+		# Stopping all active abilities
+		for ability in abilities:
+			ability.stop()
 
-func change_abilities(new_abilities : Array[Node]):
+func change_abilities(new_abilities : Array[Node]) -> void:
 	# Notice phase change to the old abilities
 	for ability in abilities:
 		

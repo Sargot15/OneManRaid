@@ -2,6 +2,8 @@ class_name BossPhase extends Node
 
 signal finished(next_state_name)
 
+enum PHASE_SUBSTATE { INTERMISSION, ACTIVE }
+
 @export var passives_enter : Array[Node] #Passives to activate at entering the phase
 @export var passives_exit : Array[Node] #Passives to deactivate at exiting the phase
 @export var abilities : Array[Node] #Abilities that can be casted during this phase
@@ -9,6 +11,7 @@ signal finished(next_state_name)
 var phase_manager: PhaseManager = null
 var boss : Boss = null
 var ability_caster : AbilityCaster = null
+var current_substate : PHASE_SUBSTATE = PHASE_SUBSTATE.INTERMISSION
 
 func enter():
 	pass
@@ -35,3 +38,11 @@ func change_passives(passives : Array[Node], activate : bool) -> void:
 func change_abilities(abilities : Array[Node]) -> void:
 	if ability_caster:
 		ability_caster.change_abilities(abilities)
+		
+func stop_abilities() -> void:
+	if ability_caster:
+		ability_caster.stop()
+		
+func start_abilities() -> void:
+	if ability_caster:
+		ability_caster.start()

@@ -49,7 +49,11 @@ spawners = [NodePath("../../LocalSpawners/CircleExplosion")]
 
 [node name="SpawnersFixedPhase2" type="Node" parent="Passives" index="2" node_paths=PackedStringArray("spawners")]
 script = ExtResource("2_1onmv")
-spawners = [NodePath("../../GlobalSpawners/LeftScreen"), NodePath("../../GlobalSpawners/RightScreen"), NodePath("../../LocalSpawners/RingShield")]
+spawners = [NodePath("../../LocalSpawners/RingShield")]
+
+[node name="SpawnersFixedPhases2-3" type="Node" parent="Passives" index="3" node_paths=PackedStringArray("spawners")]
+script = ExtResource("2_1onmv")
+spawners = [NodePath("../../GlobalSpawners/LeftScreen"), NodePath("../../GlobalSpawners/RightScreen")]
 
 [node name="CircleExplosion" parent="LocalSpawners" index="0" instance=ExtResource("2_etffr")]
 enabled = false
@@ -264,9 +268,10 @@ passives_enter = [NodePath("../../Passives/SpawnersFixedFullFight"), NodePath(".
 passives_exit = [NodePath("../../Passives/SpawnersFixedPhase1")]
 abilities = [NodePath("../../AbilitiesCaster/Abilities/TheHunt"), NodePath("../../AbilitiesCaster/Abilities/TurtleMode")]
 
-[node name="Phase2" type="Node" parent="PhaseManager" index="1" node_paths=PackedStringArray("passives_enter", "abilities")]
+[node name="Phase2" type="Node" parent="PhaseManager" index="1" node_paths=PackedStringArray("passives_enter", "passives_exit", "abilities")]
 script = ExtResource("11_csg3l")
-passives_enter = [NodePath("../../Passives/SpawnersFixedPhase2")]
+passives_enter = [NodePath("../../Passives/SpawnersFixedPhase2"), NodePath("../../Passives/SpawnersFixedPhases2-3")]
+passives_exit = [NodePath("../../Passives/SpawnersFixedPhase2")]
 abilities = [NodePath("../../AbilitiesCaster/Abilities/TheHunt")]
 
 [node name="Phase3" type="Node" parent="PhaseManager" index="2"]
