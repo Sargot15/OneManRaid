@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dcoy01oiym2ng"]
+[gd_scene load_steps=9 format=3 uid="uid://dcoy01oiym2ng"]
 
 [ext_resource type="Script" uid="uid://cgupd4dh55wk2" path="res://game/enemies/bosses/boss.gd" id="1_0wt7v"]
 [ext_resource type="Texture2D" uid="uid://gimdnar0twai" path="res://icon.svg" id="2_cc5l6"]
@@ -8,6 +8,22 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_60dcp"]
 size = Vector2(128, 128)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bu27n"]
+bg_color = Color(1, 0.164706, 0.0901961, 1)
+border_width_left = 4
+border_width_top = 3
+border_width_right = 4
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2bisw"]
+bg_color = Color(0.184314, 0.654902, 0.211765, 1)
+border_width_left = 4
+border_width_top = 3
+border_width_right = 4
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
 
 [node name="Boss" type="CharacterBody2D"]
 collision_layer = 4
@@ -38,6 +54,20 @@ boss = NodePath("..")
 script = ExtResource("4_0ylfn")
 boss = NodePath("..")
 ability_caster = NodePath("../AbilitiesCaster")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.12
+anchor_top = 0.02
+anchor_right = 0.68
+anchor_bottom = 0.08
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_bu27n")
+theme_override_styles/fill = SubResource("StyleBoxFlat_2bisw")
+value = 50.0
 
 [node name="DebugInfo" type="CanvasLayer" parent="."]
 script = ExtResource("5_37xbo")

@@ -3,7 +3,8 @@ class_name Boss extends Node2D
 # Base stats
 @export var max_health : float
 
-@onready var phase_manager = $PhaseManager
+@onready var phase_manager  = $PhaseManager
+@onready var health_bar : ProgressBar = $CanvasLayer/HealthBar
 
 # Actual stats
 var health : float
@@ -14,6 +15,7 @@ var updating_health : bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	health = max_health
+	_update_health_bar()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -40,4 +42,10 @@ func _update_health(amount : float) -> void:
 	if health > max_health:
 		health = max_health
 		
+	_update_health_bar()
+		
 	updating_health = false
+	
+func _update_health_bar() -> void:
+	health_bar.max_value = max_health
+	health_bar.value = health
