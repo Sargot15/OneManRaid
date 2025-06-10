@@ -62,10 +62,13 @@ shape = SubResource("RectangleShape2D_vy1kk")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(1630, 1086)
+process_callback = 0
 limit_left = 0
 limit_top = 0
 limit_right = 3866
 limit_bottom = 1963
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
 
 [node name="Spawners" type="Node" parent="."]
 

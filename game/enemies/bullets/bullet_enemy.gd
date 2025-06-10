@@ -22,7 +22,7 @@ func _ready():
 	Globals.debug_total_enemy_bullets += 1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta):
 	if (!is_static):
 		position += transform.x * speed * delta
 		distance_traveled += scale.x * speed * delta

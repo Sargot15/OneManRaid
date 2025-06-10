@@ -23,6 +23,10 @@ func _ready():
 func _process(delta):
 	if current_phase:
 		current_phase.update(delta)
+		
+func _physics_process(delta):
+	if current_phase:
+		current_phase.update_physics(delta)
 
 func change_phase(phase_name: String) -> void:
 	if not phases_map.has(phase_name):

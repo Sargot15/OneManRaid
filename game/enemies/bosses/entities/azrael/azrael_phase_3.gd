@@ -29,7 +29,7 @@ func _start_phase_behaviour() -> void:
 	
 	current_substate = PHASE_SUBSTATE.ACTIVE
 
-func update(delta: float) -> void:
+func update_physics(delta: float) -> void:
 	match current_substate:
 		PHASE_SUBSTATE.ACTIVE:
 			# Movement

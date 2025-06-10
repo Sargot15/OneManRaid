@@ -22,6 +22,9 @@ func exit():
 func update(delta: float) -> void:
 	pass
 	
+func update_physics(delta: float) -> void:
+	pass
+	
 func condition_to_next_phase() -> bool:
 	return false
 	
