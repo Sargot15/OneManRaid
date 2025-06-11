@@ -13,7 +13,6 @@ amount_heal = 0.0
 [node name="TimeToStartHealingBoss" type="Timer" parent="." index="2"]
 wait_time = 5.0
 one_shot = true
-autostart = true
 
 [node name="TimeBetweenHealings" type="Timer" parent="." index="3"]
 
