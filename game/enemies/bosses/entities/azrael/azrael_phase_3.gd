@@ -1,9 +1,11 @@
 class_name AzraelPhase3 extends BossPhase
 
 @export var radius_movement : float = 400
-@export var speed: float = 1.0
+@export var speed_intermission : float = 200.0
+@export var speed_phase : float = 1.0
 
 var center_position : Vector2
+var target_position_intermission : Vector2
 var angle: float = PI * 2 * (3.0 / 4.0)  # Actual angle, starts in the North
 
 func enter() -> void:
@@ -14,10 +16,7 @@ func enter() -> void:
 	stop_abilities()
 	
 	# Initial movement of the boss in this phase
-	var target_position : Vector2 = center_position + Vector2(0, -radius_movement)
-	var tween_initial_movement : Tween = create_tween()
-	tween_initial_movement.tween_property(boss, "global_position", target_position, 2.0)
-	tween_initial_movement.tween_callback(_start_phase_behaviour)
+	target_position_intermission = center_position + Vector2(0, -radius_movement)
 	
 func _start_phase_behaviour() -> void:
 	# Passives
@@ -31,9 +30,13 @@ func _start_phase_behaviour() -> void:
 
 func update_physics(delta: float) -> void:
 	match current_substate:
+		PHASE_SUBSTATE.INTERMISSION:
+			boss.global_position = boss.global_position.move_toward(target_position_intermission, speed_intermission * delta)
+			if boss.global_position.distance_to(target_position_intermission) < 1:
+				_start_phase_behaviour()
 		PHASE_SUBSTATE.ACTIVE:
 			# Movement
-			angle += speed * delta
+			angle += speed_phase * delta
 			if angle > 2 * PI:
 				angle -= PI * 2
 			var offset = Vector2(cos(angle), sin(angle)) * radius_movement
