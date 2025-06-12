@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://cgcuj4xh4swtq"]
+[gd_scene load_steps=14 format=3 uid="uid://cgcuj4xh4swtq"]
 
 [ext_resource type="PackedScene" uid="uid://dcoy01oiym2ng" path="res://game/prefabs/boss.tscn" id="1_j7aka"]
 [ext_resource type="Script" uid="uid://d1wbnx26kt2vo" path="res://game/enemies/bosses/abilities/passives/spawners_fixed.gd" id="2_1onmv"]
 [ext_resource type="Script" uid="uid://dnokqlnoino35" path="res://game/enemies/bosses/entities/azrael/azrael.gd" id="2_cr3xf"]
 [ext_resource type="PackedScene" uid="uid://buo4x18g2wae" path="res://game/enemies/spawners/spawner.tscn" id="2_etffr"]
+[ext_resource type="Texture2D" uid="uid://csyrynbxge3w4" path="res://assets/images/bosses/Azrael.svg" id="3_5t0js"]
 [ext_resource type="PackedScene" uid="uid://dlyeuaxpdvod7" path="res://game/prefabs/boss_ability.tscn" id="3_8dgim"]
 [ext_resource type="Script" uid="uid://cgqsdn7lwmvd8" path="res://game/enemies/bosses/abilities/castables/the_hunt.gd" id="3_el1j3"]
 [ext_resource type="PackedScene" uid="uid://35ioia0g3u0x" path="res://game/enemies/bullets/bullet_enemy_gray.tscn" id="5_p7x5c"]
@@ -16,6 +17,9 @@
 [node name="Boss" instance=ExtResource("1_j7aka")]
 script = ExtResource("2_cr3xf")
 max_health = 2500.0
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("3_5t0js")
 
 [node name="TheHunt" parent="AbilitiesCaster/Abilities" index="0" node_paths=PackedStringArray("spawners") instance=ExtResource("3_8dgim")]
 script = ExtResource("3_el1j3")
