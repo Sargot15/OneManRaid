@@ -61,7 +61,6 @@ func _on_try_cast_ability_timer_timeout():
 	actual_chance_to_cast += increased_chance_to_cast_after_try
 	if randf() > actual_chance_to_cast:
 		return
-	print ("Casting after a " + str(actual_chance_to_cast) + " chance")
 
 	var total_weight : float = 0
 	
