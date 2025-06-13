@@ -21,6 +21,9 @@ max_health = 2500.0
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("3_5t0js")
 
+[node name="AbilitiesCaster" parent="." index="2"]
+increased_chance_to_cast_after_try = 0.05
+
 [node name="TheHunt" parent="AbilitiesCaster/Abilities" index="0" node_paths=PackedStringArray("spawners") instance=ExtResource("3_8dgim")]
 script = ExtResource("3_el1j3")
 spawners = [NodePath("../../../LocalSpawners/TheHunt_cross"), NodePath("../../../LocalSpawners/TheHunt_shoots")]
