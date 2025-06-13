@@ -59,6 +59,10 @@ spawners = [NodePath("../../LocalSpawners/RingShield")]
 script = ExtResource("2_1onmv")
 spawners = [NodePath("../../GlobalSpawners/LeftScreen"), NodePath("../../GlobalSpawners/RightScreen")]
 
+[node name="SpawnersFixedPhase3" type="Node" parent="Passives" index="4" node_paths=PackedStringArray("spawners")]
+script = ExtResource("2_1onmv")
+spawners = [NodePath("../../LocalSpawners/Spiral")]
+
 [node name="CircleExplosion" parent="LocalSpawners" index="0" instance=ExtResource("2_etffr")]
 enabled = false
 spawn_point_count = 40
@@ -208,6 +212,23 @@ bullet_damage = 5.0
 bullet_time_alive = 8.0
 bullet_time_to_start_hit = 1.0
 
+[node name="Spiral" parent="LocalSpawners" index="8" instance=ExtResource("2_etffr")]
+enabled = false
+spawn_point_count = 2
+shooting_time = 0.35
+change_bullet_time = 3.0
+shoot_pattern = 1
+ed_radius = 20.0
+od_direction = 90.0
+od_bullet_separation = 20.0
+rotation_enabled = true
+rotation_speed = 40.0
+rotation_clockwise = false
+bullet_speed = 600.0
+bullet_damage = 5.0
+bullet_time_alive = 0.0
+bullet_max_distance = 2000.0
+
 [node name="TopScreen" parent="GlobalSpawners" index="0" instance=ExtResource("2_etffr")]
 position = Vector2(1742, 0)
 enabled = false
@@ -278,5 +299,6 @@ passives_enter = [NodePath("../../Passives/SpawnersFixedPhase2"), NodePath("../.
 passives_exit = [NodePath("../../Passives/SpawnersFixedPhase2")]
 abilities = [NodePath("../../AbilitiesCaster/Abilities/TheHunt")]
 
-[node name="Phase3" type="Node" parent="PhaseManager" index="2"]
+[node name="Phase3" type="Node" parent="PhaseManager" index="2" node_paths=PackedStringArray("passives_enter")]
 script = ExtResource("12_opgop")
+passives_enter = [NodePath("../../Passives/SpawnersFixedPhase3")]
