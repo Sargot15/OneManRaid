@@ -23,11 +23,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	if (!is_static):
+	if not is_static:
 		position += transform.x * speed * delta
 		distance_traveled += scale.x * speed * delta
 		
-	if (max_distance != -1 && distance_traveled >= max_distance):
+	if max_distance != -1 && distance_traveled >= max_distance:
 		_destroy()
 	
 func set_time_alive(time_alive : float) -> void:
@@ -37,7 +37,7 @@ func set_time_alive(time_alive : float) -> void:
 		kill_timer.start()
 
 func set_time_start_hitting(time_to_hit : float) -> void:
-	if (time_to_hit > 0):
+	if time_to_hit > 0:
 		start_hitting_timer.wait_time = time_to_hit
 		start_hitting_timer.start()
 		can_hit = false
@@ -47,10 +47,10 @@ func _destroy() -> void:
 	queue_free()
 
 func _on_body_entered(body):
-	if (!can_hit):
+	if not can_hit:
 		return
 		
-	if (body.has_method("take_damage") && !hit_recently):
+	if body.has_method("take_damage") and not hit_recently:
 		body.take_damage(damage, type)
 		hit_recently = true
 		hit_again_timer.start()

@@ -10,7 +10,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_shk6a"]
 radius = 16.1245
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("heroes")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("heroes") groups=["player"]]
 collision_mask = 2
 motion_mode = 1
 script = ExtResource("1_b33ml")
