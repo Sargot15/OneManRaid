@@ -60,6 +60,5 @@ func _on_time_to_heal_boss_timeout():
 	time_between_healings_timer.start()
 	
 func _on_time_between_healings_timeout():
-	#TODO: Esto se está lanzando incluso cuando se acaba el hechizo, habría que parar todos los timers en el finish_cast?
 	if boss.has_method("heal"):
 		boss.heal(amount_heal)

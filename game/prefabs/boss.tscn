@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dcoy01oiym2ng"]
+[gd_scene load_steps=10 format=3 uid="uid://dcoy01oiym2ng"]
 
 [ext_resource type="Script" uid="uid://cgupd4dh55wk2" path="res://game/enemies/bosses/boss.gd" id="1_0wt7v"]
 [ext_resource type="Texture2D" uid="uid://gimdnar0twai" path="res://icon.svg" id="2_cc5l6"]
+[ext_resource type="Script" uid="uid://pigejftewq3c" path="res://game/enemies/bosses/movement_controller.gd" id="3_2bisw"]
 [ext_resource type="Script" uid="uid://cewa08i3p0t4g" path="res://game/enemies/bosses/abilities/ability_caster.gd" id="3_ybibf"]
 [ext_resource type="Script" uid="uid://co202n15kunm4" path="res://game/enemies/bosses/phase_manager.gd" id="4_0ylfn"]
 [ext_resource type="Script" uid="uid://bgrsxbqybfkpn" path="res://game/debug/debug_boss_info.gd" id="5_37xbo"]
@@ -36,6 +37,9 @@ texture = ExtResource("2_cc5l6")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_60dcp")
 
+[node name="MovementController" type="Node" parent="."]
+script = ExtResource("3_2bisw")
+
 [node name="AbilitiesCaster" type="Node2D" parent="." node_paths=PackedStringArray("boss")]
 script = ExtResource("3_ybibf")
 boss = NodePath("..")
@@ -50,10 +54,11 @@ boss = NodePath("..")
 
 [node name="GlobalSpawners" type="Node" parent="."]
 
-[node name="PhaseManager" type="Node" parent="." node_paths=PackedStringArray("boss", "ability_caster")]
+[node name="PhaseManager" type="Node" parent="." node_paths=PackedStringArray("boss", "ability_caster", "movement_contrller")]
 script = ExtResource("4_0ylfn")
 boss = NodePath("..")
 ability_caster = NodePath("../AbilitiesCaster")
+movement_contrller = NodePath("../MovementController")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

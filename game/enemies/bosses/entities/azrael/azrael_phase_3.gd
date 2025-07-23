@@ -18,6 +18,10 @@ func enter() -> void:
 	# Initial movement of the boss in this phase
 	target_position_intermission = center_position + Vector2(0, -radius_movement)
 	
+	# Set movement
+	movement_controller.set_normal_movement(func(delta): _intermission_movement(delta))
+
+
 func _start_phase_behaviour() -> void:
 	# Passives
 	change_passives(passives_enter, true)
@@ -26,21 +30,29 @@ func _start_phase_behaviour() -> void:
 	change_abilities(abilities)
 	start_abilities()
 	
-	current_substate = PHASE_SUBSTATE.ACTIVE
+	# Set movement
+	movement_controller.set_normal_movement(func(delta): _phase_movement(delta))
+	
+	current_substate = PHASE_SUBSTATE.PHASE
+
 
 func update_physics(delta: float) -> void:
-	match current_substate:
-		PHASE_SUBSTATE.INTERMISSION:
-			boss.global_position = boss.global_position.move_toward(target_position_intermission, speed_intermission * delta)
-			if boss.global_position.distance_to(target_position_intermission) < 1:
-				_start_phase_behaviour()
-		PHASE_SUBSTATE.ACTIVE:
-			# Movement
-			angle += speed_phase * delta
-			if angle > 2 * PI:
-				angle -= PI * 2
-			var offset = Vector2(cos(angle), sin(angle)) * radius_movement
-			boss.global_position = center_position + offset
+	# Check if we have to change from intermission to phase
+	if current_substate == PHASE_SUBSTATE.INTERMISSION and boss.global_position.distance_to(target_position_intermission) < 1:
+		_start_phase_behaviour()
+
+
+func _intermission_movement(delta: float) -> void:
+	boss.global_position = boss.global_position.move_toward(target_position_intermission, speed_intermission * delta)
+
+
+func _phase_movement(delta: float) -> void:
+	angle += speed_phase * delta
+	if angle > 2 * PI:
+		angle -= PI * 2
+	var offset = Vector2(cos(angle), sin(angle)) * radius_movement
+	boss.global_position = center_position + offset
+
 
 func exit() -> void:
 	# Passives

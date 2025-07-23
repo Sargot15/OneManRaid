@@ -9,6 +9,9 @@ func enter() -> void:
 	
 	# Abilities
 	change_abilities(abilities)
+	
+	# Movement
+	movement_controller.set_idle()
 
 func update(delta: float) -> void:
 	if condition_to_next_phase():
