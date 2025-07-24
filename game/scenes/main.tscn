@@ -18,6 +18,7 @@ size = Vector2(40, 2045.5)
 [node name="Scene" type="Node2D"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
+z_index = -2
 offset_right = 3482.0
 offset_bottom = 1963.0
 color = Color(0.305882, 0.392157, 0.431373, 1)

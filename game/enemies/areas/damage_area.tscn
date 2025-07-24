@@ -5,6 +5,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_qxnkm"]
 
 [node name="DamageArea" type="Area2D"]
+z_index = -1
 collision_layer = 16
 script = ExtResource("1_ph6vr")
 
