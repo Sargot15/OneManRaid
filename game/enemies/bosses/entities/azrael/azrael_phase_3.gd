@@ -6,7 +6,6 @@ class_name AzraelPhase3 extends BossPhase
 
 var center_position : Vector2
 var target_position_intermission : Vector2
-var angle: float = PI * 2 * (3.0 / 4.0)  # Actual angle, starts in the North
 
 func enter() -> void:
 	current_substate = PHASE_SUBSTATE.INTERMISSION
@@ -47,9 +46,16 @@ func _intermission_movement(delta: float) -> void:
 
 
 func _phase_movement(delta: float) -> void:
+	# Set actual angle (this is important to do because the position could be modified by external sources like an ability)
+	var to_boss = boss.global_position - center_position
+	var angle : float = 0.0
+	if to_boss.length() > 0.01:
+		angle = to_boss.angle()
+		
+	# Calculate new position
 	angle += speed_phase * delta
-	if angle > 2 * PI:
-		angle -= PI * 2
+	if angle > TAU:
+		angle -= TAU
 	var offset = Vector2(cos(angle), sin(angle)) * radius_movement
 	boss.global_position = center_position + offset
 

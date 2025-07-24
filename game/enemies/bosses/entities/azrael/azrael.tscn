@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cgcuj4xh4swtq"]
+[gd_scene load_steps=19 format=3 uid="uid://cgcuj4xh4swtq"]
 
 [ext_resource type="PackedScene" uid="uid://dcoy01oiym2ng" path="res://game/prefabs/boss.tscn" id="1_j7aka"]
 [ext_resource type="Script" uid="uid://d1wbnx26kt2vo" path="res://game/enemies/bosses/abilities/passives/spawners_fixed.gd" id="2_1onmv"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://35ioia0g3u0x" path="res://game/enemies/bullets/bullet_enemy_gray.tscn" id="5_p7x5c"]
 [ext_resource type="PackedScene" uid="uid://crxnb410jvmu2" path="res://game/enemies/bosses/abilities/castables/turtle_mode.tscn" id="5_uoktf"]
 [ext_resource type="PackedScene" uid="uid://dtg7ieupjii1l" path="res://game/enemies/bosses/abilities/spells/shield.tscn" id="6_qg4u1"]
+[ext_resource type="Script" uid="uid://bg45ns3jjwffw" path="res://game/enemies/bosses/abilities/castables/charge.gd" id="8_2gono"]
 [ext_resource type="Script" uid="uid://diss6514eg1tf" path="res://game/enemies/bosses/abilities/passives/damage_area_passive.gd" id="9_wi3yi"]
 [ext_resource type="PackedScene" uid="uid://dsmtlcelp6u4a" path="res://game/enemies/areas/damage_area.tscn" id="10_8yy56"]
 [ext_resource type="Script" uid="uid://bubqqy65vmey7" path="res://game/enemies/bosses/entities/azrael/azrael_phase_1.gd" id="10_78fq8"]
@@ -42,7 +43,8 @@ max_health = 2500.0
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("3_5t0js")
 
-[node name="AbilitiesCaster" parent="." index="3"]
+[node name="AbilitiesCaster" parent="." index="3" node_paths=PackedStringArray("boss_movement_controller")]
+boss_movement_controller = NodePath("../MovementController")
 increased_chance_to_cast_after_try = 0.05
 
 [node name="TheHunt" parent="AbilitiesCaster/Abilities" index="0" node_paths=PackedStringArray("spawners") instance=ExtResource("3_8dgim")]
@@ -66,6 +68,16 @@ time_between_casts = 15.0
 is_unique_cast = true
 stop_on_phase_change = true
 stop_only_if_not_on_next_phase = true
+
+[node name="Charge" parent="AbilitiesCaster/Abilities" index="2" node_paths=PackedStringArray("spawners") instance=ExtResource("3_8dgim")]
+script = ExtResource("8_2gono")
+spawners = [NodePath("../../../LocalSpawners/Charge")]
+boss_mov_distance = 800.0
+boss_mov_direction = Vector2(1721, 1079)
+boss_mov_speed = 500.0
+ability_name = "Charge"
+weight = 25.0
+time_between_casts = 20.0
 
 [node name="SpawnersFixedFullFight" type="Node" parent="Passives" index="0" node_paths=PackedStringArray("spawners")]
 script = ExtResource("2_1onmv")
@@ -259,6 +271,17 @@ bullet_damage = 5.0
 bullet_time_alive = 0.0
 bullet_max_distance = 2000.0
 
+[node name="Charge" parent="LocalSpawners" index="9" instance=ExtResource("2_etffr")]
+enabled = false
+spawn_point_count = 2
+shooting_time = 0.05
+shoot_pattern = 1
+ed_radius = 15.0
+bullet_speed = 600.0
+bullet_damage = 5.0
+bullet_time_alive = 0.0
+bullet_max_distance = 2000.0
+
 [node name="TopScreen" parent="GlobalSpawners" index="0" instance=ExtResource("2_etffr")]
 position = Vector2(1742, 0)
 enabled = false
@@ -329,6 +352,9 @@ passives_enter = [NodePath("../../Passives/SpawnersFixedPhase2"), NodePath("../.
 passives_exit = [NodePath("../../Passives/SpawnersFixedPhase2"), null]
 abilities = [NodePath("../../AbilitiesCaster/Abilities/TheHunt")]
 
-[node name="Phase3" type="Node" parent="PhaseManager" index="2" node_paths=PackedStringArray("passives_enter")]
+[node name="Phase3" type="Node" parent="PhaseManager" index="2" node_paths=PackedStringArray("passives_enter", "abilities")]
 script = ExtResource("12_opgop")
 passives_enter = [NodePath("../../Passives/SpawnersFixedPhase3"), NodePath("../../Passives/DamageAreaPhase3")]
+abilities = [NodePath("../../AbilitiesCaster/Abilities/Charge")]
+
+[node name="Node2D" type="Node2D" parent="." index="10"]

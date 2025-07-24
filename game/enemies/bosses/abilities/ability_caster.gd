@@ -1,6 +1,7 @@
 class_name AbilityCaster extends Node
 
 @export var boss : Boss
+@export var boss_movement_controller : MovementController
 ## At the beginning of the fight and just after casting an ability, this is the chance to cast another ability
 @export_range(0, 1) var initial_chance_to_cast : float = 0
 ## Every time there is a try to cast an ability and it failed, the chance to cast an ability will increase this amount for the next try
@@ -49,6 +50,7 @@ func change_abilities(new_abilities : Array[Node]) -> void:
 	
 	for ability in abilities:
 		ability.boss = boss
+		ability.boss_movement_controller = boss_movement_controller
 
 func _on_ability_finished_cast():
 	can_cast = true

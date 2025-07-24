@@ -13,6 +13,7 @@ class_name BossAbility extends Node
 @onready var time_between_casts_timer = $TimeBetweenCastsTimer
 
 var boss : Boss = null
+var boss_movement_controller : MovementController = null
 
 var is_casteable : bool = true
 var is_casting : bool = false
