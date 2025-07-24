@@ -35,13 +35,14 @@ func config_area_damage(config : DamageAreaConfig) -> void:
 	circle_incomplete_percentage_open = config.circle_incomplete_percentage_open
 	circle_inverted_radius = config.circle_inverted_radius
 	
-	if not config.pemanent_alive:
+	if not config.permanent_alive:
 		var time_alive : float = randf_range(config.min_time_alive, config.max_time_alive)
 		# Add timer to set the time the area is going to be active
 		timer_alive.wait_time = time_alive
 		timer_alive.start()
 	
 	_create_shape()
+	
 	
 func _create_shape() -> void:
 	match area_shape:
@@ -56,6 +57,7 @@ func _create_shape() -> void:
 func destroy() -> void:
 	area_destroyed.emit(self)
 	queue_free()
+
 
 func _on_body_entered(body : Node):
 	if body.is_in_group("player"):

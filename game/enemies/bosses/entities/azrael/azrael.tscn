@@ -21,7 +21,7 @@
 [sub_resource type="Resource" id="Resource_2gono"]
 script = ExtResource("11_by3da")
 damage = 25.0
-pemanent_alive = true
+permanent_alive = true
 min_time_alive = 0.0
 max_time_alive = 0.0
 pos_relative_to_boss = true

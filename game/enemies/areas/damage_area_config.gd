@@ -2,7 +2,7 @@ class_name DamageAreaConfig extends Resource
 
 @export var damage : float = 25
 
-@export var pemanent_alive : bool
+@export var permanent_alive : bool
 @export var min_time_alive : float
 @export var max_time_alive : float
 
