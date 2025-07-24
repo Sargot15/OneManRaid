@@ -9,7 +9,6 @@ var target_boss_position : Vector2
 
 
 func cast() -> void:
-	print("Casting charge")
 	is_casteable = false
 	is_casting = true
 		
