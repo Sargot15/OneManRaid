@@ -43,7 +43,7 @@ max_health = 2500.0
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("3_5t0js")
 
-[node name="AbilitiesCaster" parent="." index="3" node_paths=PackedStringArray("boss_movement_controller")]
+[node name="AbilitiesCaster" parent="." index="4" node_paths=PackedStringArray("boss_movement_controller")]
 boss_movement_controller = NodePath("../MovementController")
 increased_chance_to_cast_after_try = 0.05
 
@@ -337,7 +337,7 @@ bullet_damage = 5.0
 bullet_time_alive = 0.0
 bullet_max_distance = 3500.0
 
-[node name="PhaseManager" parent="." index="7" node_paths=PackedStringArray("initial_phase")]
+[node name="PhaseManager" parent="." index="8" node_paths=PackedStringArray("initial_phase")]
 initial_phase = NodePath("Phase1")
 
 [node name="Phase1" type="Node" parent="PhaseManager" index="0" node_paths=PackedStringArray("passives_enter", "passives_exit", "abilities")]
@@ -356,5 +356,3 @@ abilities = [NodePath("../../AbilitiesCaster/Abilities/TheHunt")]
 script = ExtResource("12_opgop")
 passives_enter = [NodePath("../../Passives/SpawnersFixedPhase3"), NodePath("../../Passives/DamageAreaPhase3")]
 abilities = [NodePath("../../AbilitiesCaster/Abilities/Charge")]
-
-[node name="Node2D" type="Node2D" parent="." index="10"]

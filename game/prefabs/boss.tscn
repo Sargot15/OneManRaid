@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dcoy01oiym2ng"]
+[gd_scene load_steps=11 format=3 uid="uid://dcoy01oiym2ng"]
 
 [ext_resource type="Script" uid="uid://cgupd4dh55wk2" path="res://game/enemies/bosses/boss.gd" id="1_0wt7v"]
 [ext_resource type="Texture2D" uid="uid://gimdnar0twai" path="res://icon.svg" id="2_cc5l6"]
@@ -9,6 +9,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_60dcp"]
 size = Vector2(128, 128)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2bisw"]
+radius = 444.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bu27n"]
 bg_color = Color(1, 0.164706, 0.0901961, 1)
@@ -37,6 +40,13 @@ texture = ExtResource("2_cc5l6")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_60dcp")
 
+[node name="PlayerDetection" type="Area2D" parent="."]
+collision_layer = 0
+input_pickable = false
+
+[node name="PlayerDetectionCollision" type="CollisionShape2D" parent="PlayerDetection"]
+shape = SubResource("CircleShape2D_2bisw")
+
 [node name="MovementController" type="Node" parent="."]
 script = ExtResource("3_2bisw")
 
@@ -54,11 +64,11 @@ boss = NodePath("..")
 
 [node name="GlobalSpawners" type="Node" parent="."]
 
-[node name="PhaseManager" type="Node" parent="." node_paths=PackedStringArray("boss", "ability_caster", "movement_contrller")]
+[node name="PhaseManager" type="Node" parent="." node_paths=PackedStringArray("boss", "ability_caster", "movement_controller")]
 script = ExtResource("4_0ylfn")
 boss = NodePath("..")
 ability_caster = NodePath("../AbilitiesCaster")
-movement_contrller = NodePath("../MovementController")
+movement_controller = NodePath("../MovementController")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -110,4 +120,5 @@ text = "ABILITIES:"
 [node name="Abilities" type="VBoxContainer" parent="DebugInfo/BoxContainer/VBoxContainer"]
 layout_mode = 2
 
+[connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
 [connection signal="timeout" from="AbilitiesCaster/TryCastAbilityTimer" to="AbilitiesCaster" method="_on_try_cast_ability_timer_timeout"]

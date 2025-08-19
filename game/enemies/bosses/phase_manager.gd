@@ -3,7 +3,7 @@ class_name PhaseManager extends Node
 @export var initial_phase: BossPhase
 @export var boss : Boss
 @export var ability_caster : AbilityCaster
-@export var movement_contrller : MovementController
+@export var movement_controller : MovementController
 
 var phases_map := {}
 var current_phase: BossPhase = null
@@ -16,9 +16,11 @@ func _ready():
 			child.phase_manager = self
 			child.boss = boss
 			child.ability_caster = ability_caster
-			child.movement_controller = movement_contrller
+			child.movement_controller = movement_controller
 			child.finished.connect(change_phase)
-	
+
+
+func start_fight() -> void:
 	if initial_phase:
 		change_phase(initial_phase.name)
 

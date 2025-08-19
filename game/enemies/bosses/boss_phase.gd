@@ -41,9 +41,9 @@ func change_passives(passives : Array[Node], activate : bool) -> void:
 			if passive and passive.has_method("deactivate"):
 				passive.deactivate()
 
-func change_abilities(abilities : Array[Node]) -> void:
+func change_abilities(new_abilities : Array[Node]) -> void:
 	if ability_caster:
-		ability_caster.change_abilities(abilities)
+		ability_caster.change_abilities(new_abilities)
 		
 func stop_abilities() -> void:
 	if ability_caster:
