@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bnoejrqn6gd7q"]
+[gd_scene load_steps=10 format=3 uid="uid://bnoejrqn6gd7q"]
 
 [ext_resource type="PackedScene" uid="uid://dl2kn4p8em6wa" path="res://game/player/player.tscn" id="1_7yei7"]
+[ext_resource type="Texture2D" uid="uid://gsbro6hoagh7" path="res://assets/Background.png" id="1_l3qal"]
 [ext_resource type="PackedScene" uid="uid://cc407asobqgjd" path="res://game/ui/canvas.tscn" id="2_roc2n"]
 [ext_resource type="PackedScene" uid="uid://buo4x18g2wae" path="res://game/enemies/spawners/spawner.tscn" id="3_fqhyt"]
 [ext_resource type="PackedScene" uid="uid://35ioia0g3u0x" path="res://game/enemies/bullets/bullet_enemy_gray.tscn" id="4_j57nn"]
@@ -17,11 +18,13 @@ size = Vector2(40, 2045.5)
 
 [node name="Scene" type="Node2D"]
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 z_index = -2
+texture_repeat = 2
 offset_right = 3482.0
 offset_bottom = 1963.0
-color = Color(0.305882, 0.392157, 0.431373, 1)
+texture = ExtResource("1_l3qal")
+stretch_mode = 1
 
 [node name="Canvas" parent="." instance=ExtResource("2_roc2n")]
 anchors_preset = 0
