@@ -72,17 +72,24 @@ movement_controller = NodePath("../MovementController")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="HealthBar" type="ProgressBar" parent="CanvasLayer"]
+[node name="FightBossInfoContainer" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = -1
 anchor_left = 0.12
 anchor_top = 0.02
 anchor_right = 0.68
-anchor_bottom = 0.08
-grow_horizontal = 2
-grow_vertical = 2
+anchor_bottom = 0.1
+
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer/FightBossInfoContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_bu27n")
 theme_override_styles/fill = SubResource("StyleBoxFlat_2bisw")
 value = 50.0
+
+[node name="FightTimeLabel" type="Label" parent="CanvasLayer/FightBossInfoContainer"]
+layout_mode = 2
+text = "00:00"
+horizontal_alignment = 1
 
 [node name="DebugInfo" type="CanvasLayer" parent="."]
 script = ExtResource("5_37xbo")
