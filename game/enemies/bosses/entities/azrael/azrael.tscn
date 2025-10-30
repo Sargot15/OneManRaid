@@ -20,19 +20,11 @@
 
 [sub_resource type="Resource" id="Resource_2gono"]
 script = ExtResource("11_by3da")
-damage = 25.0
 permanent_alive = true
-min_time_alive = 0.0
-max_time_alive = 0.0
 pos_relative_to_boss = true
-pos_random_x_left_range = 0.0
-pos_random_x_right_range = 0.0
 pos_random_y_top_range = 400.0
 pos_random_y_bottom_range = 400.0
 area_shape = 2
-circle_radius = 0.0
-circle_incomplete_radius = 0.0
-circle_incomplete_percentage_open = 0.0
 circle_inverted_radius = 500.0
 metadata/_custom_type_script = "uid://bp2xkl7bp77g5"
 

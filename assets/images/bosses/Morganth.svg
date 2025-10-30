@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="160" viewBox="0 0 128 160">
+  <!-- Cara del boss: cuadrado de 128x128 con esquinas redondeadas -->
+  <rect x="4" y="29" width="120" height="120" rx="12" ry="12" fill="#5c2d5c" stroke="#000000" stroke-width="8" />
+
+  <!-- Ojos simples (solo pupilas) -->
+  <circle cx="44" cy="75" r="6" fill="#000000" />
+  <circle cx="88" cy="75" r="6" fill="#000000" />
+
+  <!-- Ceños para expresión altiva -->
+  <path d="M30 65 L52 69" stroke="#000000" stroke-width="6" stroke-linecap="round" />
+  <path d="M102 65 L80 69" stroke="#000000" stroke-width="6" stroke-linecap="round" />
+
+  <!-- Boca sencilla -->
+  <path d="M46 109 Q66 119 86 109" stroke="#000000" stroke-width="4" fill="none" stroke-linecap="round" />
+
+  <!-- Corona de cuatro puntas con laterales rectos y centro ligeramente más alto -->
+  <path d="M30 40 L30 9 L49 25 L65 3 L81 25 L100 9 L100 40 Z" fill="#000000" stroke="#000000" stroke-width="2" stroke-linejoin="round" />
+</svg>

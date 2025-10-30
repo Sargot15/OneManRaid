@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dm1th3rnkcycp"]
+
+[ext_resource type="PackedScene" uid="uid://dcoy01oiym2ng" path="res://game/prefabs/boss.tscn" id="1_ce5bn"]
+[ext_resource type="Texture2D" uid="uid://p7a1q84vic0v" path="res://assets/images/bosses/Morganth.svg" id="2_wkrfl"]
+
+[node name="Boss" instance=ExtResource("1_ce5bn")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_wkrfl")
