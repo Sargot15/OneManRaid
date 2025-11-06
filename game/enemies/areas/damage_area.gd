@@ -122,7 +122,7 @@ func _create_inverse_circle_shape() -> void:
 	var points = PackedVector2Array()
 	
 	# Add points outside the circle
-	# TODO: At this momento we use this values to cover all the screen, but we should be able to read the limits of the screen
+	# TODO: At this moment we use this values to cover all the screen, but we should be able to read the limits of the screen
 	points.append(Vector2(7500, -7500))
 	points.append(Vector2(-7500, -7500))
 	points.append(Vector2(-7500, 7500))

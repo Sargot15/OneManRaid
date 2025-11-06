@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bnoejrqn6gd7q"]
+[gd_scene load_steps=11 format=3 uid="uid://bnoejrqn6gd7q"]
 
 [ext_resource type="PackedScene" uid="uid://dl2kn4p8em6wa" path="res://game/player/player.tscn" id="1_7yei7"]
 [ext_resource type="Texture2D" uid="uid://gsbro6hoagh7" path="res://assets/Background.png" id="1_l3qal"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://buo4x18g2wae" path="res://game/enemies/spawners/spawner.tscn" id="3_fqhyt"]
 [ext_resource type="PackedScene" uid="uid://35ioia0g3u0x" path="res://game/enemies/bullets/bullet_enemy_gray.tscn" id="4_j57nn"]
 [ext_resource type="PackedScene" uid="uid://cgcuj4xh4swtq" path="res://game/enemies/bosses/entities/azrael/azrael.tscn" id="5_4fhmr"]
+[ext_resource type="PackedScene" uid="uid://d102m5y77hu8x" path="res://game/debug/debug_menu.tscn" id="7_uk16q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ftxl5"]
 size = Vector2(3563, 40)
@@ -178,6 +179,8 @@ rotation_speed = 25.0
 
 [node name="Boss" parent="." instance=ExtResource("5_4fhmr")]
 position = Vector2(1721, 1079)
+
+[node name="DebugMenu" parent="." instance=ExtResource("7_uk16q")]
 
 [connection signal="hero_health_update" from="Player" to="Canvas" method="_on_hero_health_update"]
 [connection signal="stats_updated" from="Player" to="Canvas" method="_on_hero_stats_updated"]
