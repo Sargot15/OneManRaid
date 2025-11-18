@@ -1,10 +1,6 @@
-class_name DamageAreaConfig extends Resource
+class_name ExplosiveAreaConfig extends Resource
 
 @export var damage : float = 25
-
-@export var permanent_alive : bool
-@export var min_time_alive : float
-@export var max_time_alive : float
 
 @export_group("Position", "pos_")
 @export var pos_relative_to_boss : bool = false
@@ -14,7 +10,7 @@ class_name DamageAreaConfig extends Resource
 @export var pos_random_y_bottom_range : float 
 
 @export_group("Shape")
-enum AreaShape {CIRCLE, CIRCLE_INCOMPLETE, CIRCLE_INVERTED}
+enum AreaShape {CIRCLE, CIRCLE_INCOMPLETE, CIRCLE_INVERTED, CUSTOM}
 @export var area_shape : AreaShape
 
 @export_subgroup("Circle shape", "circle_")
@@ -27,3 +23,6 @@ enum AreaShape {CIRCLE, CIRCLE_INCOMPLETE, CIRCLE_INVERTED}
 
 @export_subgroup("Circle inverted shape", "circle_inverted_")
 @export var circle_inverted_radius : float
+
+@export_subgroup("Custom shape", "custom_")
+@export var custom_points : PackedVector2Array

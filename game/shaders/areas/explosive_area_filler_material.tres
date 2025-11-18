@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://3s4x14gskhx"]
+
+[ext_resource type="Shader" uid="uid://ikmcrhvcrpmp" path="res://game/shaders/areas/explosive_area_filler_material.gdshader" id="1_sreot"]
+
+[resource]
+shader = ExtResource("1_sreot")
+shader_parameter/progress = 0.0
+shader_parameter/fill_color = Color(1, 0, 0, 0.5)
+shader_parameter/empty_color = Color(1, 0, 0, 0.15)

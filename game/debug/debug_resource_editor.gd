@@ -3,7 +3,7 @@ class_name DebugResourceEditor extends VBoxContainer
 var target_resource: Resource
 
 var enum_options := {
-	"area_shape": ["CIRCLE", "CIRCLE_INCOMPLETE", "CIRCLE_INVERTED"],
+	"area_shape": ["CIRCLE", "CIRCLE_INCOMPLETE", "CIRCLE_INVERTED", "CUSTOM"],
 }
 
 func set_resource(res: Resource):

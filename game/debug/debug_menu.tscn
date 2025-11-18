@@ -34,6 +34,10 @@ script = ExtResource("2_xaqij")
 layout_mode = 2
 text = "Add Area"
 
+[node name="AddExplosiveAreaButton" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Add Explosive Area"
+
 [node name="DebugEnableSpawners" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 text = "Enable/Disable Spawners"
@@ -65,5 +69,34 @@ text = "Damage Area configuration"
 layout_mode = 2
 text = "Create Area"
 
+[node name="AddExplosiveAreaConfigPopUp" type="PopupPanel" parent="PanelContainer"]
+oversampling_override = 1.0
+size = Vector2i(500, 750)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/AddExplosiveAreaConfigPopUp"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 496.0
+offset_bottom = 746.0
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/AddExplosiveAreaConfigPopUp/ScrollContainer"]
+layout_mode = 2
+
+[node name="ResourceEditor" type="VBoxContainer" parent="PanelContainer/AddExplosiveAreaConfigPopUp/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("4_obrs3")
+
+[node name="Header" type="Label" parent="PanelContainer/AddExplosiveAreaConfigPopUp/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Explosive Area configuration"
+
+[node name="CreateExplosiveAreaButton" type="Button" parent="PanelContainer/AddExplosiveAreaConfigPopUp/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Create Area"
+
 [connection signal="pressed" from="PanelContainer/VBoxContainer/AddAreaButton" to="." method="_on_add_area_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/AddExplosiveAreaButton" to="." method="_on_add_explosive_area_button_pressed"]
 [connection signal="pressed" from="PanelContainer/AddAreaConfigPopUp/ScrollContainer/VBoxContainer/CreateAreaButton" to="." method="_on_create_area_button_pressed"]
+[connection signal="pressed" from="PanelContainer/AddExplosiveAreaConfigPopUp/ScrollContainer/VBoxContainer/CreateExplosiveAreaButton" to="." method="_on_create_explosive_area_button_pressed"]
