@@ -1,6 +1,7 @@
 class_name BulletHero extends Area2D
 
 @export var speed : float = 400
+@export var damage_type : Globals.COLOR_TYPE
 
 @onready var timerAlive = $TimeAlive
 
@@ -29,6 +30,6 @@ func _on_time_alive_timeout():
 
 func _on_body_entered(body : Node):
 	if(body.has_method("take_damage")):
-		body.take_damage(damage)
+		body.take_damage(damage, damage_type)
 		
 	queue_free()

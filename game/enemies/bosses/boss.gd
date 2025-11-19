@@ -1,5 +1,7 @@
 class_name Boss extends Node2D
 
+signal is_hit(damage_type : Globals.COLOR_TYPE)
+
 # Base stats
 @export var max_health : float
 
@@ -30,13 +32,16 @@ func _process(delta):
 		fight_time += delta
 		_update_fight_timer_label()
 
-func take_damage(damage : float) -> void:
+func take_damage(damage : float, damage_type : Globals.COLOR_TYPE) -> void:
 	# If the boss is hit and the fight was not started, then it starts
 	if not fight_started:
 		_start_fight()
 		
 	_update_health(-damage)
 	FloatingTextManager.show_damage_text(damage, global_position)
+	
+	# Emit signal to know the boss was hit
+	is_hit.emit(damage_type)
 
 func heal(heal_amount : float) -> void:
 	_update_health(heal_amount)

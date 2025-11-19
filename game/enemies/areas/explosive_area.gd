@@ -1,5 +1,8 @@
 class_name ExplosiveArea extends Area2D
 
+var shader = load("res://game/shaders/areas/explosive_area_filler_material.gdshader").duplicate()
+var area_created : bool = false
+
 var damage : float
 
 ### SHAPE PROPERTIES
@@ -28,11 +31,22 @@ func config_area_explosive(config : ExplosiveAreaConfig) -> void:
 	circle_incomplete_percentage_open = config.circle_incomplete_percentage_open
 	circle_inverted_radius = config.circle_inverted_radius
 	custom_points = config.custom_points
+	
+	$TimeToExplode.wait_time = config.explosion_time
+	$TimeToExplode.start()
+	
+	# Create material and shader for the explosion
+	var shader_material = ShaderMaterial.new()
+	shader_material.shader = shader
+	$Polygon2D.material = shader_material
 		
 	_create_area()
 	
+	area_created = true
+	
 func _process(delta):
-	$Polygon2D.material.set_shader_parameter("progress", 1 - ($TimeToExplode.time_left / $TimeToExplode.wait_time))
+	if area_created:
+		$Polygon2D.material.set_shader_parameter("progress", 1 - ($TimeToExplode.time_left / $TimeToExplode.wait_time))
 	
 func _create_area() -> void:
 	# Get the points of the shape of the area

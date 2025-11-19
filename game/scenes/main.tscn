@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cc407asobqgjd" path="res://game/ui/canvas.tscn" id="2_roc2n"]
 [ext_resource type="PackedScene" uid="uid://buo4x18g2wae" path="res://game/enemies/spawners/spawner.tscn" id="3_fqhyt"]
 [ext_resource type="PackedScene" uid="uid://35ioia0g3u0x" path="res://game/enemies/bullets/bullet_enemy_gray.tscn" id="4_j57nn"]
-[ext_resource type="PackedScene" uid="uid://cgcuj4xh4swtq" path="res://game/enemies/bosses/entities/azrael/azrael.tscn" id="5_4fhmr"]
+[ext_resource type="PackedScene" uid="uid://dm1th3rnkcycp" path="res://game/enemies/bosses/entities/morganth/morganth.tscn" id="7_7j1va"]
 [ext_resource type="PackedScene" uid="uid://d102m5y77hu8x" path="res://game/debug/debug_menu.tscn" id="7_uk16q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ftxl5"]
@@ -177,8 +177,8 @@ od_bullet_separation = 18.0
 rotation_enabled = true
 rotation_speed = 25.0
 
-[node name="Boss" parent="." instance=ExtResource("5_4fhmr")]
-position = Vector2(1721, 1079)
+[node name="Morganth" parent="." instance=ExtResource("7_7j1va")]
+position = Vector2(664, 1099)
 
 [node name="DebugMenu" parent="." instance=ExtResource("7_uk16q")]
 

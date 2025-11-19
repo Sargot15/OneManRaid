@@ -1,6 +1,7 @@
 class_name ExplosiveAreaConfig extends Resource
 
 @export var damage : float = 25
+@export var explosion_time : float = 1.0
 
 @export_group("Position", "pos_")
 @export var pos_relative_to_boss : bool = false
