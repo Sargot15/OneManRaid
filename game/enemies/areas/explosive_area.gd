@@ -1,5 +1,9 @@
 class_name ExplosiveArea extends Area2D
 
+@onready var timer_to_explode = $TimeToExplode
+@onready var polygon_shape = $Polygon2D
+@onready var collision = $CollisionPolygon2D
+
 var shader = load("res://game/shaders/areas/explosive_area_filler_material.gdshader").duplicate()
 var area_created : bool = false
 
@@ -32,13 +36,13 @@ func config_area_explosive(config : ExplosiveAreaConfig) -> void:
 	circle_inverted_radius = config.circle_inverted_radius
 	custom_points = config.custom_points
 	
-	$TimeToExplode.wait_time = config.explosion_time
-	$TimeToExplode.start()
+	timer_to_explode.wait_time = config.explosion_time
+	timer_to_explode.start()
 	
 	# Create material and shader for the explosion
 	var shader_material = ShaderMaterial.new()
 	shader_material.shader = shader
-	$Polygon2D.material = shader_material
+	polygon_shape.material = shader_material
 		
 	_create_area()
 	
@@ -46,17 +50,17 @@ func config_area_explosive(config : ExplosiveAreaConfig) -> void:
 	
 func _process(delta):
 	if area_created:
-		$Polygon2D.material.set_shader_parameter("progress", 1 - ($TimeToExplode.time_left / $TimeToExplode.wait_time))
+		polygon_shape.material.set_shader_parameter("progress", 1 - (timer_to_explode.time_left / timer_to_explode.wait_time))
 	
 func _create_area() -> void:
 	# Get the points of the shape of the area
 	var points : PackedVector2Array = _create_polygon_points()
 	
 	# Visual shape
-	$Polygon2D.polygon = points
+	polygon_shape.polygon = points
 	
 	# Collision
-	$CollisionPolygon2D.polygon = points
+	collision.polygon = points
 	
 	
 func _create_polygon_points() -> PackedVector2Array:
