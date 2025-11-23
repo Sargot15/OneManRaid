@@ -94,9 +94,9 @@ func _process(delta):
 func _initialize_components() -> void:
 	
 	# Set first bullet
-	bullet_scene = bullet_types.pick_random()
+	change_bullet_random()
 	
-	# If it is set to the bullets start hitting player after some time we initialize the timer
+	# When a delay is configured, bullets start damaging the player only after the timer finishes
 	if bullet_time_to_start_hit > 0:
 		bullet_start_hitting_timer.wait_time = bullet_time_to_start_hit
 		bullet_start_hitting_timer.start()
@@ -192,21 +192,43 @@ func disable() -> void:
 	else:
 		# if the spawner is restarting we stopped it
 		time_to_restart_timer.stop()
-		
-#------------------------------------
-# TIMERS
-#------------------------------------
-func _on_shoot_timer_timeout():
+
+func shoot() -> void:
 	for s in spawner_points.get_children():
 		var bullet : BulletEnemy = bullet_scene.instantiate()
 		get_tree().root.add_child(bullet)
 		bullet.position = s.global_position
 		bullet.rotation = s.global_rotation
 		_apply_bullet_modifiers(bullet)
+		
+func change_bullet_random(...excluded_types) -> void:
+	var valid_scenes = []
+
+	### TODO: 
+	# This has to be improved, it could be very expensive to create and destroy bullets just to know the type.
+	# The other option is to create a Dictionary for the "bullet_types" where the type and the scene is set via the inspector.
+	###
+	for scene in bullet_types:
+		var instance = scene.instantiate()
+		if instance.type not in excluded_types:
+			valid_scenes.append(scene)
+		instance.queue_free()
+
+	if valid_scenes.size() > 0:
+		bullet_scene = valid_scenes.pick_random()
+	else:
+		# If there are not valid scenes then we pick a random one from the original array, not
+		bullet_scene = bullet_types.pick_random()
+	
+#------------------------------------
+# TIMERS
+#------------------------------------
+func _on_shoot_timer_timeout():
+	shoot()
 
 
 func _on_change_bullet_timer_timeout():
-	bullet_scene = bullet_types.pick_random()
+	change_bullet_random()
 
 func _on_time_alive_timer_timeout():
 	# If the timer has a time to restart we initialize the timer. Else, destroy the spawners
