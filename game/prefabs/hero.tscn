@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://c6fimi1hkoreo"]
+[gd_scene load_steps=10 format=3 uid="uid://c6fimi1hkoreo"]
 
 [ext_resource type="Script" uid="uid://cjyi52h77nqx1" path="res://game/player/hero.gd" id="1_igtp0"]
+[ext_resource type="Material" uid="uid://ql0wdlfdkxgv" path="res://game/player/player_material.tres" id="2_65kpx"]
 [ext_resource type="Texture2D" uid="uid://c4p26r6nq0g8e" path="res://assets/images/heroes/playerBlue.svg" id="2_stwi8"]
 [ext_resource type="PackedScene" uid="uid://d2digs1504cha" path="res://game/player/hero_stats.tscn" id="3_ts3fx"]
 [ext_resource type="Script" uid="uid://cvvkno5b8ts5e" path="res://game/player/weapon.gd" id="4_kpa3e"]
@@ -29,6 +30,7 @@ hero_type = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 2
+material = ExtResource("2_65kpx")
 texture = ExtResource("2_stwi8")
 
 [node name="HeroStats" parent="." instance=ExtResource("3_ts3fx")]

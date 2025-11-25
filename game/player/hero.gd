@@ -6,6 +6,9 @@ signal stats_updated(hero_type : Globals.COLOR_TYPE ,def : float, att : float, s
 @export var hero_type : Globals.COLOR_TYPE
 
 @onready var weapon : Weapon = $Weapon
+@onready var sprite : Sprite2D = $Sprite2D
+
+var hit_tween : Tween = null
 
 var time_to_next_attack : float = 0
 
@@ -35,7 +38,19 @@ func take_damage(damage : float, color_type : Globals.COLOR_TYPE) -> void:
 		$HeroStats.health = max($HeroStats.health - damage, 0)
 		health_updated.emit(hero_type, $HeroStats.health, $HeroStats.max_health)
 		FloatingTextManager.show_damage_text(damage, global_position)
+		_hit_animation()
 		
+# Applies the red hit effect to the player whenever damage is received
+func _hit_animation() -> void :
+	var mat = sprite.material
+	
+	if hit_tween:
+		hit_tween.kill()
+	
+	mat.set_shader_parameter("hit_time", 0.5)
+
+	hit_tween = create_tween()
+	hit_tween.tween_property(mat, "shader_parameter/hit_time", 0.0, 0.5)
 
 func is_alive() -> bool:
 	return $HeroStats.health > 0
