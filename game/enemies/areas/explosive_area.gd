@@ -30,7 +30,7 @@ var custom_points : PackedVector2Array
 func config_area_explosive(config : ExplosiveAreaConfig) -> void:
 	damage = config.damage
 	area_shape = config.area_shape
-	circle_radius = config.circle_radius
+	circle_radius = config.circle_radius + randf_range(-config.circle_radius_random_offset, config.circle_radius_random_offset)
 	circle_incomplete_radius = config.circle_incomplete_radius
 	circle_incomplete_percentage_open = config.circle_incomplete_percentage_open
 	circle_inverted_radius = config.circle_inverted_radius

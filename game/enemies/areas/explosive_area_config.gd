@@ -16,6 +16,8 @@ enum AreaShape {CIRCLE, CIRCLE_INCOMPLETE, CIRCLE_INVERTED, CUSTOM}
 
 @export_subgroup("Circle shape", "circle_")
 @export var circle_radius : float
+## Offset to add to the radius circle. In example: a circle radius of 100 and a random offset of 20 would create a circle of a 80-120 radius
+@export var circle_radius_random_offset : float = 0
 
 @export_subgroup("Circle incomplete shape", "circle_incomplete_")
 @export var circle_incomplete_radius : float
