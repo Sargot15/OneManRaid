@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dm1th3rnkcycp"]
+[gd_scene load_steps=18 format=3 uid="uid://dm1th3rnkcycp"]
 
 [ext_resource type="PackedScene" uid="uid://dcoy01oiym2ng" path="res://game/prefabs/boss.tscn" id="1_ce5bn"]
 [ext_resource type="Texture2D" uid="uid://p7a1q84vic0v" path="res://assets/images/bosses/Morganth.svg" id="2_wkrfl"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://daghabktq45a1" path="res://game/enemies/bosses/entities/morganth/morganth_phase_2.gd" id="7_qsu7a"]
 [ext_resource type="Script" uid="uid://cciynajyv4vir" path="res://game/enemies/bosses/entities/morganth/morganth_phase_3.gd" id="8_kl5py"]
 [ext_resource type="Script" uid="uid://cqn7jirqlap7f" path="res://game/enemies/bosses/entities/morganth/morganth_phase_4.gd" id="9_f4o8r"]
+[ext_resource type="Script" uid="uid://cjcpvwbwlpoh3" path="res://game/enemies/bosses/abilities/passives/explosives_areas_passive.gd" id="9_gsf6l"]
 
 [sub_resource type="Resource" id="Resource_gsf6l"]
 script = ExtResource("5_2nrrh")
@@ -29,6 +30,18 @@ metadata/_custom_type_script = "uid://du2x5jbqraknt"
 [sub_resource type="Resource" id="Resource_0pmds"]
 script = ExtResource("5_2nrrh")
 circle_radius = 30.0
+metadata/_custom_type_script = "uid://du2x5jbqraknt"
+
+[sub_resource type="Resource" id="Resource_x4h3g"]
+script = ExtResource("5_2nrrh")
+explosion_time = 2.0
+pos_relative_to_boss = true
+pos_random_x_left_range = -600.0
+pos_random_x_right_range = 600.0
+pos_random_y_top_range = -600.0
+pos_random_y_bottom_range = 600.0
+circle_radius = 100.0
+circle_radius_random_offset = 25.0
 metadata/_custom_type_script = "uid://du2x5jbqraknt"
 
 [node name="Boss" instance=ExtResource("1_ce5bn")]
@@ -62,6 +75,13 @@ script = ExtResource("6_f4o8r")
 boss = NodePath("../..")
 spawner = NodePath("../../LocalSpawners/ShootOnHit")
 
+[node name="AreasNearBoss" type="Node" parent="Passives" index="2" node_paths=PackedStringArray("boss")]
+script = ExtResource("9_gsf6l")
+boss = NodePath("../..")
+spawn_time = 1.0
+explosive_area_scene = ExtResource("4_8p3ve")
+explosive_area_config = SubResource("Resource_x4h3g")
+
 [node name="ShootOnHit" parent="LocalSpawners" index="0" instance=ExtResource("6_kl5py")]
 spawn_point_count = 1
 shooting_time = 100.0
@@ -91,5 +111,6 @@ passives_enter = [NodePath("../../Passives/AreasOnHit")]
 [node name="Phase3" type="Node" parent="PhaseManager" index="2"]
 script = ExtResource("8_kl5py")
 
-[node name="Phase4" type="Node" parent="PhaseManager" index="3"]
+[node name="Phase4" type="Node" parent="PhaseManager" index="3" node_paths=PackedStringArray("passives_enter")]
 script = ExtResource("9_f4o8r")
+passives_enter = [NodePath("../../Passives/AreasNearBoss")]
